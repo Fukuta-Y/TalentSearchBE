@@ -1,12 +1,11 @@
 package com.talent.controller;
-import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
-import com.api.ShukanTalentJohoBFFApi;
-import com.model.ShukanTalentJohoBFF;
-import com.talent.service.ShukanTalentJohoBFFService;
+import com.api.ShukanTalentJohoApi;
+import com.model.ShukanTalentJoho;
+import com.talent.service.ShukanTalentJohoService;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;
@@ -17,17 +16,17 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
-public class ShukanTalentJohoBFFController implements ShukanTalentJohoBFFApi{
-
-    private final ShukanTalentJohoBFFService service;
+public class ShukanTalentJohoController implements ShukanTalentJohoApi{
 	
+    private final ShukanTalentJohoService service;
+
 	@Override
-	public ResponseEntity<List<ShukanTalentJohoBFF>> getShukanTalentJohoBFF(
+	public ResponseEntity<ShukanTalentJoho> getShukanTalentJoho(
 			@NotNull @Min(199001) @Max(210012) @Valid Integer targetNentsuki,
 			@NotNull @Min(1) @Max(5) @Valid Integer targetShu, @Size(max = 30) @Valid String talentName) {
-		
-		// ShukanTalentJohoSearchBFFServiceより取得
-		List<ShukanTalentJohoBFF> response  = service.select(targetNentsuki, targetShu, talentName);
+
+		// ShukanTalentJohoServiceより取得
+		ShukanTalentJoho response = service.select(targetNentsuki, targetShu, talentName);
 		return ResponseEntity.ok(response);
 	}
 }
