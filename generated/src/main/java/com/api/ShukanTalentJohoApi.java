@@ -8,7 +8,6 @@ package com.api;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.model.ShukanTalentJoho;
@@ -29,7 +28,6 @@ import jakarta.validation.constraints.Size;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-06-12T21:30:49.581521+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "shukanTalentJoho", description = "the shukanTalentJoho API")
-@RequestMapping("api")
 public interface ShukanTalentJohoApi {
 
     /**
