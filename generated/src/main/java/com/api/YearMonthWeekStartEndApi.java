@@ -8,7 +8,6 @@ package com.api;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.model.YearMonthWeekStartEndJoho;
@@ -28,7 +27,6 @@ import jakarta.validation.constraints.NotNull;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-06-11T12:06:20.247335+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "yearMonthWeekStartEnd", description = "the yearMonthWeekStartEnd API")
-@RequestMapping("api")
 public interface YearMonthWeekStartEndApi {
 
     /**
