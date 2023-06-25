@@ -20,6 +20,7 @@ public class ShukanTalentJohoController implements ShukanTalentJohoApi{
 	
     private final ShukanTalentJohoService service;
 
+	// REVIEW: ここはBFFと同じ指摘
 	@Override
 	public ResponseEntity<ShukanTalentJoho> getShukanTalentJoho(
 			@NotNull @Min(199001) @Max(210012) @Valid Integer targetNentsuki,

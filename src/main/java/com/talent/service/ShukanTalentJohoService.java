@@ -29,6 +29,8 @@ public class ShukanTalentJohoService {
     private final MProgramMapper mProgramMapper;
     private final ShukanTalentJohoHelper helper;
 
+	// REVIEW: 個人的にメソッドより分割した方がいいかな。
+	// メソッドが長い分、責務がぱっと見分かりずらいため、単一責務を心がけると読みやすくまた、コメントがいらなくなると思います。
     /**
      * 週間タレント別情報検索
 　　　* @param targetNentsuki 対象年月
@@ -50,8 +52,7 @@ public class ShukanTalentJohoService {
 		System.out.println("talentMasterDto:" + talentMasterDto);
 		if (talentMasterDto.size() == 0) {
 			entity.setTalentMasterDto(null);
-		}
-		else {
+		} else {
 			talentIdList = new ArrayList<String>();
 			//　名称検索の結果のIDをリスト化する
 			for(TalentMasterDto dto:talentMasterDto) talentIdList.add(dto.getTalentId());
