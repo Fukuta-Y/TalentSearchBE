@@ -31,9 +31,9 @@ public class ShukanTalentJohoService {
 
     /**
      * 週間タレント別情報検索
-　　　* @param nentsuki 対象年月
-　　　* @param shu 対象週
-　　　* @param talentName タレント名
+	 * @param nentsuki 対象年月
+	 * @param shu 対象週
+	 * @param talentName タレント名
      * @return 検索結果
      */
     public ShukanTalentJoho select(Integer nentsuki, Integer shu, String talentName) {
@@ -47,7 +47,7 @@ public class ShukanTalentJohoService {
     	// タレントマスタ検索
 		List<TalentMasterDto> talentMasterDto = mTalentMapper.select(talentName);
 		List<String> talentIdList = null;
-		System.out.println("talentMasterDto:" + talentMasterDto);
+
 		if (talentMasterDto.size() == 0) {
 			entity.setTalentMasterDto(null);
 		}
