@@ -31,12 +31,12 @@ public class ShukanTalentJohoService {
 
     /**
      * 週間タレント別情報検索
-　　　* @param targetNentsuki 対象年月
-　　　* @param targetShu 対象週
+　　　* @param nentsuki 対象年月
+　　　* @param shu 対象週
 　　　* @param talentName タレント名
      * @return 検索結果
      */
-    public ShukanTalentJoho select(Integer targetNentsuki, Integer targetShu, String talentName) {
+    public ShukanTalentJoho select(Integer nentsuki, Integer shu, String talentName) {
     	
     	// ShukanTalentJohoEntityを設定
     	ShukanTalentJohoEntity entity = new ShukanTalentJohoEntity();
@@ -59,7 +59,7 @@ public class ShukanTalentJohoService {
 		}
 
     	// オンエア管理テーブル検索
-		List<OnAirKanriTableDto> onAirKanriTableDto = tOnairKanriMapper.select(targetNentsuki, targetShu, talentIdList);
+		List<OnAirKanriTableDto> onAirKanriTableDto = tOnairKanriMapper.select(nentsuki, shu, talentIdList);
 		// オンエア情報がない　または　オンエア情報はあるが、紐づくタレントがない場合
 		if (onAirKanriTableDto.size() == 0 || (onAirKanriTableDto.size() != 0 && talentMasterDto.size() == 0)) {
 			entity.setOnAirKanriTableDto(null);

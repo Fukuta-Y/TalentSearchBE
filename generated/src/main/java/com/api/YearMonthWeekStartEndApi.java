@@ -33,8 +33,8 @@ public interface YearMonthWeekStartEndApi {
      * GET /yearMonthWeekStartEnd : 年月に対応する週の開始終了日付の情報を返す
      * 年月に対応する週の開始終了日付の情報を返す
      *
-     * @param targetNentsuki  (required)
-     * @param targetShu  (required)
+     * @param nentsuki  (required)
+     * @param shu  (required)
      * @return 年月に対応する週の開始終了日付の情報を正常取得 (status code 200)
      */
     @Operation(
@@ -50,8 +50,8 @@ public interface YearMonthWeekStartEndApi {
 
     @GetMapping("/yearMonthWeekStartEnd")
     ResponseEntity<YearMonthWeekStartEndJoho> getYearMonthWeekStartEnd(
-        @NotNull @Min(199001) @Max(210012) @Parameter(name = "targetNentsuki", description = "", required = true) @Valid @RequestParam(value = "targetNentsuki", required = true) Integer targetNentsuki,
-        @NotNull @Min(1) @Max(5) @Parameter(name = "targetShu", description = "", required = true) @Valid @RequestParam(value = "targetShu", required = true) Integer targetShu
+        @NotNull @Min(199001) @Max(210012) @Parameter(name = "nentsuki", description = "", required = true) @Valid @RequestParam(value = "nentsuki", required = true) Integer nentsuki,
+        @NotNull @Min(1) @Max(5) @Parameter(name = "shu", description = "", required = true) @Valid @RequestParam(value = "shu", required = true) Integer shu
     );
 
 }

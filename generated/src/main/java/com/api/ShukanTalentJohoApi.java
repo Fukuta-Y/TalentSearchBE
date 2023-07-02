@@ -34,8 +34,8 @@ public interface ShukanTalentJohoApi {
      * GET /shukanTalentJoho : １週間においてのタレントごとの情報を返す
      * １週間においてのタレントごとの情報を返す
      *
-     * @param targetNentsuki  (required)
-     * @param targetShu  (required)
+     * @param nentsuki  (required)
+     * @param shu  (required)
      * @param talentName  (optional)
      * @return １週間においてのタレントごとの情報を正常取得 (status code 200)
      */
@@ -51,8 +51,8 @@ public interface ShukanTalentJohoApi {
     )
     @GetMapping("/shukanTalentJoho")
     ResponseEntity<ShukanTalentJoho> getShukanTalentJoho(
-        @NotNull @Min(199001) @Max(210012) @Parameter(name = "targetNentsuki", description = "", required = true) @Valid @RequestParam(value = "targetNentsuki", required = true) Integer targetNentsuki,
-        @NotNull @Min(1) @Max(5) @Parameter(name = "targetShu", description = "", required = true) @Valid @RequestParam(value = "targetShu", required = true) Integer targetShu,
+        @NotNull @Min(199001) @Max(210012) @Parameter(name = "nentsuki", description = "", required = true) @Valid @RequestParam(value = "nentsuki", required = true) Integer nentsuki,
+        @NotNull @Min(1) @Max(5) @Parameter(name = "shu", description = "", required = true) @Valid @RequestParam(value = "shu", required = true) Integer shu,
         @Size(max = 30) @Parameter(name = "talentName", description = "") @Valid @RequestParam(value = "talentName", required = false) String talentName
     );
 

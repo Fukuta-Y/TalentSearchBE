@@ -7,10 +7,6 @@ import com.api.YearMonthWeekStartEndApi;
 import com.model.YearMonthWeekStartEndJoho;
 import com.talent.service.YearMonthWeekStartEndService;
 
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 
 @Controller
@@ -20,12 +16,10 @@ public class YearMonthWeekStartEndController implements YearMonthWeekStartEndApi
     private final YearMonthWeekStartEndService service;
 	
 	@Override
-	public ResponseEntity<YearMonthWeekStartEndJoho> getYearMonthWeekStartEnd(
-			@NotNull @Min(199001) @Max(210012) @Valid Integer targetNentsuki,
-			@NotNull @Min(1) @Max(5) @Valid Integer targetShu) {
+	public ResponseEntity<YearMonthWeekStartEndJoho> getYearMonthWeekStartEnd(Integer nentsuki, Integer shu) {
 
 		// YearMonthWeekStartEndSearchServiceの取得
-		YearMonthWeekStartEndJoho response = service.select(targetNentsuki, targetShu);
+		YearMonthWeekStartEndJoho response = service.select(nentsuki, shu);
 		return ResponseEntity.ok(response);
 	}
 }

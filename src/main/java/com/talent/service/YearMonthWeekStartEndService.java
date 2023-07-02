@@ -25,13 +25,13 @@ public class YearMonthWeekStartEndService {
 　　　* @param targetShu 対象週
      * @return 検索結果
      */
-    public YearMonthWeekStartEndJoho select(Integer targetNentsuki, Integer targetShu) {
+    public YearMonthWeekStartEndJoho select(Integer nentsuki, Integer shu) {
  
     	// YearMonthWeekStartEndJohoをResponseに設定
     	YearMonthWeekStartEndJoho response = new YearMonthWeekStartEndJoho();
 
     	// 年月週の開始終了日付検索
-    	NentsukiShuKanriMasterDto dto = mapper.select(targetNentsuki, targetShu);
+    	NentsukiShuKanriMasterDto dto = mapper.select(nentsuki, shu);
 
     	// 戻りの内容を設定
     	response.setmNentsukiShuKanri(helper.toModel(dto));

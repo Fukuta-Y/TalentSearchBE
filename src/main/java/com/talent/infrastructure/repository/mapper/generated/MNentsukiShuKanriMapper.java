@@ -5,5 +5,5 @@ import com.talent.service.dto.NentsukiShuKanriMasterDto;
 
 @Mapper
 public interface MNentsukiShuKanriMapper {
-	NentsukiShuKanriMasterDto select(Integer targetNentsuki, Integer targetShu);
+	NentsukiShuKanriMasterDto select(Integer nentsuki, Integer shu);
 }
