@@ -84,8 +84,8 @@ public class ShukanTalentJohoService {
 		List<OnAirKanriTableDto>  onairKanriDto = entity.getOnAirKanriTableDto();
 		response.settOnAirKanri(helper.toOnAirKanriTableModel(onairKanriDto));
 
-		List<TalentMasterDto>  talnetDto = entity.getTalentMasterDto();
-		response.setmTalent(helper.toTalentModel(talnetDto));
+		List<TalentMasterDto>  talentDto = entity.getTalentMasterDto();
+		response.setmTalent(helper.toTalentModel(talentDto));
 
 		// responseの返却
         return response;
