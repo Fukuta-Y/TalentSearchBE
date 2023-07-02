@@ -6,8 +6,8 @@
     <result column="ONAIR_DAY" jdbcType="TIMESTAMP" property="onairDay" />
     <result column="PROGRAM_ID" jdbcType="VARCHAR" property="programId" />
     <result column="TALENT_ID" jdbcType="VARCHAR" property="talentId" />
-    <result column="TARGET_NENTSUKI" jdbcType="INTEGER" property="targetNentsuki" />
-    <result column="TARGET_SHU" jdbcType="INTEGER" property="targetShu" />
+    <result column="NENTSUKI" jdbcType="INTEGER" property="nentsuki" />
+    <result column="SHU" jdbcType="INTEGER" property="shu" />
     <result column="DELETE_FLG" jdbcType="INTEGER" property="deleteFlg" />
     <result column="TOROKU_DAY" jdbcType="TIMESTAMP" property="torokuDay" />
     <result column="KOUSHIN_DAY" jdbcType="TIMESTAMP" property="koushinDay" />
@@ -18,16 +18,16 @@
        	,ONAIR_DAY
        	,PROGRAM_ID
        	,TALENT_ID
-       	,TARGET_NENTSUKI
-       	,TARGET_SHU
+       	,NENTSUKI
+       	,SHU
        	,DELETE_FLG
        	,TOROKU_DAY
        	,KOUSHIN_DAY 
        from 
        	T_ONAIR_KANRI 
        where 
-       	TARGET_NENTSUKI =#{targetNentsuki}
-       	and TARGET_SHU =#{targetShu}
+       	NENTSUKI =#{nentsuki}
+       	and SHU =#{shu}
        <if test="talentIdList != null"> 
         and TALENT_ID IN
        	<foreach item="item" collection="talentIdList" open="(" separator="," close=")">
@@ -43,11 +43,11 @@
       This element was generated on Sun Jun 04 21:45:58 JST 2023.
     -->
     insert into T_ONAIR_KANRI (ID, ONAIR_DAY, PROGRAM_ID, 
-      TALENT_ID, TARGET_NENTSUKI, TARGET_SHU, 
+      TALENT_ID, NENTSUKI, SHU, 
       DELETE_FLG, TOROKU_DAY, KOUSHIN_DAY
       )
     values (#{id,jdbcType=VARCHAR}, #{onairDay,jdbcType=TIMESTAMP}, #{programId,jdbcType=VARCHAR}, 
-      #{talentId,jdbcType=VARCHAR}, #{targetNentsuki,jdbcType=INTEGER}, #{targetShu,jdbcType=INTEGER}, 
+      #{talentId,jdbcType=VARCHAR}, #{nentsuki,jdbcType=INTEGER}, #{shu,jdbcType=INTEGER}, 
       #{deleteFlg,jdbcType=INTEGER}, #{torokuDay,jdbcType=TIMESTAMP}, #{koushinDay,jdbcType=TIMESTAMP}
       )
   </insert>
@@ -71,11 +71,11 @@
       <if test="talentId != null">
         TALENT_ID,
       </if>
-      <if test="targetNentsuki != null">
-        TARGET_NENTSUKI,
+      <if test="nentsuki != null">
+        NENTSUKI,
       </if>
-      <if test="targetShu != null">
-        TARGET_SHU,
+      <if test="shu != null">
+        SHU,
       </if>
       <if test="deleteFlg != null">
         DELETE_FLG,
@@ -100,11 +100,11 @@
       <if test="talentId != null">
         #{talentId,jdbcType=VARCHAR},
       </if>
-      <if test="targetNentsuki != null">
-        #{targetNentsuki,jdbcType=INTEGER},
+      <if test="nentsuki != null">
+        #{nentsuki,jdbcType=INTEGER},
       </if>
-      <if test="targetShu != null">
-        #{targetShu,jdbcType=INTEGER},
+      <if test="shu != null">
+        #{shu,jdbcType=INTEGER},
       </if>
       <if test="deleteFlg != null">
         #{deleteFlg,jdbcType=INTEGER},

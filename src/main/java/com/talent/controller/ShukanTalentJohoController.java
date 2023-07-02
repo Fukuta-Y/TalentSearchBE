@@ -7,11 +7,6 @@ import com.api.ShukanTalentJohoApi;
 import com.model.ShukanTalentJoho;
 import com.talent.service.ShukanTalentJohoService;
 
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.RequiredArgsConstructor;
 
 @Controller
@@ -21,12 +16,10 @@ public class ShukanTalentJohoController implements ShukanTalentJohoApi{
     private final ShukanTalentJohoService service;
 
 	@Override
-	public ResponseEntity<ShukanTalentJoho> getShukanTalentJoho(
-			@NotNull @Min(199001) @Max(210012) @Valid Integer targetNentsuki,
-			@NotNull @Min(1) @Max(5) @Valid Integer targetShu, @Size(max = 30) @Valid String talentName) {
+	public ResponseEntity<ShukanTalentJoho> getShukanTalentJoho(Integer nentsuki, Integer shu, String talentName) {
 
 		// ShukanTalentJohoServiceより取得
-		ShukanTalentJoho response = service.select(targetNentsuki, targetShu, talentName);
+		ShukanTalentJoho response = service.select(nentsuki, shu, talentName);
 		return ResponseEntity.ok(response);
 	}
 }

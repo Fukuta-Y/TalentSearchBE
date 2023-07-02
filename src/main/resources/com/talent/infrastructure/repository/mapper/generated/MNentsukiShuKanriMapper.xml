@@ -20,8 +20,8 @@
        from 
        	M_NENTSUKI_SHU_KANRI 
        where 
-       	NENTSUKI =#{targetNentsuki}
-       	AND SHU =#{targetShu}
+       	NENTSUKI =#{nentsuki}
+       	AND SHU =#{shu}
   </select>
   <insert id="insert" parameterType="com.talent.infrastructure.repository.model.generated.MNentsukiShuKanri">
     <!--
