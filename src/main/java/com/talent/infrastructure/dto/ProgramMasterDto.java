@@ -1,5 +1,6 @@
 package com.talent.infrastructure.dto;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 import lombok.Data;
@@ -13,6 +14,6 @@ public class ProgramMasterDto implements Serializable {
    private Integer chanelId;
    private Integer genreId;
    private Integer deleteFlg;
-   private Date torokuDay;
-   private Date koushinDay;
+   private LocalDate torokuDay;
+   private LocalDate koushinDay;
 }

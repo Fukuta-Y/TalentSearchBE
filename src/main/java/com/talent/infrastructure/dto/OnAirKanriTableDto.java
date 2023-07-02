@@ -1,5 +1,6 @@
 package com.talent.infrastructure.dto;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 import lombok.Data;
@@ -17,6 +18,6 @@ public class OnAirKanriTableDto implements Serializable {
    private Integer nentsuki;
    private Integer shu;
    private Integer deleteFlg;
-   private Date torokuDay;
-   private Date koushinDay;
+   private LocalDate torokuDay;
+   private LocalDate koushinDay;
 }
