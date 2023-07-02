@@ -1,5 +1,6 @@
 package com.talent.service.dto;
 import java.io.Serializable;
+import java.time.LocalDate;
 
 import lombok.Data;
 /**
@@ -11,6 +12,6 @@ public class NentsukiShuKanriMasterDto implements Serializable {
    private Integer shu;
    private String shuFrom;
    private String shuTo;
-   private String torokuDay;
-   private String koushinDay;
+   private LocalDate torokuDay;
+   private LocalDate koushinDay;
 }
