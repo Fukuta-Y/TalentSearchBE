@@ -15,6 +15,7 @@ public class ShukanTalentJohoController implements ShukanTalentJohoApi{
 	
     private final ShukanTalentJohoService service;
 
+	// REVIEW: ここはBFFと同じ指摘
 	@Override
 	public ResponseEntity<ShukanTalentJoho> getShukanTalentJoho(Integer nentsuki, Integer shu, String talentName) {
 
