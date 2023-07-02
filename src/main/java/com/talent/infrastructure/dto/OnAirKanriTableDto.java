@@ -13,8 +13,6 @@ public class OnAirKanriTableDto implements Serializable {
    private String onairDay;
    private String programId;
    private String talentId;
-   private Integer targetNentsuki;
-   private Integer targetShu;
    private Integer nentsuki;
    private Integer shu;
    private Integer deleteFlg;
