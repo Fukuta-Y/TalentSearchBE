@@ -72,4 +72,4 @@ components:
           description: 区分ジャンルマスタDTO
           type: array
           items:
-          $ref: "../../TalentSearchCommon/Tables/mKbnGenre.yaml#/components/schemas/mKbnGenre"
+           $ref: "../../TalentSearchCommon/Tables/mKbnGenre.yaml#/components/schemas/mKbnGenre"
