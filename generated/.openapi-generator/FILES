@@ -1,8 +1,10 @@
 README.md
 pom.xml
 src/main/java/com/api/ApiUtil.java
-src/main/java/com/api/ShukanTalentJohoSearchApi.java
+src/main/java/com/api/TalentShukanShutsuenJohoApi.java
+src/main/java/com/model/MChanelKyoku.java
+src/main/java/com/model/MKbnGenre.java
 src/main/java/com/model/MProgram.java
 src/main/java/com/model/MTalent.java
-src/main/java/com/model/ShukanTalentJohoSearch.java
 src/main/java/com/model/TOnAirKanri.java
+src/main/java/com/model/TalentShukanShutsuenJoho.java

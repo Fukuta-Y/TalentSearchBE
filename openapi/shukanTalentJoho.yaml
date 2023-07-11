@@ -45,7 +45,7 @@ paths:
 components:
   schemas:
     ShukanTalentJoho:
-      description: 年月に対応する週の開始終了日付の情報
+      description: １週間においてのタレントごとの情報
       type: object
       properties:
         mTalent:

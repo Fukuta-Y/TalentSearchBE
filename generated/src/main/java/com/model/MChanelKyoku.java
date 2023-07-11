@@ -10,25 +10,24 @@ import jakarta.annotation.Generated;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 
 /**
- * タレントマスタ情報（全列）
+ * チャンネル局マスタ情報（全列）
  */
 
-@Schema(name = "mTalent", description = "タレントマスタ情報（全列）")
-@JsonTypeName("mTalent")
+@Schema(name = "mChanelKyoku", description = "チャンネル局マスタ情報（全列）")
+@JsonTypeName("mChanelKyoku")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-07-11T23:29:51.001355+09:00[Asia/Tokyo]")
-public class MTalent {
+public class MChanelKyoku {
 
-  @JsonProperty("talentId")
-  private String talentId;
+  @JsonProperty("chanelId")
+  private Integer chanelId;
 
-  @JsonProperty("talentName")
-  private String talentName;
+  @JsonProperty("chanelKyoku")
+  private Integer chanelKyoku;
 
-  @JsonProperty("genreId")
-  private Integer genreId;
+  @JsonProperty("areaId")
+  private Integer areaId;
 
   @JsonProperty("deleteFlg")
   private Integer deleteFlg;
@@ -39,66 +38,70 @@ public class MTalent {
   @JsonProperty("koushinDay")
   private String koushinDay;
 
-  public MTalent talentId(String talentId) {
-    this.talentId = talentId;
+  public MChanelKyoku chanelId(Integer chanelId) {
+    this.chanelId = chanelId;
     return this;
   }
 
   /**
-   * タレントID
-   * @return talentId
-  */
-  @NotNull @Size(max = 8) 
-  @Schema(name = "talentId", description = "タレントID", required = true)
-  public String getTalentId() {
-    return talentId;
-  }
-
-  public void setTalentId(String talentId) {
-    this.talentId = talentId;
-  }
-
-  public MTalent talentName(String talentName) {
-    this.talentName = talentName;
-    return this;
-  }
-
-  /**
-   * タレント名
-   * @return talentName
-  */
-  @Size(max = 30) 
-  @Schema(name = "talentName", description = "タレント名", required = false)
-  public String getTalentName() {
-    return talentName;
-  }
-
-  public void setTalentName(String talentName) {
-    this.talentName = talentName;
-  }
-
-  public MTalent genreId(Integer genreId) {
-    this.genreId = genreId;
-    return this;
-  }
-
-  /**
-   * ジャンルID
+   * チャンネルID
    * minimum: 0
    * maximum: 99
-   * @return genreId
+   * @return chanelId
   */
-  @Min(0) @Max(99) 
-  @Schema(name = "genreId", description = "ジャンルID", required = false)
-  public Integer getGenreId() {
-    return genreId;
+  @NotNull @Min(0) @Max(99) 
+  @Schema(name = "chanelId", description = "チャンネルID", required = true)
+  public Integer getChanelId() {
+    return chanelId;
   }
 
-  public void setGenreId(Integer genreId) {
-    this.genreId = genreId;
+  public void setChanelId(Integer chanelId) {
+    this.chanelId = chanelId;
   }
 
-  public MTalent deleteFlg(Integer deleteFlg) {
+  public MChanelKyoku chanelKyoku(Integer chanelKyoku) {
+    this.chanelKyoku = chanelKyoku;
+    return this;
+  }
+
+  /**
+   * チャンネル局ID
+   * minimum: 0
+   * maximum: 99
+   * @return chanelKyoku
+  */
+  @NotNull @Min(0) @Max(99) 
+  @Schema(name = "chanelKyoku", description = "チャンネル局ID", required = true)
+  public Integer getChanelKyoku() {
+    return chanelKyoku;
+  }
+
+  public void setChanelKyoku(Integer chanelKyoku) {
+    this.chanelKyoku = chanelKyoku;
+  }
+
+  public MChanelKyoku areaId(Integer areaId) {
+    this.areaId = areaId;
+    return this;
+  }
+
+  /**
+   * エリアID
+   * minimum: 0
+   * maximum: 9
+   * @return areaId
+  */
+  @NotNull @Min(0) @Max(9) 
+  @Schema(name = "areaId", description = "エリアID", required = true)
+  public Integer getAreaId() {
+    return areaId;
+  }
+
+  public void setAreaId(Integer areaId) {
+    this.areaId = areaId;
+  }
+
+  public MChanelKyoku deleteFlg(Integer deleteFlg) {
     this.deleteFlg = deleteFlg;
     return this;
   }
@@ -119,7 +122,7 @@ public class MTalent {
     this.deleteFlg = deleteFlg;
   }
 
-  public MTalent torokuDay(String torokuDay) {
+  public MChanelKyoku torokuDay(String torokuDay) {
     this.torokuDay = torokuDay;
     return this;
   }
@@ -138,7 +141,7 @@ public class MTalent {
     this.torokuDay = torokuDay;
   }
 
-  public MTalent koushinDay(String koushinDay) {
+  public MChanelKyoku koushinDay(String koushinDay) {
     this.koushinDay = koushinDay;
     return this;
   }
@@ -165,27 +168,27 @@ public class MTalent {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MTalent mTalent = (MTalent) o;
-    return Objects.equals(this.talentId, mTalent.talentId) &&
-        Objects.equals(this.talentName, mTalent.talentName) &&
-        Objects.equals(this.genreId, mTalent.genreId) &&
-        Objects.equals(this.deleteFlg, mTalent.deleteFlg) &&
-        Objects.equals(this.torokuDay, mTalent.torokuDay) &&
-        Objects.equals(this.koushinDay, mTalent.koushinDay);
+    MChanelKyoku mChanelKyoku = (MChanelKyoku) o;
+    return Objects.equals(this.chanelId, mChanelKyoku.chanelId) &&
+        Objects.equals(this.chanelKyoku, mChanelKyoku.chanelKyoku) &&
+        Objects.equals(this.areaId, mChanelKyoku.areaId) &&
+        Objects.equals(this.deleteFlg, mChanelKyoku.deleteFlg) &&
+        Objects.equals(this.torokuDay, mChanelKyoku.torokuDay) &&
+        Objects.equals(this.koushinDay, mChanelKyoku.koushinDay);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(talentId, talentName, genreId, deleteFlg, torokuDay, koushinDay);
+    return Objects.hash(chanelId, chanelKyoku, areaId, deleteFlg, torokuDay, koushinDay);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MTalent {\n");
-    sb.append("    talentId: ").append(toIndentedString(talentId)).append("\n");
-    sb.append("    talentName: ").append(toIndentedString(talentName)).append("\n");
-    sb.append("    genreId: ").append(toIndentedString(genreId)).append("\n");
+    sb.append("class MChanelKyoku {\n");
+    sb.append("    chanelId: ").append(toIndentedString(chanelId)).append("\n");
+    sb.append("    chanelKyoku: ").append(toIndentedString(chanelKyoku)).append("\n");
+    sb.append("    areaId: ").append(toIndentedString(areaId)).append("\n");
     sb.append("    deleteFlg: ").append(toIndentedString(deleteFlg)).append("\n");
     sb.append("    torokuDay: ").append(toIndentedString(torokuDay)).append("\n");
     sb.append("    koushinDay: ").append(toIndentedString(koushinDay)).append("\n");
