@@ -29,7 +29,6 @@ import jakarta.validation.constraints.Size;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-07-11T23:29:51.001355+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "TalentShukanShutsuenJoho", description = "the TalentShukanShutsuenJoho API")
-@RequestMapping("${openapi..base-path:}")
 public interface TalentShukanShutsuenJohoApi {
 
     /**
