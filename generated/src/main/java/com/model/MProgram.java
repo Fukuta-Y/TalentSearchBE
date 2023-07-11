@@ -10,24 +10,28 @@ import jakarta.annotation.Generated;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 /**
- * チャンネル局マスタ情報（全列）
+ * 番組マスタ情報（全列）
  */
 
-@Schema(name = "mChanelKyoku", description = "チャンネル局マスタ情報（全列）")
-@JsonTypeName("mChanelKyoku")
+@Schema(name = "mProgram", description = "番組マスタ情報（全列）")
+@JsonTypeName("mProgram")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-07-11T23:29:51.001355+09:00[Asia/Tokyo]")
-public class MChanelKyoku {
+public class MProgram {
+
+  @JsonProperty("programId")
+  private String programId;
+
+  @JsonProperty("programName")
+  private String programName;
 
   @JsonProperty("chanelId")
   private Integer chanelId;
 
-  @JsonProperty("chanelKyoku")
-  private Integer chanelKyoku;
-
-  @JsonProperty("areaId")
-  private Integer areaId;
+  @JsonProperty("genreId")
+  private Integer genreId;
 
   @JsonProperty("deleteFlg")
   private Integer deleteFlg;
@@ -38,7 +42,45 @@ public class MChanelKyoku {
   @JsonProperty("koushinDay")
   private String koushinDay;
 
-  public MChanelKyoku chanelId(Integer chanelId) {
+  public MProgram programId(String programId) {
+    this.programId = programId;
+    return this;
+  }
+
+  /**
+   * 番組ID
+   * @return programId
+  */
+  @NotNull @Size(max = 8) 
+  @Schema(name = "programId", description = "番組ID", required = true)
+  public String getProgramId() {
+    return programId;
+  }
+
+  public void setProgramId(String programId) {
+    this.programId = programId;
+  }
+
+  public MProgram programName(String programName) {
+    this.programName = programName;
+    return this;
+  }
+
+  /**
+   * 番組名
+   * @return programName
+  */
+  @Size(max = 30) 
+  @Schema(name = "programName", description = "番組名", required = false)
+  public String getProgramName() {
+    return programName;
+  }
+
+  public void setProgramName(String programName) {
+    this.programName = programName;
+  }
+
+  public MProgram chanelId(Integer chanelId) {
     this.chanelId = chanelId;
     return this;
   }
@@ -46,11 +88,11 @@ public class MChanelKyoku {
   /**
    * チャンネルID
    * minimum: 0
-   * maximum: 99
+   * maximum: 9
    * @return chanelId
   */
-  @NotNull @Min(0) @Max(99) 
-  @Schema(name = "chanelId", description = "チャンネルID", required = true)
+  @Min(0) @Max(9) 
+  @Schema(name = "chanelId", description = "チャンネルID", required = false)
   public Integer getChanelId() {
     return chanelId;
   }
@@ -59,49 +101,28 @@ public class MChanelKyoku {
     this.chanelId = chanelId;
   }
 
-  public MChanelKyoku chanelKyoku(Integer chanelKyoku) {
-    this.chanelKyoku = chanelKyoku;
+  public MProgram genreId(Integer genreId) {
+    this.genreId = genreId;
     return this;
   }
 
   /**
-   * チャンネル局ID
+   * ジャンルID
    * minimum: 0
    * maximum: 99
-   * @return chanelKyoku
+   * @return genreId
   */
-  @NotNull @Min(0) @Max(99) 
-  @Schema(name = "chanelKyoku", description = "チャンネル局ID", required = true)
-  public Integer getChanelKyoku() {
-    return chanelKyoku;
+  @Min(0) @Max(99) 
+  @Schema(name = "genreId", description = "ジャンルID", required = false)
+  public Integer getGenreId() {
+    return genreId;
   }
 
-  public void setChanelKyoku(Integer chanelKyoku) {
-    this.chanelKyoku = chanelKyoku;
+  public void setGenreId(Integer genreId) {
+    this.genreId = genreId;
   }
 
-  public MChanelKyoku areaId(Integer areaId) {
-    this.areaId = areaId;
-    return this;
-  }
-
-  /**
-   * エリアID
-   * minimum: 0
-   * maximum: 9
-   * @return areaId
-  */
-  @NotNull @Min(0) @Max(9) 
-  @Schema(name = "areaId", description = "エリアID", required = true)
-  public Integer getAreaId() {
-    return areaId;
-  }
-
-  public void setAreaId(Integer areaId) {
-    this.areaId = areaId;
-  }
-
-  public MChanelKyoku deleteFlg(Integer deleteFlg) {
+  public MProgram deleteFlg(Integer deleteFlg) {
     this.deleteFlg = deleteFlg;
     return this;
   }
@@ -122,7 +143,7 @@ public class MChanelKyoku {
     this.deleteFlg = deleteFlg;
   }
 
-  public MChanelKyoku torokuDay(String torokuDay) {
+  public MProgram torokuDay(String torokuDay) {
     this.torokuDay = torokuDay;
     return this;
   }
@@ -141,7 +162,7 @@ public class MChanelKyoku {
     this.torokuDay = torokuDay;
   }
 
-  public MChanelKyoku koushinDay(String koushinDay) {
+  public MProgram koushinDay(String koushinDay) {
     this.koushinDay = koushinDay;
     return this;
   }
@@ -168,27 +189,29 @@ public class MChanelKyoku {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MChanelKyoku mChanelKyoku = (MChanelKyoku) o;
-    return Objects.equals(this.chanelId, mChanelKyoku.chanelId) &&
-        Objects.equals(this.chanelKyoku, mChanelKyoku.chanelKyoku) &&
-        Objects.equals(this.areaId, mChanelKyoku.areaId) &&
-        Objects.equals(this.deleteFlg, mChanelKyoku.deleteFlg) &&
-        Objects.equals(this.torokuDay, mChanelKyoku.torokuDay) &&
-        Objects.equals(this.koushinDay, mChanelKyoku.koushinDay);
+    MProgram mProgram = (MProgram) o;
+    return Objects.equals(this.programId, mProgram.programId) &&
+        Objects.equals(this.programName, mProgram.programName) &&
+        Objects.equals(this.chanelId, mProgram.chanelId) &&
+        Objects.equals(this.genreId, mProgram.genreId) &&
+        Objects.equals(this.deleteFlg, mProgram.deleteFlg) &&
+        Objects.equals(this.torokuDay, mProgram.torokuDay) &&
+        Objects.equals(this.koushinDay, mProgram.koushinDay);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(chanelId, chanelKyoku, areaId, deleteFlg, torokuDay, koushinDay);
+    return Objects.hash(programId, programName, chanelId, genreId, deleteFlg, torokuDay, koushinDay);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MChanelKyoku {\n");
+    sb.append("class MProgram {\n");
+    sb.append("    programId: ").append(toIndentedString(programId)).append("\n");
+    sb.append("    programName: ").append(toIndentedString(programName)).append("\n");
     sb.append("    chanelId: ").append(toIndentedString(chanelId)).append("\n");
-    sb.append("    chanelKyoku: ").append(toIndentedString(chanelKyoku)).append("\n");
-    sb.append("    areaId: ").append(toIndentedString(areaId)).append("\n");
+    sb.append("    genreId: ").append(toIndentedString(genreId)).append("\n");
     sb.append("    deleteFlg: ").append(toIndentedString(deleteFlg)).append("\n");
     sb.append("    torokuDay: ").append(toIndentedString(torokuDay)).append("\n");
     sb.append("    koushinDay: ").append(toIndentedString(koushinDay)).append("\n");

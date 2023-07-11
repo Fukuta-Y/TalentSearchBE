@@ -13,22 +13,22 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 /**
- * 区分ジャンルマスタ情報（全列）
+ * タレントマスタ情報（全列）
  */
 
-@Schema(name = "mKbnGenre", description = "区分ジャンルマスタ情報（全列）")
-@JsonTypeName("mKbnGenre")
+@Schema(name = "mTalent", description = "タレントマスタ情報（全列）")
+@JsonTypeName("mTalent")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-07-11T23:29:51.001355+09:00[Asia/Tokyo]")
-public class MKbnGenre {
+public class MTalent {
+
+  @JsonProperty("talentId")
+  private String talentId;
+
+  @JsonProperty("talentName")
+  private String talentName;
 
   @JsonProperty("genreId")
   private Integer genreId;
-
-  @JsonProperty("jyunjyo")
-  private Integer jyunjyo;
-
-  @JsonProperty("genre")
-  private String genre;
 
   @JsonProperty("deleteFlg")
   private Integer deleteFlg;
@@ -39,19 +39,57 @@ public class MKbnGenre {
   @JsonProperty("koushinDay")
   private String koushinDay;
 
-  public MKbnGenre genreId(Integer genreId) {
+  public MTalent talentId(String talentId) {
+    this.talentId = talentId;
+    return this;
+  }
+
+  /**
+   * タレントID
+   * @return talentId
+  */
+  @NotNull @Size(max = 8) 
+  @Schema(name = "talentId", description = "タレントID", required = true)
+  public String getTalentId() {
+    return talentId;
+  }
+
+  public void setTalentId(String talentId) {
+    this.talentId = talentId;
+  }
+
+  public MTalent talentName(String talentName) {
+    this.talentName = talentName;
+    return this;
+  }
+
+  /**
+   * タレント名
+   * @return talentName
+  */
+  @Size(max = 30) 
+  @Schema(name = "talentName", description = "タレント名", required = false)
+  public String getTalentName() {
+    return talentName;
+  }
+
+  public void setTalentName(String talentName) {
+    this.talentName = talentName;
+  }
+
+  public MTalent genreId(Integer genreId) {
     this.genreId = genreId;
     return this;
   }
 
   /**
-   * Get genreId
-   * minimum: 999
-   * maximum: 0
+   * ジャンルID
+   * minimum: 0
+   * maximum: 99
    * @return genreId
   */
-  @NotNull @Min(999) @Max(0) 
-  @Schema(name = "genreId", required = true)
+  @Min(0) @Max(99) 
+  @Schema(name = "genreId", description = "ジャンルID", required = false)
   public Integer getGenreId() {
     return genreId;
   }
@@ -60,47 +98,7 @@ public class MKbnGenre {
     this.genreId = genreId;
   }
 
-  public MKbnGenre jyunjyo(Integer jyunjyo) {
-    this.jyunjyo = jyunjyo;
-    return this;
-  }
-
-  /**
-   * Get jyunjyo
-   * minimum: 999
-   * maximum: 0
-   * @return jyunjyo
-  */
-  @NotNull @Min(999) @Max(0) 
-  @Schema(name = "jyunjyo", required = true)
-  public Integer getJyunjyo() {
-    return jyunjyo;
-  }
-
-  public void setJyunjyo(Integer jyunjyo) {
-    this.jyunjyo = jyunjyo;
-  }
-
-  public MKbnGenre genre(String genre) {
-    this.genre = genre;
-    return this;
-  }
-
-  /**
-   * ジャンル
-   * @return genre
-  */
-  @Size(max = 30) 
-  @Schema(name = "genre", description = "ジャンル", required = false)
-  public String getGenre() {
-    return genre;
-  }
-
-  public void setGenre(String genre) {
-    this.genre = genre;
-  }
-
-  public MKbnGenre deleteFlg(Integer deleteFlg) {
+  public MTalent deleteFlg(Integer deleteFlg) {
     this.deleteFlg = deleteFlg;
     return this;
   }
@@ -121,7 +119,7 @@ public class MKbnGenre {
     this.deleteFlg = deleteFlg;
   }
 
-  public MKbnGenre torokuDay(String torokuDay) {
+  public MTalent torokuDay(String torokuDay) {
     this.torokuDay = torokuDay;
     return this;
   }
@@ -140,7 +138,7 @@ public class MKbnGenre {
     this.torokuDay = torokuDay;
   }
 
-  public MKbnGenre koushinDay(String koushinDay) {
+  public MTalent koushinDay(String koushinDay) {
     this.koushinDay = koushinDay;
     return this;
   }
@@ -167,27 +165,27 @@ public class MKbnGenre {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MKbnGenre mKbnGenre = (MKbnGenre) o;
-    return Objects.equals(this.genreId, mKbnGenre.genreId) &&
-        Objects.equals(this.jyunjyo, mKbnGenre.jyunjyo) &&
-        Objects.equals(this.genre, mKbnGenre.genre) &&
-        Objects.equals(this.deleteFlg, mKbnGenre.deleteFlg) &&
-        Objects.equals(this.torokuDay, mKbnGenre.torokuDay) &&
-        Objects.equals(this.koushinDay, mKbnGenre.koushinDay);
+    MTalent mTalent = (MTalent) o;
+    return Objects.equals(this.talentId, mTalent.talentId) &&
+        Objects.equals(this.talentName, mTalent.talentName) &&
+        Objects.equals(this.genreId, mTalent.genreId) &&
+        Objects.equals(this.deleteFlg, mTalent.deleteFlg) &&
+        Objects.equals(this.torokuDay, mTalent.torokuDay) &&
+        Objects.equals(this.koushinDay, mTalent.koushinDay);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(genreId, jyunjyo, genre, deleteFlg, torokuDay, koushinDay);
+    return Objects.hash(talentId, talentName, genreId, deleteFlg, torokuDay, koushinDay);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MKbnGenre {\n");
+    sb.append("class MTalent {\n");
+    sb.append("    talentId: ").append(toIndentedString(talentId)).append("\n");
+    sb.append("    talentName: ").append(toIndentedString(talentName)).append("\n");
     sb.append("    genreId: ").append(toIndentedString(genreId)).append("\n");
-    sb.append("    jyunjyo: ").append(toIndentedString(jyunjyo)).append("\n");
-    sb.append("    genre: ").append(toIndentedString(genre)).append("\n");
     sb.append("    deleteFlg: ").append(toIndentedString(deleteFlg)).append("\n");
     sb.append("    torokuDay: ").append(toIndentedString(torokuDay)).append("\n");
     sb.append("    koushinDay: ").append(toIndentedString(koushinDay)).append("\n");

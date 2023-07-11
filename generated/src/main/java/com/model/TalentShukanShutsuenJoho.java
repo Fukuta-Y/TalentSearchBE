@@ -1,26 +1,15 @@
 package com.model;
 
-import java.net.URI;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.model.MChanelKyoku;
-import com.model.MKbnGenre;
-import com.model.MProgram;
-import com.model.MTalent;
-import com.model.TOnAirKanri;
 import java.util.ArrayList;
 import java.util.List;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
 
 /**
  * タレントにおいての１週間ごとの情報
@@ -28,7 +17,7 @@ import javax.annotation.Generated;
 
 @Schema(name = "talentShukanShutsuenJoho", description = "タレントにおいての１週間ごとの情報")
 @JsonTypeName("talentShukanShutsuenJoho")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-07-11T23:27:30.958722+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-07-11T23:29:51.001355+09:00[Asia/Tokyo]")
 public class TalentShukanShutsuenJoho {
 
   @JsonProperty("tOnAirKanri")
