@@ -25,13 +25,13 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-07-11T23:29:51.001355+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-07-14T11:35:39.107245+09:00[Asia/Tokyo]")
 @Validated
-@Tag(name = "TalentShukanShutsuenJoho", description = "the TalentShukanShutsuenJoho API")
+@Tag(name = "talentShukanShutsuenJoho", description = "the talentShukanShutsuenJoho API")
 public interface TalentShukanShutsuenJohoApi {
 
     /**
-     * GET /TalentShukanShutsuenJoho : タレントにおいての１週間ごとの情報を返す
+     * GET /talentShukanShutsuenJoho : タレントにおいての１週間ごとの情報を返す
      * タレントにおいての１週間ごとの情報を返す
      *
      * @param nentsuki  (required)
@@ -42,7 +42,7 @@ public interface TalentShukanShutsuenJohoApi {
     @Operation(
         operationId = "getTalentShukanShutsuenJoho",
         summary = "タレントにおいての１週間ごとの情報を返す",
-        tags = { "TalentShukanShutsuenJoho" },
+        tags = { "talentShukanShutsuenJoho" },
         responses = {
             @ApiResponse(responseCode = "200", description = "タレントにおいての１週間ごとの情報を正常取得", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = TalentShukanShutsuenJoho.class))
