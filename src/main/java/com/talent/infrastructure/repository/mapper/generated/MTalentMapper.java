@@ -8,4 +8,5 @@ import com.talent.infrastructure.dto.TalentMasterDto;
 @Mapper
 public interface MTalentMapper {
     List<TalentMasterDto> select(String talentName);
+    List<TalentMasterDto> selectEx(String talentId);
 }

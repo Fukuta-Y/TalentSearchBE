@@ -1,20 +1,19 @@
 package com.talent.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import com.model.TalentShukanShutsuenJoho;
-import com.talent.infrastructure.dto.ChanelKyokuMasterDto;
-import com.talent.infrastructure.dto.KbnGenreMasterDto;
 import com.talent.infrastructure.dto.OnAirKanriTableDto;
-import com.talent.infrastructure.dto.ProgramMasterDto;
 import com.talent.infrastructure.dto.TalentMasterDto;
 import com.talent.infrastructure.repository.mapper.generated.MChanelKyokuMapper;
 import com.talent.infrastructure.repository.mapper.generated.MKbnGenreMapper;
 import com.talent.infrastructure.repository.mapper.generated.MProgramMapper;
 import com.talent.infrastructure.repository.mapper.generated.MTalentMapper;
 import com.talent.infrastructure.repository.mapper.generated.TOnairKanriMapper;
+import com.talent.service.entity.TalentShukanShutsuenJohoEntity;
 
 import lombok.RequiredArgsConstructor;
 
@@ -40,14 +39,37 @@ public class TalentShukanShutsuenJohoService {
      */
     public TalentShukanShutsuenJoho select(Integer nentsuki, Integer shu, String talentId) {
     	
+    	// TalentShukanShutsuenJohoEntityを設定
+        TalentShukanShutsuenJohoEntity entity = new TalentShukanShutsuenJohoEntity();
+
+    	// TalentShukanShutsuenJohoをResponseに設定
     	TalentShukanShutsuenJoho response = new TalentShukanShutsuenJoho();
+        
+        // タレントIDのリストを設定
+        List<String> talentIdList = new ArrayList<String>();
+        //　名称検索の結果のIDをリスト化する
+        talentIdList.add(talentId);
+        // オンエア管理テーブル検索
+        List<OnAirKanriTableDto> onAirKanriTableDto = tOnairKanriMapper.select(nentsuki, shu, talentIdList);
+        entity.setOnAirKanriTableDto(onAirKanriTableDto);
 
-    	List<OnAirKanriTableDto> list1 = tOnairKanriMapper.select(nentsuki, shu, null);
-    	List<TalentMasterDto>  list2 = mTalentMapper.select(talentId);
-    	List<ProgramMasterDto> list3 = mProgramMapper.select(null);
-    	List<ChanelKyokuMasterDto> list4 = mChanelKyokuMapper.select(null);
-    	List<KbnGenreMasterDto> list5 = mKbnGenreMapper.select(talentId);
+        // タレントマスタ検索
+    	List<TalentMasterDto>  talentMasterDto = mTalentMapper.selectEx(talentId);
+        entity.setTalentMasterDto(talentMasterDto);
 
+//
+//
+//    	List<ProgramMasterDto> list3 = mProgramMapper.select(null);
+//    	List<ChanelKyokuMasterDto> list4 = mChanelKyokuMapper.select(null);
+//    	List<KbnGenreMasterDto> list5 = mKbnGenreMapper.select(talentId);
+//
+//		List<OnAirKanriTableDto>  onAirKanriDto = entity.getOnAirKanriTableDto();
+//		response.settOnAirKanri(helper.toOnAirKanriTableModel(onAirKanriDto));
+//		
+//		List<TalentMasterDto>  talentDto = entity.getTalentMasterDto();
+//		response.setmTalent(helper.toTalentModel(talentDto));
+//    	
+    	
 		return response;
     }
 }

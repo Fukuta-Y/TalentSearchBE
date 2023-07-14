@@ -8,5 +8,5 @@ import com.talent.infrastructure.dto.ChanelKyokuMasterDto;
 
 @Mapper
 public interface MChanelKyokuMapper {
-	List<ChanelKyokuMasterDto> select(List<String> chanelId);
+	List<ChanelKyokuMasterDto> select(List<String> chanelIdList);
 }
