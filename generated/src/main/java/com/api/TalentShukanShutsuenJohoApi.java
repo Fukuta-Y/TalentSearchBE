@@ -8,7 +8,6 @@ package com.api;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.model.TalentShukanShutsuenJoho;
@@ -50,7 +49,7 @@ public interface TalentShukanShutsuenJohoApi {
             })
         }
     )
-    @GetMapping("/TalentShukanShutsuenJoho")
+    @GetMapping("/talentShukanShutsuenJoho")
     ResponseEntity<TalentShukanShutsuenJoho> getTalentShukanShutsuenJoho(
         @NotNull @Min(199001) @Max(210012) @Parameter(name = "nentsuki", description = "", required = true) @Valid @RequestParam(value = "nentsuki", required = true) Integer nentsuki,
         @NotNull @Min(1) @Max(5) @Parameter(name = "shu", description = "", required = true) @Valid @RequestParam(value = "shu", required = true) Integer shu,
