@@ -87,12 +87,12 @@ public class TalentShukanShutsuenJohoService {
         
         // Responseへ設定
         response.setmProgram(helper.toProgramModel(programMasterDto));
-        System.out.print("onAirKanriTableDto:" + onAirKanriTableDto);
         response.settOnAirKanri(helper.toOnAirKanriTableModel(onAirKanriTableDto));
-        System.out.print("response:" + response.gettOnAirKanri());
         response.setmTalent(helper.toTalentModel(talentMasterDto));
         response.setmChanelKyoku(helper.toChanelKyokuModel(chanelKyokuMasterDto));
         response.setmKbnGenre(helper.toKbnGenreModel(kbnGenreMasterDto));
-		return response;
+
+		// responseの返却
+        return response;
     }
 }
