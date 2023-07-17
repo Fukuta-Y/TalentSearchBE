@@ -43,11 +43,9 @@ public class ShukanTalentJohoService {
     	
     	// ShukanTalentJohoをResponseに設定
     	ShukanTalentJoho response = new ShukanTalentJoho();
-    	
     	// タレントマスタ検索
 		List<TalentMasterDto> talentMasterDto = mTalentMapper.select(talentName);
 		List<String> talentIdList = null;
-
 		if (talentMasterDto.size() == 0) {
 			entity.setTalentMasterDto(null);
 		}
