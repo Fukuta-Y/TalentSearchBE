@@ -1,0 +1,53 @@
+openapi: 3.0.0
+info:
+  title: 番組出演者検索
+  description: 番組においての対象週の出演者を情報を返す
+  version: 1.0.0
+servers:
+  - url: https://localhost:8082
+    description: 番組出演者検索
+paths:
+  /programShutsuen:
+    get:
+      tags:
+        - programShutsuen
+      operationId: getprogramShutsuen
+      summary: 番組においての対象週の出演者を情報を返す
+      description: 番組においての対象週の出演者を情報を返す
+      parameters:
+        - in: query
+          name: programId
+          required: true
+          schema:
+            type: string
+            maxLength: 8
+            description: 番組ID
+        - in: query
+          name: onairDay
+          required: true
+          schema:
+            type: string
+            description: オンエア日
+      responses:
+        '200':
+          description: 番組においての対象週の出演者を情報を正常取得   
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/programShutsuen'      
+components:
+  schemas:
+    programShutsuen:
+      description: 番組においての対象週の出演者を情報
+      type: object
+      properties:
+        talentId:
+          type: string
+          maxLength: 8
+          description: タレントID
+        talentName:
+          type: string
+          maxLength: 30
+          description: タレント名
