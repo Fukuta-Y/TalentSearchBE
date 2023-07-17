@@ -40,6 +40,6 @@
       M_TALENT
     where
      TALENT_ID =#{talentId}
-     AND DELETE_FLG = "0"
+     and DELETE_FLG = '0'
   </select>
 </mapper>

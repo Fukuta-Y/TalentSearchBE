@@ -21,6 +21,6 @@
        	M_NENTSUKI_SHU_KANRI 
        where 
        	NENTSUKI =#{nentsuki}
-       	AND SHU =#{shu}
+       	and SHU =#{shu}
   </select>
 </mapper>

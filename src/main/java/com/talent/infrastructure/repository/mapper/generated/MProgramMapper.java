@@ -8,5 +8,5 @@ import com.talent.infrastructure.dto.ProgramMasterDto;
 
 @Mapper
 public interface MProgramMapper {
-	List<ProgramMasterDto> select(List<String> idList);
+	List<ProgramMasterDto> select(List<String> programIdList);
 }

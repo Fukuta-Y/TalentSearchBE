@@ -8,5 +8,5 @@ import com.talent.infrastructure.dto.KbnGenreMasterDto;
 
 @Mapper
 public interface MKbnGenreMapper {
-	List<KbnGenreMasterDto> select(String genreIdList);
+	List<KbnGenreMasterDto> select(List<Integer> genreIdList);
 }
