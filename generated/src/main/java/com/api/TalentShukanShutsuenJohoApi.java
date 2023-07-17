@@ -8,7 +8,6 @@ package com.api;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.model.TalentShukanShutsuenJoho;
@@ -26,13 +25,13 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-07-11T23:29:51.001355+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-07-14T11:35:39.107245+09:00[Asia/Tokyo]")
 @Validated
-@Tag(name = "TalentShukanShutsuenJoho", description = "the TalentShukanShutsuenJoho API")
+@Tag(name = "talentShukanShutsuenJoho", description = "the talentShukanShutsuenJoho API")
 public interface TalentShukanShutsuenJohoApi {
 
     /**
-     * GET /TalentShukanShutsuenJoho : タレントにおいての１週間ごとの情報を返す
+     * GET /talentShukanShutsuenJoho : タレントにおいての１週間ごとの情報を返す
      * タレントにおいての１週間ごとの情報を返す
      *
      * @param nentsuki  (required)
@@ -43,14 +42,14 @@ public interface TalentShukanShutsuenJohoApi {
     @Operation(
         operationId = "getTalentShukanShutsuenJoho",
         summary = "タレントにおいての１週間ごとの情報を返す",
-        tags = { "TalentShukanShutsuenJoho" },
+        tags = { "talentShukanShutsuenJoho" },
         responses = {
             @ApiResponse(responseCode = "200", description = "タレントにおいての１週間ごとの情報を正常取得", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = TalentShukanShutsuenJoho.class))
             })
         }
     )
-    @GetMapping("/TalentShukanShutsuenJoho")
+    @GetMapping("/talentShukanShutsuenJoho")
     ResponseEntity<TalentShukanShutsuenJoho> getTalentShukanShutsuenJoho(
         @NotNull @Min(199001) @Max(210012) @Parameter(name = "nentsuki", description = "", required = true) @Valid @RequestParam(value = "nentsuki", required = true) Integer nentsuki,
         @NotNull @Min(1) @Max(5) @Parameter(name = "shu", description = "", required = true) @Valid @RequestParam(value = "shu", required = true) Integer shu,
