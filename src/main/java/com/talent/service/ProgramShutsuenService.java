@@ -1,12 +1,12 @@
 package com.talent.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import com.model.ProgramShutsuen;
 import com.model.ProgramShutsuenList;
+import com.talent.infrastructure.repository.mapper.ProgramShutsuenMapper;
 
 import lombok.RequiredArgsConstructor;
 
@@ -16,6 +16,8 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class ProgramShutsuenService {
+	
+    private final ProgramShutsuenMapper programShutsuenMapper;
 
     /**
      * 番組出演者検索
@@ -24,19 +26,10 @@ public class ProgramShutsuenService {
      * @return 検索結果
      */
     public ProgramShutsuenList select(String  programId, String onairDay) {
-
-    	// ProgramShutsuenをResponseに設定
+    	// ProgramShutsuenListをResponseに設定
+    	List<ProgramShutsuen> infoList = programShutsuenMapper.select(programId, onairDay);
     	ProgramShutsuenList response = new ProgramShutsuenList();
-
-    	ProgramShutsuen model = new ProgramShutsuen();
-    	model.setTalentId(programId);
-    	model.setTalentName("test");
-
-    	List<ProgramShutsuen> list = new ArrayList<ProgramShutsuen>();
-    	list.add(model);
-
-    	response.setProgramShutsuen(list);
-
+    	response.setProgramShutsuen(infoList);
 		// responseの返却
         return response;
     }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.talent.infrastructure.repository.mapper.ProgramShutsuenMapper">
+  <resultMap id="BaseResultMap" type="com.talent.infrastructure.dto.ProgramShutsuenDto" autoMapping="true">
+    <result column="TALENT_ID" jdbcType="VARCHAR" property="talentId" />
+    <result column="TALENT_NAME" jdbcType="VARCHAR" property="talentName" />
+  </resultMap>
+  <select id="select" parameterType="string" resultMap="BaseResultMap">
+    select
+      b.TALENT_ID
+     ,b.TALENT_NAME
+    from
+     T_ONAIR_KANRI a
+    inner join
+     M_TALENT b
+    on
+     a.TALENT_ID = b.TALENT_ID
+    where a.PROGRAM_ID =#{programId}
+    and a.ONAIR_DAY =#{onairDay}
+    and a.DELETE_FLG = '0'
+    and b.DELETE_FLG = '0'
+  </select>
+</mapper>
