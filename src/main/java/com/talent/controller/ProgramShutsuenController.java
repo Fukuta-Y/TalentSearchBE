@@ -1,23 +1,24 @@
 package com.talent.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
 import com.api.ProgramShutsuenApi;
-import com.model.ProgramShutsuen;
+import com.model.ProgramShutsuenList;
+import com.talent.service.ProgramShutsuenService;
 
 import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
-public class ProgramShutsuenController implements ProgramShutsuenApi{@Override
-	public ResponseEntity<List<ProgramShutsuen>> getprogramShutsuen(String programId, String onairDay) {
-		ProgramShutsuen model = new ProgramShutsuen();
-		List<ProgramShutsuen> response =  new ArrayList<ProgramShutsuen>();
-		response.add(model);
+public class ProgramShutsuenController implements ProgramShutsuenApi{
+	
+    private final ProgramShutsuenService service;
+	
+	@Override
+	public ResponseEntity<ProgramShutsuenList> getprogramShutsuen(String programId, String onairDay) {
+		// ProgramShutsuenServiceより取得
+		ProgramShutsuenList response = service.select(programId, onairDay);
 		return ResponseEntity.ok(response);
 	}
 }

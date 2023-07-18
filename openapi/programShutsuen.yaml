@@ -30,15 +30,22 @@ paths:
             description: オンエア日
       responses:
         '200':
-          description: 番組においての対象週の出演者を情報を正常取得   
+          description: 番組においての対象週の出演者を情報を正常取得
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/programShutsuen'      
+                $ref: '#/components/schemas/programShutsuenList'
 components:
   schemas:
+    programShutsuenList:
+      description: 番組においての対象週の出演者を情報のリスト
+      type: object
+      properties:
+        programShutsuen:
+          description: 番組においての対象週の出演者を情報
+          type: array
+          items:
+            $ref: '#/components/schemas/programShutsuen'
     programShutsuen:
       description: 番組においての対象週の出演者を情報
       type: object

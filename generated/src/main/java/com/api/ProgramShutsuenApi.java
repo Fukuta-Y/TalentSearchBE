@@ -5,14 +5,12 @@
  */
 package com.api;
 
-import java.util.List;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.model.ProgramShutsuen;
+import com.model.ProgramShutsuenList;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -25,7 +23,7 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-07-18T00:15:22.039912+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-07-18T14:05:39.271554+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "programShutsuen", description = "the programShutsuen API")
 public interface ProgramShutsuenApi {
@@ -44,12 +42,12 @@ public interface ProgramShutsuenApi {
         tags = { "programShutsuen" },
         responses = {
             @ApiResponse(responseCode = "200", description = "番組においての対象週の出演者を情報を正常取得", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = ProgramShutsuen.class))
+                @Content(mediaType = "application/json", schema = @Schema(implementation = ProgramShutsuenList.class))
             })
         }
     )
     @GetMapping("/programShutsuen")
-    ResponseEntity<List<ProgramShutsuen>> getprogramShutsuen(
+    ResponseEntity<ProgramShutsuenList> getprogramShutsuen(
         @NotNull @Size(max = 8) @Parameter(name = "programId", description = "", required = true) @Valid @RequestParam(value = "programId", required = true) String programId,
         @NotNull @Parameter(name = "onairDay", description = "", required = true) @Valid @RequestParam(value = "onairDay", required = true) String onairDay
     );
