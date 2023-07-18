@@ -1,10 +1,10 @@
 openapi: 3.0.0
 info:
   title: 週間タレント別情報
-  description: １週間においてのタレントごとの情報をする
+  description: １週間においてのタレントごとの情報を返す
   version: 1.0.0
 servers:
-  - url: https://localhost:8080
+  - url: https://localhost:8082
     description: 週間タレント別情報
 paths:
   /shukanTalentJoho:

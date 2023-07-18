@@ -4,7 +4,7 @@ info:
   description: 年月に対応する週の開始終了日付をする
   version: 1.0.0
 servers:
-  - url: https://localhost:8080
+  - url: https://localhost:8082
     description: 年月週の開始終了日付
 paths:
   /yearMonthWeekStartEnd:
