@@ -26,13 +26,13 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class TalentShukanShutsuenJohoService {
-	
+	// mapperの宣言
     private final TOnairKanriMapper tOnairKanriMapper;
     private final MTalentMapper mTalentMapper;
     private final MProgramMapper mProgramMapper;
     private final MChanelKyokuMapper mChanelKyokuMapper;
     private final MKbnGenreMapper mKbnGenreMapper;
-
+    // helperの宣言
     private final TalentShukanShutsuenJohoHelper helper;
 
     /**
@@ -49,6 +49,7 @@ public class TalentShukanShutsuenJohoService {
         
         // タレントIDのリストを設定
         List<String> talentIdList = new ArrayList<String>();
+
         //　名称検索の結果のIDをリスト化する
         talentIdList.add(talentId);
 
@@ -58,33 +59,38 @@ public class TalentShukanShutsuenJohoService {
         // タレントマスタ検索
     	List<TalentMasterDto> talentMasterDto = mTalentMapper.selectEx(talentId);
 
-        // 番組マスタ検索
         // 番組IDのリストを設定
         List<String> programIdList = new ArrayList<String>();
         List<ProgramMasterDto> programMasterDto = new ArrayList<ProgramMasterDto>();
+        
+        // オンエア管理テーブルが設定されている場合
         if (onAirKanriTableDto.size() != 0) {
             programIdList = new ArrayList<String>();
             //　名称検索の結果のIDをリスト化する
             for(OnAirKanriTableDto dto: onAirKanriTableDto) programIdList.add(dto.getProgramId());
+            // 番組マスタ検索
             programMasterDto = mProgramMapper.select(programIdList);
         }
         
-        // チャンネル局マスタ検索
         // チャンネルIDのリストを設定
         List<String> chanelIdList = new ArrayList<String>();
         List<ChanelKyokuMasterDto> chanelKyokuMasterDto = new ArrayList<ChanelKyokuMasterDto>();
+        
+        // オンエア管理テーブルが設定されている場合
         if (programMasterDto.size() != 0) {
             chanelIdList = new ArrayList<String>();
             //　名称検索の結果のIDをリスト化する
             for(ProgramMasterDto dto: programMasterDto) chanelIdList.add(dto.getChanelId().toString());
+            // チャンネル局マスタ検索
             chanelKyokuMasterDto = mChanelKyokuMapper.select(chanelIdList);
         }
-         
-        // 区分ジャンルマスタ検索
+
+        // 区分ジャンルのリストを設定
         List<Integer> genreIdList = new ArrayList<Integer>();
         genreIdList.add(1);
         genreIdList.add(2);
         genreIdList.add(3);
+        // 区分ジャンルマスタ検索
         List<KbnGenreMasterDto>  kbnGenreMasterDto = mKbnGenreMapper.select(genreIdList);
         
         // Responseへ設定

@@ -22,10 +22,11 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class ShukanTalentJohoService {
-
+	// mapperの宣言
     private final MTalentMapper mTalentMapper;
     private final TOnairKanriMapper tOnairKanriMapper;
     private final MProgramMapper mProgramMapper;
+    // helperの宣言
     private final ShukanTalentJohoHelper helper;
 
     /**
@@ -36,12 +37,14 @@ public class ShukanTalentJohoService {
      * @return ShukanTalentJoho
      */
     public ShukanTalentJoho select(Integer nentsuki, Integer shu, String talentName) {
-    	
+
     	// ShukanTalentJohoをResponseに設定
     	ShukanTalentJoho response = new ShukanTalentJoho();
+    	
     	// タレントマスタ検索
 		List<TalentMasterDto> talentMasterDto = mTalentMapper.select(talentName);
 		List<String> talentIdList = new ArrayList<String>();
+		
 		//　名称検索の結果のIDをリスト化する
 		for(TalentMasterDto dto:talentMasterDto) talentIdList.add(dto.getTalentId());
 
@@ -50,12 +53,15 @@ public class ShukanTalentJohoService {
 
     	// 番組マスタ検索（オンエア管理テーブル検索が存在する場合のみ実施）
 		List<ProgramMasterDto> programMasterDto = new ArrayList<ProgramMasterDto>();
+
+		// オンエア管理テーブルとタレントマスタの内容が設定されている場合
 		if (onAirKanriTableDto.size() != 0 && talentMasterDto.size() != 0) {
 			List<String> idList = new ArrayList<String>();
 			onAirKanriTableDto.forEach(s -> idList.add(s.getProgramId())); 
 			programMasterDto = mProgramMapper.select(idList);
 		}
 		
+        // Responseへ設定
 		response.setmTalent(helper.toTalentModel(talentMasterDto));
 		response.settOnAirKanri(helper.toOnAirKanriTableModel(onAirKanriTableDto));
 		response.setmProgram(helper.toProgramModel(programMasterDto));
