@@ -17,7 +17,6 @@ public class YearMonthWeekStartEndController implements YearMonthWeekStartEndApi
 	
 	@Override
 	public ResponseEntity<YearMonthWeekStartEndJoho> getYearMonthWeekStartEnd(Integer nentsuki, Integer shu) {
-
 		// YearMonthWeekStartEndSearchServiceの取得
 		YearMonthWeekStartEndJoho response = service.select(nentsuki, shu);
 		return ResponseEntity.ok(response);

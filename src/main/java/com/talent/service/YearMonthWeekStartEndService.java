@@ -15,8 +15,9 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class YearMonthWeekStartEndService {
-
+	// mapperの宣言
     private final MNentsukiShuKanriMapper mapper;
+    // helperの宣言
     private final MNentsukiShuKanriHelper helper;
 
     /**
@@ -33,7 +34,7 @@ public class YearMonthWeekStartEndService {
     	// 年月週の開始終了日付検索
     	NentsukiShuKanriMasterDto dto = mapper.select(nentsuki, shu);
 
-    	// 戻りの内容を設定
+        // Responseへ設定
     	response.setmNentsukiShuKanri(helper.toModel(dto));
     	
 		// responseの返却

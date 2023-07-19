@@ -16,7 +16,7 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class ProgramShutsuenService {
-	
+	// mapperの宣言
     private final ProgramShutsuenMapper programShutsuenMapper;
 
     /**
@@ -26,10 +26,16 @@ public class ProgramShutsuenService {
      * @return ProgramShutsuenList
      */
     public ProgramShutsuenList select(String  programId, String onairDay) {
+
     	// ProgramShutsuenListをResponseに設定
-    	List<ProgramShutsuen> infoList = programShutsuenMapper.select(programId, onairDay);
     	ProgramShutsuenList response = new ProgramShutsuenList();
+    	
+    	// 番組出演者検索
+    	List<ProgramShutsuen> infoList = programShutsuenMapper.select(programId, onairDay);
+
+        // Responseへ設定
     	response.setProgramShutsuen(infoList);
+
 		// responseの返却
         return response;
     }
