@@ -21,9 +21,9 @@ public class YearMonthWeekStartEndService {
 
     /**
      * 年月週の開始終了日付検索
-     * @param nentsuki 対象年月
-     * @param shu 対象週
-     * @return 検索結果
+     * @param nentsuki 年月
+     * @param shu 週
+     * @return YearMonthWeekStartEndJoho
      */
     public YearMonthWeekStartEndJoho select(Integer nentsuki, Integer shu) {
  

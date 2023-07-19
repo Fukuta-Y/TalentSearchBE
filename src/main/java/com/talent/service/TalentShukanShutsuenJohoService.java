@@ -37,10 +37,10 @@ public class TalentShukanShutsuenJohoService {
 
     /**
      * タレント週間出演情報検索
-     * @param nentsuki 対象年月
-     * @param shu 対象週
+     * @param nentsuki 年月
+     * @param shu 週
      * @param talentId タレントID
-     * @return 検索結果
+     * @return TalentShukanShutsuenJoho
      */
     public TalentShukanShutsuenJoho select(Integer nentsuki, Integer shu, String talentId) {
 
@@ -61,22 +61,24 @@ public class TalentShukanShutsuenJohoService {
         // 番組マスタ検索
         // 番組IDのリストを設定
         List<String> programIdList = new ArrayList<String>();
+        List<ProgramMasterDto> programMasterDto = new ArrayList<ProgramMasterDto>();
         if (onAirKanriTableDto.size() != 0) {
             programIdList = new ArrayList<String>();
             //　名称検索の結果のIDをリスト化する
             for(OnAirKanriTableDto dto: onAirKanriTableDto) programIdList.add(dto.getProgramId());
+            programMasterDto = mProgramMapper.select(programIdList);
         }
-        List<ProgramMasterDto> programMasterDto = mProgramMapper.select(programIdList);
         
         // チャンネル局マスタ検索
         // チャンネルIDのリストを設定
         List<String> chanelIdList = new ArrayList<String>();
+        List<ChanelKyokuMasterDto> chanelKyokuMasterDto = new ArrayList<ChanelKyokuMasterDto>();
         if (programMasterDto.size() != 0) {
             chanelIdList = new ArrayList<String>();
             //　名称検索の結果のIDをリスト化する
             for(ProgramMasterDto dto: programMasterDto) chanelIdList.add(dto.getChanelId().toString());
+            chanelKyokuMasterDto = mChanelKyokuMapper.select(chanelIdList);
         }
-        List<ChanelKyokuMasterDto> chanelKyokuMasterDto = mChanelKyokuMapper.select(chanelIdList);
          
         // 区分ジャンルマスタ検索
         List<Integer> genreIdList = new ArrayList<Integer>();

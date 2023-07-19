@@ -30,10 +30,10 @@ public class ShukanTalentJohoService {
 
     /**
      * 週間タレント別情報検索
-	 * @param nentsuki 対象年月
-	 * @param shu 対象週
+	 * @param nentsuki 年月
+	 * @param shu 週
 	 * @param talentName タレント名
-     * @return 検索結果
+     * @return ShukanTalentJoho
      */
     public ShukanTalentJoho select(Integer nentsuki, Integer shu, String talentName) {
     	

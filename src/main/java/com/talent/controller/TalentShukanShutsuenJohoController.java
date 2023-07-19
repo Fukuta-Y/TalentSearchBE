@@ -17,7 +17,7 @@ public class TalentShukanShutsuenJohoController implements TalentShukanShutsuenJ
 	
 	@Override
 	public ResponseEntity<TalentShukanShutsuenJoho> getTalentShukanShutsuenJoho(Integer nentsuki, Integer shu, String talentId) {
-		// ShukanTalentJohoServiceより取得
+		// TalentShukanShutsuenJohoServiceより取得
 		TalentShukanShutsuenJoho response = service.select(nentsuki, shu, talentId);
 		return ResponseEntity.ok(response);
 	}

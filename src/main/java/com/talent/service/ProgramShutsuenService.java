@@ -23,7 +23,7 @@ public class ProgramShutsuenService {
      * 番組出演者検索
      * @param programId 番組ID
      * @param onairDay  オンエア日
-     * @return 検索結果
+     * @return ProgramShutsuenList
      */
     public ProgramShutsuenList select(String  programId, String onairDay) {
     	// ProgramShutsuenListをResponseに設定
