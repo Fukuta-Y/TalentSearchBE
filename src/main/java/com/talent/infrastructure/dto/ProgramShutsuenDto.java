@@ -7,6 +7,8 @@ import lombok.Data;
  */
 @Data
 public class ProgramShutsuenDto implements Serializable {
+   private String programName;
+   private String programGenre;
    private String talentId;
    private String talentName;
 }
