@@ -10,20 +10,20 @@
     <result column="KOUSHIN_DAY" jdbcType="TIMESTAMP" property="koushinDay" />
   </resultMap>
   <select id="select" parameterType="integer" resultMap="BaseResultMap">
-    select
-       GENRE_ID
-      ,JYUNJYO
-      ,GENRE
-      ,DELETE_FLG
-      ,TOROKU_DAY
-      ,KOUSHIN_DAY
-    from 
-     M_KBN_GENRE
-    where 
-     GENRE_ID IN
-    <foreach item="item" collection="genreIdList" open="(" separator="," close=")">
-      #{item}
-    </foreach>
-    and DELETE_FLG = '0'
+	   select
+	      GENRE_ID
+	     ,JYUNJYO
+	     ,GENRE
+	     ,DELETE_FLG
+	     ,TOROKU_DAY
+	     ,KOUSHIN_DAY
+	   from 
+	    M_KBN_GENRE
+	   where 
+	    GENRE_ID IN
+	   <foreach item="item" collection="genreIdList" open="(" separator="," close=")">
+	     #{item}
+	   </foreach>
+	   and DELETE_FLG = '0'
   </select>
 </mapper>

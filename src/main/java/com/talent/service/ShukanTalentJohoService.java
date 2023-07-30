@@ -30,7 +30,7 @@ public class ShukanTalentJohoService {
     private final ShukanTalentJohoHelper helper;
 
     /**
-     * 週間タレント別情報検索
+     * 週間タレント別情報検索 Service
 	 * @param nentsuki 年月
 	 * @param shu 週
 	 * @param talentName タレント名

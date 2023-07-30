@@ -20,7 +20,7 @@ public class ProgramShutsuenService {
     private final ProgramShutsuenMapper programShutsuenMapper;
 
     /**
-     * 番組出演者検索
+     * 番組出演者検索 Service
      * @param programId 番組ID
      * @param onairDay  オンエア日
      * @return ProgramShutsuenList

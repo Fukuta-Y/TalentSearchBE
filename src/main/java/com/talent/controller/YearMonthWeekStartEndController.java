@@ -13,8 +13,16 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class YearMonthWeekStartEndController implements YearMonthWeekStartEndApi{
 
+	// YearMonthWeekStartEndServiceを宣言
     private final YearMonthWeekStartEndService service;
 	
+    /**
+    * 年月週の開始終了日付検索Controller
+    *
+    * @param nentsuki  年月
+    * @param shu       週
+    * @return ResponseEntity<YearMonthWeekStartEndJoho>
+    */
 	@Override
 	public ResponseEntity<YearMonthWeekStartEndJoho> getYearMonthWeekStartEnd(Integer nentsuki, Integer shu) {
 		// YearMonthWeekStartEndSearchServiceの取得
