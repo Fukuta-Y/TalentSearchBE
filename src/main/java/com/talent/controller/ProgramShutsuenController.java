@@ -13,8 +13,16 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ProgramShutsuenController implements ProgramShutsuenApi{
 	
+	// ProgramShutsuenServiceを宣言
     private final ProgramShutsuenService service;
-	
+
+    /**
+     * 番組出演者検索BFFController
+     *
+     * @param programId 番組ID
+     * @param onairDay  オンエア日
+     * @return ResponseEntity<ProgramShutsuenList>
+     */
 	@Override
 	public ResponseEntity<ProgramShutsuenList> getprogramShutsuen(String programId, String onairDay) {
 		// ProgramShutsuenServiceより取得

@@ -36,7 +36,7 @@ public class TalentShukanShutsuenJohoService {
     private final TalentShukanShutsuenJohoHelper helper;
 
     /**
-     * タレント週間出演情報検索
+     * タレント週間出演情報検索 Service
      * @param nentsuki 年月
      * @param shu 週
      * @param talentId タレントID

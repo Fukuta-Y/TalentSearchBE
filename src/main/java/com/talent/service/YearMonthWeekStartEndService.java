@@ -21,7 +21,7 @@ public class YearMonthWeekStartEndService {
     private final MNentsukiShuKanriHelper helper;
 
     /**
-     * 年月週の開始終了日付検索
+     * 年月週の開始終了日付検索 Service
      * @param nentsuki 年月
      * @param shu 週
      * @return YearMonthWeekStartEndJoho

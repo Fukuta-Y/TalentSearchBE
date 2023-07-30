@@ -11,21 +11,21 @@
     <result column="KOUSHIN_DAY" jdbcType="TIMESTAMP" property="koushinDay" />
   </resultMap>
   <select id="select" parameterType="string" resultMap="BaseResultMap">
-   select
-     PROGRAM_ID
-    ,PROGRAM_NAME
-    ,CHANEL_ID
-    ,GENRE_ID
-    ,DELETE_FLG
-    ,TOROKU_DAY
-    ,KOUSHIN_DAY
-   from
-    M_PROGRAM
-   where
-    PROGRAM_ID IN
-    <foreach item="item" collection="programIdList" open="(" separator="," close=")">
-       #{item}
-    </foreach>
-    and DELETE_FLG = '0'
+	   select
+	     PROGRAM_ID
+	    ,PROGRAM_NAME
+	    ,CHANEL_ID
+	    ,GENRE_ID
+	    ,DELETE_FLG
+	    ,TOROKU_DAY
+	    ,KOUSHIN_DAY
+	   from
+	    M_PROGRAM
+	   where
+	    PROGRAM_ID IN
+	    <foreach item="item" collection="programIdList" open="(" separator="," close=")">
+	       #{item}
+	    </foreach>
+	    and DELETE_FLG = '0'
   </select>
 </mapper>
