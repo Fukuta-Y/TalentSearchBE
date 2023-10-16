@@ -1,0 +1,43 @@
+openapi: 3.0.0
+info:
+  title: 区分マスタ検索
+  description: ジャンルIDによって区分マスタを返す
+  version: 1.0.0
+servers:
+  - url: https://localhost:8082
+    description: 区分マスタ検索
+paths:
+  /kbnMaster/{genreIds}}:
+    get:
+      tags:
+        - kbnMaster
+      operationId: getKbnMaster
+      summary: 区分マスタをジャンルIDによって取得する
+      description: 区分マスタをジャンルIDによって取得する
+      parameters:
+        - in: path
+          name: genreIds
+          required: true
+          schema:
+            type: string
+            maxLength: 8
+      responses:
+        '200':
+          description: 区分マスタを正常取得
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: '#/components/schemas/kbnMaster'      
+components:
+  schemas:
+    kbnMaster:
+      description: 区分マスタ
+      type: object
+      properties:
+        mKbnGenre:
+          description: 区分マスタDTO
+          type: array
+          items:
+            $ref: "../../TalentSearchCommon/Tables/mKbnGenre.yaml#/components/schemas/mKbnGenre"
