@@ -1,0 +1,43 @@
+openapi: 3.0.0
+info:
+  title: チャンネル局マスタ検索
+  description: チャンネル局IDによって区分マスタを返す
+  version: 1.0.0
+servers:
+  - url: https://localhost:8082
+    description: チャンネル局マスタ検索
+paths:
+  /chanelKyoku/{chanelIds}}:
+    get:
+      tags:
+        - chanelKyoku
+      operationId: getChanelKyoku
+      summary: チャンネル局マスタをチャンネル局IDによって取得する
+      description: チャンネル局マスタをチャンネル局IDによって取得する
+      parameters:
+        - in: path
+          name: chanelIds
+          required: true
+          schema:
+            type: string
+            maxLength: 8
+      responses:
+        '200':
+          description: チャンネル局マスタを正常取得
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: '#/components/schemas/chanelKyoku'      
+components:
+  schemas:
+    chanelKyoku:
+      description: チャンネル局マスタ
+      type: object
+      properties:
+        mChanelKyoku:
+          description: チャンネル局マスタDTO
+          type: array
+          items:
+            $ref: "../../TalentSearchCommon/Tables/mChanelKyoku.yaml#/components/schemas/mChanelKyoku"

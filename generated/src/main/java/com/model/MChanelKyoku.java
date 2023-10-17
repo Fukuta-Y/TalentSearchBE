@@ -17,14 +17,14 @@ import jakarta.validation.constraints.NotNull;
 
 @Schema(name = "mChanelKyoku", description = "チャンネル局マスタ情報（全列）")
 @JsonTypeName("mChanelKyoku")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-07-11T23:29:51.001355+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-17T11:36:41.544800+09:00[Asia/Tokyo]")
 public class MChanelKyoku {
 
   @JsonProperty("chanelId")
   private Integer chanelId;
 
-  @JsonProperty("chanelKyokuId")
-  private Integer chanelKyokuId;
+  @JsonProperty("chanelKyoku")
+  private Integer chanelKyoku;
 
   @JsonProperty("areaId")
   private Integer areaId;
@@ -59,8 +59,8 @@ public class MChanelKyoku {
     this.chanelId = chanelId;
   }
 
-  public MChanelKyoku chanelKyokuId(Integer chanelKyokuId) {
-    this.chanelKyokuId = chanelKyokuId;
+  public MChanelKyoku chanelKyoku(Integer chanelKyoku) {
+    this.chanelKyoku = chanelKyoku;
     return this;
   }
 
@@ -71,13 +71,13 @@ public class MChanelKyoku {
    * @return chanelKyoku
   */
   @NotNull @Min(0) @Max(99) 
-  @Schema(name = "chanelKyokuId", description = "チャンネル局ID", required = true)
-  public Integer getChanelKyokuId() {
-    return chanelKyokuId;
+  @Schema(name = "chanelKyoku", description = "チャンネル局ID", required = true)
+  public Integer getChanelKyoku() {
+    return chanelKyoku;
   }
 
-  public void setChanelKyokuId(Integer chanelKyokuId) {
-    this.chanelKyokuId = chanelKyokuId;
+  public void setChanelKyoku(Integer chanelKyoku) {
+    this.chanelKyoku = chanelKyoku;
   }
 
   public MChanelKyoku areaId(Integer areaId) {
@@ -170,7 +170,7 @@ public class MChanelKyoku {
     }
     MChanelKyoku mChanelKyoku = (MChanelKyoku) o;
     return Objects.equals(this.chanelId, mChanelKyoku.chanelId) &&
-        Objects.equals(this.chanelKyokuId, mChanelKyoku.chanelKyokuId) &&
+        Objects.equals(this.chanelKyoku, mChanelKyoku.chanelKyoku) &&
         Objects.equals(this.areaId, mChanelKyoku.areaId) &&
         Objects.equals(this.deleteFlg, mChanelKyoku.deleteFlg) &&
         Objects.equals(this.torokuDay, mChanelKyoku.torokuDay) &&
@@ -179,7 +179,7 @@ public class MChanelKyoku {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chanelId, chanelKyokuId, areaId, deleteFlg, torokuDay, koushinDay);
+    return Objects.hash(chanelId, chanelKyoku, areaId, deleteFlg, torokuDay, koushinDay);
   }
 
   @Override
@@ -187,7 +187,7 @@ public class MChanelKyoku {
     StringBuilder sb = new StringBuilder();
     sb.append("class MChanelKyoku {\n");
     sb.append("    chanelId: ").append(toIndentedString(chanelId)).append("\n");
-    sb.append("    chanelKyoku: ").append(toIndentedString(chanelKyokuId)).append("\n");
+    sb.append("    chanelKyoku: ").append(toIndentedString(chanelKyoku)).append("\n");
     sb.append("    areaId: ").append(toIndentedString(areaId)).append("\n");
     sb.append("    deleteFlg: ").append(toIndentedString(deleteFlg)).append("\n");
     sb.append("    torokuDay: ").append(toIndentedString(torokuDay)).append("\n");
