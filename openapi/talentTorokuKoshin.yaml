@@ -1,0 +1,38 @@
+openapi: 3.0.0
+info:
+  title: タレント登録・更新
+  description: タレントマスタ情報を登録または更新する
+  version: 1.0.0
+servers:
+  - url: https://localhost:8082
+    description: タレント登録・更新
+paths:
+  /talentTorokuKoshin:
+    post:
+      tags:
+        - talentTorokuKoshin
+      operationId: postTalentTorokuKoshin
+      summary: タレントマスタ情報を登録または更新する
+      description: タレントマスタ情報を登録または更新する
+      requestBody:
+        description: タレントマスタ情報を登録または更新する
+        content:
+          application/json:
+            schema:
+              $ref: "../../TalentSearchCommon/Tables/mTalent.yaml#/components/schemas/mTalent"
+      responses:
+        '200':
+          description: 登録または更新した番組マスタ情報
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/talentTorokuKoshin'      
+components:
+  schemas:
+    talentTorokuKoshin:
+      description: 登録または更新した番組マスタ情報
+      type: object
+      properties:
+          items:
+            $ref: "../../TalentSearchCommon/Tables/mTalent.yaml#/components/schemas/mTalent"

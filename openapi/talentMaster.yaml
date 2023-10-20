@@ -1,0 +1,41 @@
+openapi: 3.0.0
+info:
+  title: タレントマスタ検索
+  description: タレントIDによってタレントマスタを返す
+  version: 1.0.0
+servers:
+  - url: https://localhost:8082
+    description: タレントマスタ検索
+paths:
+  /talentMaster/{talentId}:
+    get:
+      tags:
+        - talentMaster
+      operationId: getTalentMaster
+      summary: タレントIDによってタレントマスタを返す
+      description: タレントIDによってタレントマスタを返す
+      parameters:
+        - in: path
+          name: talentId
+          required: true
+          schema:
+            type: string
+            maxLength: 8
+      responses:
+        '200':
+          description: タレントマスタDTOの情報を正常取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/mTalent'
+components:
+  schemas:
+    mTalent:
+      description: タレントマスタDTOの情報
+      type: object
+      properties:
+        mTalent:
+          description: タレントマスタDTO
+          type: array
+          items:
+           $ref: "../../TalentSearchCommon/Tables/mTalent.yaml#/components/schemas/mTalent"
