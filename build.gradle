@@ -58,7 +58,7 @@ tasks.named('test') {
 // openApiの設定を追加
 openApiGenerate {
 	generatorName = 'spring'
-    inputSpec = "$rootDir/openapi/programShutsuen.yaml"
+    inputSpec = "$rootDir/openapi/talentMaster.yaml"
 	outputDir = "$openApiOutputDir"
 	apiPackage = 'com.api'
 	modelPackage = 'com.model'
