@@ -16,10 +16,10 @@ import jakarta.validation.constraints.Size;
  * タレントマスタ情報（全列）
  */
 
-@Schema(name = "mTalent", description = "タレントマスタ情報（全列）")
-@JsonTypeName("mTalent")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-22T20:12:14.812373+09:00[Asia/Tokyo]")
-public class MTalent {
+@Schema(name = "mTalent_1", description = "タレントマスタ情報（全列）")
+@JsonTypeName("mTalent_1")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-22T20:07:51.984801+09:00[Asia/Tokyo]")
+public class MTalent1 {
 
   @JsonProperty("talentId")
   private String talentId;
@@ -39,7 +39,7 @@ public class MTalent {
   @JsonProperty("koushinDay")
   private String koushinDay;
 
-  public MTalent talentId(String talentId) {
+  public MTalent1 talentId(String talentId) {
     this.talentId = talentId;
     return this;
   }
@@ -58,7 +58,7 @@ public class MTalent {
     this.talentId = talentId;
   }
 
-  public MTalent talentName(String talentName) {
+  public MTalent1 talentName(String talentName) {
     this.talentName = talentName;
     return this;
   }
@@ -77,7 +77,7 @@ public class MTalent {
     this.talentName = talentName;
   }
 
-  public MTalent genreId(Integer genreId) {
+  public MTalent1 genreId(Integer genreId) {
     this.genreId = genreId;
     return this;
   }
@@ -98,7 +98,7 @@ public class MTalent {
     this.genreId = genreId;
   }
 
-  public MTalent deleteFlg(Integer deleteFlg) {
+  public MTalent1 deleteFlg(Integer deleteFlg) {
     this.deleteFlg = deleteFlg;
     return this;
   }
@@ -119,7 +119,7 @@ public class MTalent {
     this.deleteFlg = deleteFlg;
   }
 
-  public MTalent torokuDay(String torokuDay) {
+  public MTalent1 torokuDay(String torokuDay) {
     this.torokuDay = torokuDay;
     return this;
   }
@@ -138,7 +138,7 @@ public class MTalent {
     this.torokuDay = torokuDay;
   }
 
-  public MTalent koushinDay(String koushinDay) {
+  public MTalent1 koushinDay(String koushinDay) {
     this.koushinDay = koushinDay;
     return this;
   }
@@ -165,13 +165,13 @@ public class MTalent {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MTalent mTalent = (MTalent) o;
-    return Objects.equals(this.talentId, mTalent.talentId) &&
-        Objects.equals(this.talentName, mTalent.talentName) &&
-        Objects.equals(this.genreId, mTalent.genreId) &&
-        Objects.equals(this.deleteFlg, mTalent.deleteFlg) &&
-        Objects.equals(this.torokuDay, mTalent.torokuDay) &&
-        Objects.equals(this.koushinDay, mTalent.koushinDay);
+    MTalent1 mTalent1 = (MTalent1) o;
+    return Objects.equals(this.talentId, mTalent1.talentId) &&
+        Objects.equals(this.talentName, mTalent1.talentName) &&
+        Objects.equals(this.genreId, mTalent1.genreId) &&
+        Objects.equals(this.deleteFlg, mTalent1.deleteFlg) &&
+        Objects.equals(this.torokuDay, mTalent1.torokuDay) &&
+        Objects.equals(this.koushinDay, mTalent1.koushinDay);
   }
 
   @Override
@@ -182,7 +182,7 @@ public class MTalent {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MTalent {\n");
+    sb.append("class MTalent1 {\n");
     sb.append("    talentId: ").append(toIndentedString(talentId)).append("\n");
     sb.append("    talentName: ").append(toIndentedString(talentName)).append("\n");
     sb.append("    genreId: ").append(toIndentedString(genreId)).append("\n");

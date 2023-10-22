@@ -19,7 +19,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "../../TalentSearchCommon/Tables/mTalent.yaml#/components/schemas/mTalent"
+              $ref: '#/components/schemas/talentTorokuKoshin'
       responses:
         '200':
           description: 登録または更新した番組マスタ情報
@@ -27,7 +27,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/components/schemas/talentTorokuKoshin'      
+                  $ref: '#/components/schemas/talentTorokuKoshin'
 components:
   schemas:
     talentTorokuKoshin:
