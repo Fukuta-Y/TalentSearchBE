@@ -8,6 +8,20 @@ servers:
     description: 年月週管理マスタ情報を登録または更新する
 paths:
   /nentsukiShuKanri:
+    get:
+      tags:
+        - nentsukiShuKanri
+      operationId: getNentsukiShuKanri
+      summary: 年月週管理マスタを返す
+      description: 年月週管理マスタ情報を返す
+      responses:
+        '200':
+          description: 年月週管理マスタDTOの情報
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/getNentsukiShuKanri'
     post:
       tags:
         - nentsukiShuKanri
@@ -19,7 +33,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "../../TalentSearchCommon/Tables/mNentsukiShuKanri.yaml#/components/schemas/mNentsukiShuKanri"
+              $ref: '#/components/schemas/postNentsukiShuKanri'
       responses:
         '200':
           description: 登録または更新した年月週管理マスタDTOの情報
@@ -27,12 +41,21 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/components/schemas/nentsukiShuKanri'
+                  $ref: '#/components/schemas/postNentsukiShuKanri'
 components:
   schemas:
-    nentsukiShuKanri:
+    postNentsukiShuKanri:
       description: 登録または更新した年月週管理マスタDTOの情報
       type: object
       properties:
+          items:
+            $ref: "../../TalentSearchCommon/Tables/mNentsukiShuKanri.yaml#/components/schemas/mNentsukiShuKanri"
+    getNentsukiShuKanri:
+      description: 年月週管理マスタDTOの情報
+      type: object
+      properties:
+        mNentsukiShuKanri:
+          description: 年月週管理マスタDTOの情報
+          type: array
           items:
             $ref: "../../TalentSearchCommon/Tables/mNentsukiShuKanri.yaml#/components/schemas/mNentsukiShuKanri"
