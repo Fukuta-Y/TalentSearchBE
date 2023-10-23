@@ -1,0 +1,48 @@
+openapi: 3.0.0
+info:
+  title: タレント参照検索
+  description: タレントID、タレント名によってタレント情報を返す
+  version: 1.0.0
+servers:
+  - url: https://localhost:8081
+    description: タレント参照検索
+paths:
+  /talentRef:
+    get:
+      tags:
+        - talentRef
+      operationId: getTalentRef
+      summary: タレントID、タレント名によってタレント情報を返す
+      description: タレントID、タレント名によってタレント情報を返す
+      parameters:
+        - in: query
+          name: talentId
+          required: false
+          description: タレントID
+          schema:
+            type: string
+            maxLength: 8
+        - in: query
+          name: talentName
+          required: false
+          description: タレント名
+          schema:
+            type: string
+            maxLength: 30
+      responses:
+        '200':
+          description: タレント情報を正常取得
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: '#/components/schemas/talentInfo'
+components:
+  schemas:
+    talentInfo:
+      description: タレントマスタ情報DTO
+      type: object
+      properties:
+        items:
+          $ref: "../../TalentSearchCommon/Tables/mTalent.yaml#/components/schemas/mTalent"
