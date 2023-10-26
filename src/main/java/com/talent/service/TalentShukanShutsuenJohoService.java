@@ -16,7 +16,7 @@ import com.talent.infrastructure.repository.mapper.generated.MChanelKyokuMapper;
 import com.talent.infrastructure.repository.mapper.generated.MKbnGenreMapper;
 import com.talent.infrastructure.repository.mapper.generated.MProgramMapper;
 import com.talent.infrastructure.repository.mapper.generated.MTalentMapper;
-import com.talent.infrastructure.repository.mapper.generated.TOnairKanriMapper;
+import com.talent.infrastructure.repository.mapper.generated.TOnAirKanriMapper;
 
 import lombok.RequiredArgsConstructor;
 
@@ -27,7 +27,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class TalentShukanShutsuenJohoService {
 	// mapperの宣言
-    private final TOnairKanriMapper tOnairKanriMapper;
+    private final TOnAirKanriMapper tOnAirKanriMapper;
     private final MTalentMapper mTalentMapper;
     private final MProgramMapper mProgramMapper;
     private final MChanelKyokuMapper mChanelKyokuMapper;
@@ -54,7 +54,7 @@ public class TalentShukanShutsuenJohoService {
         talentIdList.add(talentId);
 
         // オンエア管理テーブル検索
-        List<OnAirKanriTableDto> onAirKanriTableDto = tOnairKanriMapper.select(nentsuki, shu, talentIdList);
+        List<OnAirKanriTableDto> onAirKanriTableDto = tOnAirKanriMapper.select(nentsuki, shu, talentIdList);
         
         // タレントマスタ検索
     	List<TalentMasterDto> talentMasterDto = mTalentMapper.selectEx(talentId);

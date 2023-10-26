@@ -25,8 +25,8 @@ public class TOnAirKanri {
   @JsonProperty("id")
   private String id;
 
-  @JsonProperty("onairDay")
-  private String onairDay;
+  @JsonProperty("onAirDay")
+  private String onAirDay;
 
   @JsonProperty("programId")
   private String programId;
@@ -34,11 +34,11 @@ public class TOnAirKanri {
   @JsonProperty("talentId")
   private String talentId;
 
-  @JsonProperty("targetNentsuki")
-  private Integer targetNentsuki;
+  @JsonProperty("nentsuki")
+  private Integer nentsuki;
 
-  @JsonProperty("targetShu")
-  private Integer targetShu;
+  @JsonProperty("shu")
+  private Integer shu;
 
   @JsonProperty("deleteFlg")
   private Integer deleteFlg;
@@ -68,23 +68,23 @@ public class TOnAirKanri {
     this.id = id;
   }
 
-  public TOnAirKanri onairDay(String onairDay) {
-    this.onairDay = onairDay;
+  public TOnAirKanri onAirDay(String onAirDay) {
+    this.onAirDay = onAirDay;
     return this;
   }
 
   /**
    * オンエア日
-   * @return onairDay
+   * @return onAirDay
   */
   @Valid 
-  @Schema(name = "onairDay", description = "オンエア日", required = false)
-  public String getonairDay() {
-    return onairDay;
+  @Schema(name = "onAirDay", description = "オンエア日", required = false)
+  public String getonAirDay() {
+    return onAirDay;
   }
 
-  public void setonairDay(String onairDay) {
-    this.onairDay = onairDay;
+  public void setonAirDay(String onAirDay) {
+    this.onAirDay = onAirDay;
   }
 
   public TOnAirKanri programId(String programId) {
@@ -125,8 +125,8 @@ public class TOnAirKanri {
     this.talentId = talentId;
   }
 
-  public TOnAirKanri targetNentsuki(Integer targetNentsuki) {
-    this.targetNentsuki = targetNentsuki;
+  public TOnAirKanri nentsuki(Integer nentsuki) {
+    this.nentsuki = nentsuki;
     return this;
   }
 
@@ -134,20 +134,20 @@ public class TOnAirKanri {
    * 対象年月
    * minimum: 1990
    * maximum: 2100
-   * @return targetNentsuki
+   * @return nentsuki
   */
   @Min(1990) @Max(2100) 
-  @Schema(name = "targetNentsuki", description = "対象年月", required = false)
-  public Integer getTargetNentsuki() {
-    return targetNentsuki;
+  @Schema(name = "nentsuki", description = "対象年月", required = false)
+  public Integer getnentsuki() {
+    return nentsuki;
   }
 
-  public void setTargetNentsuki(Integer targetNentsuki) {
-    this.targetNentsuki = targetNentsuki;
+  public void setnentsuki(Integer nentsuki) {
+    this.nentsuki = nentsuki;
   }
 
-  public TOnAirKanri targetShu(Integer targetShu) {
-    this.targetShu = targetShu;
+  public TOnAirKanri shu(Integer shu) {
+    this.shu = shu;
     return this;
   }
 
@@ -155,16 +155,16 @@ public class TOnAirKanri {
    * 対象週
    * minimum: 1
    * maximum: 5
-   * @return targetShu
+   * @return shu
   */
   @Min(1) @Max(5) 
-  @Schema(name = "targetShu", description = "対象週", required = false)
-  public Integer getTargetShu() {
-    return targetShu;
+  @Schema(name = "shu", description = "対象週", required = false)
+  public Integer getshu() {
+    return shu;
   }
 
-  public void setTargetShu(Integer targetShu) {
-    this.targetShu = targetShu;
+  public void setshu(Integer shu) {
+    this.shu = shu;
   }
 
   public TOnAirKanri deleteFlg(Integer deleteFlg) {
@@ -236,11 +236,11 @@ public class TOnAirKanri {
     }
     TOnAirKanri tOnAirKanri = (TOnAirKanri) o;
     return Objects.equals(this.id, tOnAirKanri.id) &&
-        Objects.equals(this.onairDay, tOnAirKanri.onairDay) &&
+        Objects.equals(this.onAirDay, tOnAirKanri.onAirDay) &&
         Objects.equals(this.programId, tOnAirKanri.programId) &&
         Objects.equals(this.talentId, tOnAirKanri.talentId) &&
-        Objects.equals(this.targetNentsuki, tOnAirKanri.targetNentsuki) &&
-        Objects.equals(this.targetShu, tOnAirKanri.targetShu) &&
+        Objects.equals(this.nentsuki, tOnAirKanri.nentsuki) &&
+        Objects.equals(this.shu, tOnAirKanri.shu) &&
         Objects.equals(this.deleteFlg, tOnAirKanri.deleteFlg) &&
         Objects.equals(this.torokuDay, tOnAirKanri.torokuDay) &&
         Objects.equals(this.koushinDay, tOnAirKanri.koushinDay);
@@ -248,7 +248,7 @@ public class TOnAirKanri {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, onairDay, programId, talentId, targetNentsuki, targetShu, deleteFlg, torokuDay, koushinDay);
+    return Objects.hash(id, onAirDay, programId, talentId, nentsuki, shu, deleteFlg, torokuDay, koushinDay);
   }
 
   @Override
@@ -256,11 +256,11 @@ public class TOnAirKanri {
     StringBuilder sb = new StringBuilder();
     sb.append("class TOnAirKanri {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    onairDay: ").append(toIndentedString(onairDay)).append("\n");
+    sb.append("    onAirDay: ").append(toIndentedString(onAirDay)).append("\n");
     sb.append("    programId: ").append(toIndentedString(programId)).append("\n");
     sb.append("    talentId: ").append(toIndentedString(talentId)).append("\n");
-    sb.append("    targetNentsuki: ").append(toIndentedString(targetNentsuki)).append("\n");
-    sb.append("    targetShu: ").append(toIndentedString(targetShu)).append("\n");
+    sb.append("    nentsuki: ").append(toIndentedString(nentsuki)).append("\n");
+    sb.append("    shu: ").append(toIndentedString(shu)).append("\n");
     sb.append("    deleteFlg: ").append(toIndentedString(deleteFlg)).append("\n");
     sb.append("    torokuDay: ").append(toIndentedString(torokuDay)).append("\n");
     sb.append("    koushinDay: ").append(toIndentedString(koushinDay)).append("\n");
