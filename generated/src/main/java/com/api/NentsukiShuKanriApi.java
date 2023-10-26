@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.model.MNentsukiShuKanri;
-import com.model.NentsukiShuKanri;
+import com.model.GetNentsukiShuKanri;
+import com.model.PostNentsukiShuKanri;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -25,17 +25,43 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-22T20:14:27.728145+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-24T18:18:54.919117+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "nentsukiShuKanri", description = "the nentsukiShuKanri API")
 @RequestMapping("${openapi..base-path:}")
 public interface NentsukiShuKanriApi {
 
     /**
+     * GET /nentsukiShuKanri : 年月週管理マスタを返す
+     * 年月週管理マスタ情報を返す
+     *
+     * @return 年月週管理マスタDTOの情報 (status code 200)
+     */
+    @Operation(
+        operationId = "getNentsukiShuKanri",
+        summary = "年月週管理マスタを返す",
+        tags = { "nentsukiShuKanri" },
+        responses = {
+            @ApiResponse(responseCode = "200", description = "年月週管理マスタDTOの情報", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = GetNentsukiShuKanri.class))
+            })
+        }
+    )
+    @RequestMapping(
+        method = RequestMethod.GET,
+        value = "/nentsukiShuKanri",
+        produces = { "application/json" }
+    )
+    ResponseEntity<List<GetNentsukiShuKanri>> getNentsukiShuKanri(
+        
+    );
+
+
+    /**
      * POST /nentsukiShuKanri : 年月週管理マスタ情報を登録または更新する
      * 年月週管理マスタ情報を登録または更新する
      *
-     * @param mnentsukiShuKanri 年月週管理マスタ情報を登録または更新する (optional)
+     * @param postNentsukiShuKanri 年月週管理マスタ情報を登録または更新する (optional)
      * @return 登録または更新した年月週管理マスタDTOの情報 (status code 200)
      */
     @Operation(
@@ -44,7 +70,7 @@ public interface NentsukiShuKanriApi {
         tags = { "nentsukiShuKanri" },
         responses = {
             @ApiResponse(responseCode = "200", description = "登録または更新した年月週管理マスタDTOの情報", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = NentsukiShuKanri.class))
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PostNentsukiShuKanri.class))
             })
         }
     )
@@ -54,8 +80,8 @@ public interface NentsukiShuKanriApi {
         produces = { "application/json" },
         consumes = { "application/json" }
     )
-    ResponseEntity<List<NentsukiShuKanri>> postProgramTorokuKoshin(
-        @Parameter(name = "MNentsukiShuKanri", description = "年月週管理マスタ情報を登録または更新する") @Valid @RequestBody(required = false) MNentsukiShuKanri mnentsukiShuKanri
+    ResponseEntity<List<PostNentsukiShuKanri>> postProgramTorokuKoshin(
+        @Parameter(name = "PostNentsukiShuKanri", description = "年月週管理マスタ情報を登録または更新する") @Valid @RequestBody(required = false) PostNentsukiShuKanri postNentsukiShuKanri
     );
 
 }

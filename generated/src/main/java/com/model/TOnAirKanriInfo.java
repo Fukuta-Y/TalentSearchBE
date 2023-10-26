@@ -10,18 +10,18 @@ import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 
 /**
- * 番組マスタ情報DTO
+ * オンエア管理テーブル情報
  */
 
-@Schema(name = "programInfo", description = "番組マスタ情報DTO")
-@JsonTypeName("programInfo")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-24T18:21:25.076926+09:00[Asia/Tokyo]")
-public class ProgramInfo {
+@Schema(name = "tOnAirKanriInfo", description = "オンエア管理テーブル情報")
+@JsonTypeName("tOnAirKanriInfo")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-24T18:26:17.261906+09:00[Asia/Tokyo]")
+public class TOnAirKanriInfo {
 
   @JsonProperty("items")
-  private MProgram items;
+  private TOnAirKanri items;
 
-  public ProgramInfo items(MProgram items) {
+  public TOnAirKanriInfo items(TOnAirKanri items) {
     this.items = items;
     return this;
   }
@@ -32,11 +32,11 @@ public class ProgramInfo {
   */
   @Valid 
   @Schema(name = "items", required = false)
-  public MProgram getItems() {
+  public TOnAirKanri getItems() {
     return items;
   }
 
-  public void setItems(MProgram items) {
+  public void setItems(TOnAirKanri items) {
     this.items = items;
   }
 
@@ -48,8 +48,8 @@ public class ProgramInfo {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProgramInfo programInfo = (ProgramInfo) o;
-    return Objects.equals(this.items, programInfo.items);
+    TOnAirKanriInfo tOnAirKanriInfo = (TOnAirKanriInfo) o;
+    return Objects.equals(this.items, tOnAirKanriInfo.items);
   }
 
   @Override
@@ -60,7 +60,7 @@ public class ProgramInfo {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ProgramInfo {\n");
+    sb.append("class TOnAirKanriInfo {\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -12,7 +12,7 @@ import com.talent.infrastructure.dto.ProgramMasterDto;
 import com.talent.infrastructure.dto.TalentMasterDto;
 import com.talent.infrastructure.repository.mapper.generated.MProgramMapper;
 import com.talent.infrastructure.repository.mapper.generated.MTalentMapper;
-import com.talent.infrastructure.repository.mapper.generated.TOnairKanriMapper;
+import com.talent.infrastructure.repository.mapper.generated.TOnAirKanriMapper;
 
 import lombok.RequiredArgsConstructor;
 
@@ -24,7 +24,7 @@ import lombok.RequiredArgsConstructor;
 public class ShukanTalentJohoService {
 	// mapperの宣言
     private final MTalentMapper mTalentMapper;
-    private final TOnairKanriMapper tOnairKanriMapper;
+    private final TOnAirKanriMapper tOnAirKanriMapper;
     private final MProgramMapper mProgramMapper;
     // helperの宣言
     private final ShukanTalentJohoHelper helper;
@@ -49,7 +49,7 @@ public class ShukanTalentJohoService {
 		for(TalentMasterDto dto:talentMasterDto) talentIdList.add(dto.getTalentId());
 
     	// オンエア管理テーブル検索
-		List<OnAirKanriTableDto> onAirKanriTableDto = tOnairKanriMapper.select(nentsuki, shu, talentIdList);
+		List<OnAirKanriTableDto> onAirKanriTableDto = tOnAirKanriMapper.select(nentsuki, shu, talentIdList);
 
     	// 番組マスタ検索（オンエア管理テーブル検索が存在する場合のみ実施）
 		List<ProgramMasterDto> programMasterDto = new ArrayList<ProgramMasterDto>();

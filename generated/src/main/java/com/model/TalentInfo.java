@@ -10,18 +10,18 @@ import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 
 /**
- * 番組マスタ情報DTO
+ * タレントマスタ情報DTO
  */
 
-@Schema(name = "programInfo", description = "番組マスタ情報DTO")
-@JsonTypeName("programInfo")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-24T18:21:25.076926+09:00[Asia/Tokyo]")
-public class ProgramInfo {
+@Schema(name = "talentInfo", description = "タレントマスタ情報DTO")
+@JsonTypeName("talentInfo")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-24T18:23:59.459401+09:00[Asia/Tokyo]")
+public class TalentInfo {
 
   @JsonProperty("items")
-  private MProgram items;
+  private MTalent items;
 
-  public ProgramInfo items(MProgram items) {
+  public TalentInfo items(MTalent items) {
     this.items = items;
     return this;
   }
@@ -32,11 +32,11 @@ public class ProgramInfo {
   */
   @Valid 
   @Schema(name = "items", required = false)
-  public MProgram getItems() {
+  public MTalent getItems() {
     return items;
   }
 
-  public void setItems(MProgram items) {
+  public void setItems(MTalent items) {
     this.items = items;
   }
 
@@ -48,8 +48,8 @@ public class ProgramInfo {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProgramInfo programInfo = (ProgramInfo) o;
-    return Objects.equals(this.items, programInfo.items);
+    TalentInfo talentInfo = (TalentInfo) o;
+    return Objects.equals(this.items, talentInfo.items);
   }
 
   @Override
@@ -60,7 +60,7 @@ public class ProgramInfo {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ProgramInfo {\n");
+    sb.append("class TalentInfo {\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("}");
     return sb.toString();

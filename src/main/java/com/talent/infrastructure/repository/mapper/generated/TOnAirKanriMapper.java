@@ -7,6 +7,6 @@ import org.apache.ibatis.annotations.Mapper;
 import com.talent.infrastructure.dto.OnAirKanriTableDto;
 
 @Mapper
-public interface TOnairKanriMapper {
+public interface TOnAirKanriMapper {
 	List<OnAirKanriTableDto> select(Integer nentsuki, Integer shu, List<String> talentIdList);
 }

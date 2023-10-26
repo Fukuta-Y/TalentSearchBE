@@ -1,6 +1,9 @@
 package com.model;
 
+import java.time.OffsetDateTime;
 import java.util.Objects;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -17,16 +20,17 @@ import jakarta.validation.constraints.Size;
  * オンエア管理テーブル情報（全列）
  */
 
-@Schema(name = "tOnAirKanri", description = "オンエア管理テーブル情報（全列）")
-@JsonTypeName("tOnAirKanri")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-24T18:26:17.261906+09:00[Asia/Tokyo]")
-public class TOnAirKanri {
+@Schema(name = "tOnAirKanri_1", description = "オンエア管理テーブル情報（全列）")
+@JsonTypeName("tOnAirKanri_1")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-24T18:16:02.285946+09:00[Asia/Tokyo]")
+public class TOnAirKanri1 {
 
   @JsonProperty("id")
   private String id;
 
   @JsonProperty("onAirDay")
-  private String onAirDay;
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+  private OffsetDateTime onAirDay;
 
   @JsonProperty("programId")
   private String programId;
@@ -34,11 +38,11 @@ public class TOnAirKanri {
   @JsonProperty("talentId")
   private String talentId;
 
-  @JsonProperty("nentsuki")
-  private Integer nentsuki;
+  @JsonProperty("targetNentsuki")
+  private Integer targetNentsuki;
 
-  @JsonProperty("shu")
-  private Integer shu;
+  @JsonProperty("targetShu")
+  private Integer targetShu;
 
   @JsonProperty("deleteFlg")
   private Integer deleteFlg;
@@ -49,7 +53,7 @@ public class TOnAirKanri {
   @JsonProperty("koushinDay")
   private String koushinDay;
 
-  public TOnAirKanri id(String id) {
+  public TOnAirKanri1 id(String id) {
     this.id = id;
     return this;
   }
@@ -68,7 +72,7 @@ public class TOnAirKanri {
     this.id = id;
   }
 
-  public TOnAirKanri onAirDay(String onAirDay) {
+  public TOnAirKanri1 onAirDay(OffsetDateTime onAirDay) {
     this.onAirDay = onAirDay;
     return this;
   }
@@ -79,15 +83,15 @@ public class TOnAirKanri {
   */
   @Valid 
   @Schema(name = "onAirDay", description = "オンエア日", required = false)
-  public String getonAirDay() {
+  public OffsetDateTime getOnAirDay() {
     return onAirDay;
   }
 
-  public void setonAirDay(String onAirDay) {
+  public void setOnAirDay(OffsetDateTime onAirDay) {
     this.onAirDay = onAirDay;
   }
 
-  public TOnAirKanri programId(String programId) {
+  public TOnAirKanri1 programId(String programId) {
     this.programId = programId;
     return this;
   }
@@ -106,7 +110,7 @@ public class TOnAirKanri {
     this.programId = programId;
   }
 
-  public TOnAirKanri talentId(String talentId) {
+  public TOnAirKanri1 talentId(String talentId) {
     this.talentId = talentId;
     return this;
   }
@@ -125,8 +129,8 @@ public class TOnAirKanri {
     this.talentId = talentId;
   }
 
-  public TOnAirKanri nentsuki(Integer nentsuki) {
-    this.nentsuki = nentsuki;
+  public TOnAirKanri1 targetNentsuki(Integer targetNentsuki) {
+    this.targetNentsuki = targetNentsuki;
     return this;
   }
 
@@ -134,20 +138,20 @@ public class TOnAirKanri {
    * 対象年月
    * minimum: 1990
    * maximum: 2100
-   * @return nentsuki
+   * @return targetNentsuki
   */
   @Min(1990) @Max(2100) 
-  @Schema(name = "nentsuki", description = "対象年月", required = false)
-  public Integer getnentsuki() {
-    return nentsuki;
+  @Schema(name = "targetNentsuki", description = "対象年月", required = false)
+  public Integer getTargetNentsuki() {
+    return targetNentsuki;
   }
 
-  public void setnentsuki(Integer nentsuki) {
-    this.nentsuki = nentsuki;
+  public void setTargetNentsuki(Integer targetNentsuki) {
+    this.targetNentsuki = targetNentsuki;
   }
 
-  public TOnAirKanri shu(Integer shu) {
-    this.shu = shu;
+  public TOnAirKanri1 targetShu(Integer targetShu) {
+    this.targetShu = targetShu;
     return this;
   }
 
@@ -155,19 +159,19 @@ public class TOnAirKanri {
    * 対象週
    * minimum: 1
    * maximum: 5
-   * @return shu
+   * @return targetShu
   */
   @Min(1) @Max(5) 
-  @Schema(name = "shu", description = "対象週", required = false)
-  public Integer getshu() {
-    return shu;
+  @Schema(name = "targetShu", description = "対象週", required = false)
+  public Integer getTargetShu() {
+    return targetShu;
   }
 
-  public void setshu(Integer shu) {
-    this.shu = shu;
+  public void setTargetShu(Integer targetShu) {
+    this.targetShu = targetShu;
   }
 
-  public TOnAirKanri deleteFlg(Integer deleteFlg) {
+  public TOnAirKanri1 deleteFlg(Integer deleteFlg) {
     this.deleteFlg = deleteFlg;
     return this;
   }
@@ -188,7 +192,7 @@ public class TOnAirKanri {
     this.deleteFlg = deleteFlg;
   }
 
-  public TOnAirKanri torokuDay(String torokuDay) {
+  public TOnAirKanri1 torokuDay(String torokuDay) {
     this.torokuDay = torokuDay;
     return this;
   }
@@ -207,7 +211,7 @@ public class TOnAirKanri {
     this.torokuDay = torokuDay;
   }
 
-  public TOnAirKanri koushinDay(String koushinDay) {
+  public TOnAirKanri1 koushinDay(String koushinDay) {
     this.koushinDay = koushinDay;
     return this;
   }
@@ -234,33 +238,33 @@ public class TOnAirKanri {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TOnAirKanri tOnAirKanri = (TOnAirKanri) o;
-    return Objects.equals(this.id, tOnAirKanri.id) &&
-        Objects.equals(this.onAirDay, tOnAirKanri.onAirDay) &&
-        Objects.equals(this.programId, tOnAirKanri.programId) &&
-        Objects.equals(this.talentId, tOnAirKanri.talentId) &&
-        Objects.equals(this.nentsuki, tOnAirKanri.nentsuki) &&
-        Objects.equals(this.shu, tOnAirKanri.shu) &&
-        Objects.equals(this.deleteFlg, tOnAirKanri.deleteFlg) &&
-        Objects.equals(this.torokuDay, tOnAirKanri.torokuDay) &&
-        Objects.equals(this.koushinDay, tOnAirKanri.koushinDay);
+    TOnAirKanri1 tOnAirKanri1 = (TOnAirKanri1) o;
+    return Objects.equals(this.id, tOnAirKanri1.id) &&
+        Objects.equals(this.onAirDay, tOnAirKanri1.onAirDay) &&
+        Objects.equals(this.programId, tOnAirKanri1.programId) &&
+        Objects.equals(this.talentId, tOnAirKanri1.talentId) &&
+        Objects.equals(this.targetNentsuki, tOnAirKanri1.targetNentsuki) &&
+        Objects.equals(this.targetShu, tOnAirKanri1.targetShu) &&
+        Objects.equals(this.deleteFlg, tOnAirKanri1.deleteFlg) &&
+        Objects.equals(this.torokuDay, tOnAirKanri1.torokuDay) &&
+        Objects.equals(this.koushinDay, tOnAirKanri1.koushinDay);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, onAirDay, programId, talentId, nentsuki, shu, deleteFlg, torokuDay, koushinDay);
+    return Objects.hash(id, onAirDay, programId, talentId, targetNentsuki, targetShu, deleteFlg, torokuDay, koushinDay);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TOnAirKanri {\n");
+    sb.append("class TOnAirKanri1 {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    onAirDay: ").append(toIndentedString(onAirDay)).append("\n");
     sb.append("    programId: ").append(toIndentedString(programId)).append("\n");
     sb.append("    talentId: ").append(toIndentedString(talentId)).append("\n");
-    sb.append("    nentsuki: ").append(toIndentedString(nentsuki)).append("\n");
-    sb.append("    shu: ").append(toIndentedString(shu)).append("\n");
+    sb.append("    targetNentsuki: ").append(toIndentedString(targetNentsuki)).append("\n");
+    sb.append("    targetShu: ").append(toIndentedString(targetShu)).append("\n");
     sb.append("    deleteFlg: ").append(toIndentedString(deleteFlg)).append("\n");
     sb.append("    torokuDay: ").append(toIndentedString(torokuDay)).append("\n");
     sb.append("    koushinDay: ").append(toIndentedString(koushinDay)).append("\n");
