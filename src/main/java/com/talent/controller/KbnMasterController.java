@@ -21,9 +21,10 @@ public class KbnMasterController implements KbnMasterApi{
 	 /**
 	 * 区分マスタ検索Controller
 	 *
-	 * @param genreIds 番組ID
+	 * @param genreIds ジャンルID
 	 * @return ResponseEntity<List<KbnMaster>>
 	 */
+	@Override
 	public ResponseEntity<List<KbnMaster>> getKbnMaster(String genreIds) {
 	
 		// KbnMasterServiceより取得

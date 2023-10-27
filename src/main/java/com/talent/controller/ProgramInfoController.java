@@ -21,6 +21,7 @@ public class ProgramInfoController implements ProgramInfoApi{
 	 * 
 	 * @param programId 番組ID
 	 */
+	@Override
 	public ResponseEntity<ProgramInfo> getProgramInfo(String programId) {
 		// ProgramInfoServiceより取得
 		ProgramInfo response = service.select(programId);
