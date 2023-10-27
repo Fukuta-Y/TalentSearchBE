@@ -18,7 +18,7 @@ import jakarta.validation.constraints.Size;
 
 @Schema(name = "mProgram", description = "番組マスタ情報（全列）")
 @JsonTypeName("mProgram")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-24T18:21:25.076926+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-27T19:48:16.567930400+09:00[Asia/Tokyo]")
 public class MProgram {
 
   @JsonProperty("programId")

@@ -33,11 +33,8 @@ paths:
 components:
   schemas:
     programInfo:
-      description: 番組情報
+      description: 番組マスタ情報DTO
       type: object
       properties:
-        mProgram:
-          description: 番組マスタDTO
-          type: array
-          items:
-            $ref: "../../TalentSearchCommon/Tables/mProgram.yaml#/components/schemas/mProgram"
+        items:
+          $ref: "../../TalentSearchCommon/Tables/mProgram.yaml#/components/schemas/mProgram"

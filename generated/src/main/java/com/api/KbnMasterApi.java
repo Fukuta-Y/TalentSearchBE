@@ -9,9 +9,9 @@ import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.model.KbnMaster;
 
@@ -47,11 +47,7 @@ public interface KbnMasterApi {
             })
         }
     )
-    @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/kbnMaster/{genreIds}}",
-        produces = { "application/json" }
-    )
+    @GetMapping("/kbnMaster/genreIds")
     ResponseEntity<List<KbnMaster>> getKbnMaster(
         @Size(max = 8) @Parameter(name = "genreIds", description = "", required = true) @PathVariable("genreIds") String genreIds
     );
