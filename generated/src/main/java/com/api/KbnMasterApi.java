@@ -47,7 +47,7 @@ public interface KbnMasterApi {
             })
         }
     )
-    @GetMapping("/kbnMaster/{progenreIdsgramId}")
+    @GetMapping("/kbnMaster/{genreIds}")
     ResponseEntity<List<KbnMaster>> getKbnMaster(
         @Size(max = 8) @Parameter(name = "genreIds", description = "", required = true) @PathVariable("genreIds") String genreIds
     );

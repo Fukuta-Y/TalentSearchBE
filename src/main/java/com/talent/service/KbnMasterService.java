@@ -21,7 +21,7 @@ public class KbnMasterService {
 
 	// mapperの宣言
 	private final MKbnGenreMapper mKbnGenreMapper;
-	
+	// helperの宣言
 	private final KbnMasterHelper helper;
 
 	  /**
@@ -44,11 +44,10 @@ public class KbnMasterService {
 
 	 	// 区分マスタ検索
         List<KbnGenreMasterDto> kbnList = mKbnGenreMapper.select(genreIdList);
-        System.out.println("kbnList:" + kbnList);
-	
-	     // Responseへ設定
-        response = helper.toModel(kbnList);
-        System.out.println("response:" + response);
+        // 区分の結果を設定
+        for (KbnGenreMasterDto dto : kbnList) {
+        	response.add(helper.toModel(dto));
+        }
         
 		// responseの返却
 	 	return response;
