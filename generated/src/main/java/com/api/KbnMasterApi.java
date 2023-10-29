@@ -24,7 +24,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Generated;
 import jakarta.validation.constraints.Size;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-17T11:33:54.581981+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-29T21:08:21.181617+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "kbnMaster", description = "the kbnMaster API")
 @RequestMapping("${openapi..base-path:}")
@@ -47,7 +47,7 @@ public interface KbnMasterApi {
             })
         }
     )
-    @GetMapping("/kbnMaster/genreIds")
+    @GetMapping("/kbnMaster/{progenreIdsgramId}")
     ResponseEntity<List<KbnMaster>> getKbnMaster(
         @Size(max = 8) @Parameter(name = "genreIds", description = "", required = true) @PathVariable("genreIds") String genreIds
     );

@@ -41,12 +41,15 @@ public class KbnMasterService {
         for (String list : idList) {
         	genreIdList.add(Integer.parseInt(list));
         }
+
 	 	// 区分マスタ検索
         List<KbnGenreMasterDto> kbnList = mKbnGenreMapper.select(genreIdList);
+        System.out.println("kbnList:" + kbnList);
 	
 	     // Responseへ設定
         response = helper.toModel(kbnList);
-	
+        System.out.println("response:" + response);
+        
 		// responseの返却
 	 	return response;
 	}

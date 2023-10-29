@@ -27,7 +27,6 @@ paths:
           content:
             application/json:
               schema:
-                type: object
                 items:
                   $ref: '#/components/schemas/kbnMaster'      
 components:
@@ -36,8 +35,5 @@ components:
       description: 区分マスタ
       type: object
       properties:
-        mKbnGenre:
-          description: 区分マスタDTO
-          type: array
           items:
             $ref: "../../TalentSearchCommon/Tables/mKbnGenre.yaml#/components/schemas/mKbnGenre"

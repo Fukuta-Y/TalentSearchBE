@@ -1,7 +1,5 @@
 package com.model;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,38 +15,29 @@ import jakarta.validation.Valid;
 
 @Schema(name = "kbnMaster", description = "区分マスタ")
 @JsonTypeName("kbnMaster")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-17T11:33:54.581981+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-29T21:08:21.181617+09:00[Asia/Tokyo]")
 public class KbnMaster {
 
-  @JsonProperty("mKbnGenre")
-  @Valid
-  private List<MKbnGenre> mKbnGenre = null;
+  @JsonProperty("items")
+  private MKbnGenre items;
 
-  public KbnMaster mKbnGenre(List<MKbnGenre> mKbnGenre) {
-    this.mKbnGenre = mKbnGenre;
-    return this;
-  }
-
-  public KbnMaster addMKbnGenreItem(MKbnGenre mKbnGenreItem) {
-    if (this.mKbnGenre == null) {
-      this.mKbnGenre = new ArrayList<>();
-    }
-    this.mKbnGenre.add(mKbnGenreItem);
+  public KbnMaster items(MKbnGenre items) {
+    this.items = items;
     return this;
   }
 
   /**
-   * 区分マスタDTO
-   * @return mKbnGenre
+   * Get items
+   * @return items
   */
   @Valid 
-  @Schema(name = "mKbnGenre", description = "区分マスタDTO", required = false)
-  public List<MKbnGenre> getmKbnGenre() {
-    return mKbnGenre;
+  @Schema(name = "items", required = false)
+  public MKbnGenre getItems() {
+    return items;
   }
 
-  public void setmKbnGenre(List<MKbnGenre> mKbnGenre) {
-    this.mKbnGenre = mKbnGenre;
+  public void setItems(MKbnGenre items) {
+    this.items = items;
   }
 
   @Override
@@ -60,19 +49,19 @@ public class KbnMaster {
       return false;
     }
     KbnMaster kbnMaster = (KbnMaster) o;
-    return Objects.equals(this.mKbnGenre, kbnMaster.mKbnGenre);
+    return Objects.equals(this.items, kbnMaster.items);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(mKbnGenre);
+    return Objects.hash(items);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class KbnMaster {\n");
-    sb.append("    mKbnGenre: ").append(toIndentedString(mKbnGenre)).append("\n");
+    sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("}");
     return sb.toString();
   }
