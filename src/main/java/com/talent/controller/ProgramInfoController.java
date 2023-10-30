@@ -25,7 +25,6 @@ public class ProgramInfoController implements ProgramInfoApi{
 	public ResponseEntity<ProgramInfos> getProgramInfo(String programId) {
 		// ProgramInfoServiceより取得
 		ProgramInfos response = service.select(programId);
-		System.err.print("ProgramInfo_response:" + response);
 		return ResponseEntity.ok(response);
 	}
 	

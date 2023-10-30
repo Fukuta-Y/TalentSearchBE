@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.model.KbnMasterInfo;
+import com.model.KbnMasterInfos;
 import com.model.MKbnGenre;
 import com.talent.infrastructure.dto.KbnGenreMasterDto;
 import com.talent.infrastructure.repository.mapper.generated.MKbnGenreMapper;
@@ -30,10 +30,10 @@ public class KbnMasterService {
 	  * @param genreIds ジャンルID 【複数】
 	  * @return List<KbnMaster>
 	  */
-	public KbnMasterInfo select(String  genreIds) {
+	public KbnMasterInfos select(String  genreIds) {
 	
 	 	// List<KbnMaster>をResponseに設定
-		KbnMasterInfo response = new KbnMasterInfo();
+		KbnMasterInfos response = new KbnMasterInfos();
 	 	
 		// genreIdsをカンマ区切りで配列へ設定
 		List<Integer> genreIdList = new ArrayList<Integer>();
@@ -48,7 +48,7 @@ public class KbnMasterService {
 
         List<MKbnGenre> genreList= helper.toModel(kbnList);
         
-        response.setKbnMaster(genreList);
+        response.setmKbnGenre(genreList);
         
 		// responseの返却
 	 	return response;

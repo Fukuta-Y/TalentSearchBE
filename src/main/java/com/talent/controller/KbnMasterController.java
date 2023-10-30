@@ -4,10 +4,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
 import com.api.KbnMasterApi;
-import com.model.KbnMasterInfo;
+import com.model.KbnMasterInfos;
 import com.talent.service.KbnMasterService;
 
-import jakarta.validation.constraints.Size;
 import lombok.RequiredArgsConstructor;
 
 @Controller
@@ -24,10 +23,9 @@ public class KbnMasterController implements KbnMasterApi{
 	 * @return ResponseEntity<List<KbnMaster>>
 	 */
 	@Override
-	public ResponseEntity<KbnMasterInfo> getKbnMaster(@Size(max = 8) String genreIds) {
+	public ResponseEntity<KbnMasterInfos> getKbnMaster(String genreIds) {
 		// KbnMasterServiceより取得
-		KbnMasterInfo response = service.select(genreIds);
-		System.err.print("KbnMasterInfo_response:" + response);
+		KbnMasterInfos response = service.select(genreIds);
 		return ResponseEntity.ok(response);
 	}
 }

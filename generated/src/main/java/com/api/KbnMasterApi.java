@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.model.KbnMasterInfo;
+import com.model.KbnMasterInfos;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -22,7 +22,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Generated;
 import jakarta.validation.constraints.Size;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-30T21:54:16.344521+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-30T23:10:23.264105+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "kbnMaster", description = "the kbnMaster API")
 @RequestMapping("${openapi..base-path:}")
@@ -41,12 +41,12 @@ public interface KbnMasterApi {
         tags = { "kbnMaster" },
         responses = {
             @ApiResponse(responseCode = "200", description = "区分マスタを正常取得", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = KbnMasterInfo.class))
+                @Content(mediaType = "application/json", schema = @Schema(implementation = KbnMasterInfos.class))
             })
         }
     )
     @GetMapping("/kbnMaster/{genreIds}")
-    ResponseEntity<KbnMasterInfo> getKbnMaster(
+    ResponseEntity<KbnMasterInfos> getKbnMaster(
         @Size(max = 8) @Parameter(name = "genreIds", description = "", required = true) @PathVariable("genreIds") String genreIds
     );
 
