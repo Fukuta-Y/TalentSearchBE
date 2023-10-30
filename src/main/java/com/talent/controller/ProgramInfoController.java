@@ -4,7 +4,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
 import com.api.ProgramInfoApi;
-import com.model.ProgramInfo;
+import com.model.ProgramInfos;
 import com.talent.service.ProgramInfoService;
 
 import lombok.RequiredArgsConstructor;
@@ -19,12 +19,12 @@ public class ProgramInfoController implements ProgramInfoApi{
 	/**
 	 * 番組マスタ検索Controller
 	 * 
-	 * @param programId 番組ID
+	 * @param programId 番組IDx
 	 */
 	@Override
-	public ResponseEntity<ProgramInfo> getProgramInfo(String programId) {
+	public ResponseEntity<ProgramInfos> getProgramInfo(String programId) {
 		// ProgramInfoServiceより取得
-		ProgramInfo response = service.select(programId);
+		ProgramInfos response = service.select(programId);
 		System.err.print("ProgramInfo_response:" + response);
 		return ResponseEntity.ok(response);
 	}

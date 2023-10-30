@@ -27,12 +27,16 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/programInfo'      
+                $ref: '#/components/schemas/programInfos'
 components:
   schemas:
-    programInfo:
+    programInfos:
       description: 番組マスタ情報DTO
       type: object
-      properties:  
-        items:
-          $ref: "../../TalentSearchCommon/Tables/mProgram.yaml#/components/schemas/mProgram"
+      properties:
+        mProgram:
+          description: 番組マスタDTO
+          type: array
+          items:
+            $ref: "../../TalentSearchCommon/Tables/mProgram.yaml#/components/schemas/mProgram"
+ 
