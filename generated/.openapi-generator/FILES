@@ -1,6 +1,6 @@
 README.md
 pom.xml
 src/main/java/com/api/ApiUtil.java
-src/main/java/com/api/KbnMasterApi.java
-src/main/java/com/model/KbnMaster.java
-src/main/java/com/model/MKbnGenre.java
+src/main/java/com/api/ProgramInfoApi.java
+src/main/java/com/model/MProgram.java
+src/main/java/com/model/ProgramInfo.java

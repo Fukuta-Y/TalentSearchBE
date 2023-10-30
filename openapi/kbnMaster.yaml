@@ -27,13 +27,12 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/kbnMaster'      
+                $ref: '#/components/schemas/kbnMaster'      
 components:
   schemas:
     kbnMaster:
-      description: 区分マスタ
+      description: 区分マスタDTO
       type: object
       properties:
-          items:
-            $ref: "../../TalentSearchCommon/Tables/mKbnGenre.yaml#/components/schemas/mKbnGenre"
+         items:
+          $ref: "../../TalentSearchCommon/Tables/mKbnGenre.yaml#/components/schemas/mKbnGenre"

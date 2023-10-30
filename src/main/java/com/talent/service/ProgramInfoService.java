@@ -45,7 +45,7 @@ public class ProgramInfoService {
 	     // Responseへ設定
 		MProgram program = helper.toModel(programList.get(0));
 		
-	 	response.setItems(program);
+	 	response.setmProgram(program);
 	
 		// responseの返却
 	 	return response;

@@ -22,7 +22,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Generated;
 import jakarta.validation.constraints.Size;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-27T19:48:16.567930400+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-30T09:56:15.797989+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "programInfo", description = "the programInfo API")
 @RequestMapping("${openapi..base-path:}")

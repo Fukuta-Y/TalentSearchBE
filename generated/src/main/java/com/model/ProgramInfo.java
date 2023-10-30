@@ -15,29 +15,35 @@ import jakarta.validation.Valid;
 
 @Schema(name = "programInfo", description = "番組マスタ情報DTO")
 @JsonTypeName("programInfo")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-27T19:48:16.567930400+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-30T09:56:15.797989+09:00[Asia/Tokyo]")
 public class ProgramInfo {
 
-  @JsonProperty("items")
-  private MProgram items;
+  @JsonProperty("mProgram")
+  @Valid
+  private MProgram mProgram = null;
 
-  public ProgramInfo items(MProgram items) {
-    this.items = items;
+  public ProgramInfo mProgram(MProgram mProgram) {
+    this.mProgram = mProgram;
+    return this;
+  }
+
+  public ProgramInfo addMProgramItem(MProgram mProgramItem) {
+    this.mProgram = mProgramItem;
     return this;
   }
 
   /**
-   * Get items
-   * @return items
+   * 番組マスタDTO
+   * @return mProgram
   */
   @Valid 
-  @Schema(name = "items", required = false)
-  public MProgram getItems() {
-    return items;
+  @Schema(name = "mProgram", description = "番組マスタDTO", required = false)
+  public MProgram getmProgram() {
+    return mProgram;
   }
 
-  public void setItems(MProgram items) {
-    this.items = items;
+  public void setmProgram(MProgram mProgram) {
+    this.mProgram = mProgram;
   }
 
   @Override
@@ -49,19 +55,19 @@ public class ProgramInfo {
       return false;
     }
     ProgramInfo programInfo = (ProgramInfo) o;
-    return Objects.equals(this.items, programInfo.items);
+    return Objects.equals(this.mProgram, programInfo.mProgram);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(items);
+    return Objects.hash(mProgram);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProgramInfo {\n");
-    sb.append("    items: ").append(toIndentedString(items)).append("\n");
+    sb.append("    mProgram: ").append(toIndentedString(mProgram)).append("\n");
     sb.append("}");
     return sb.toString();
   }
