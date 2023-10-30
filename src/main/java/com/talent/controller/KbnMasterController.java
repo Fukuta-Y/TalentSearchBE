@@ -1,14 +1,13 @@
 package com.talent.controller;
 
-import java.util.List;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
 import com.api.KbnMasterApi;
-import com.model.KbnMaster;
+import com.model.KbnMasterInfo;
 import com.talent.service.KbnMasterService;
 
+import jakarta.validation.constraints.Size;
 import lombok.RequiredArgsConstructor;
 
 @Controller
@@ -17,7 +16,7 @@ public class KbnMasterController implements KbnMasterApi{
 	
 	// KbnMasterServiceを宣言
 	private final KbnMasterService service;
-	
+
 	 /**
 	 * 区分マスタ検索Controller
 	 *
@@ -25,11 +24,10 @@ public class KbnMasterController implements KbnMasterApi{
 	 * @return ResponseEntity<List<KbnMaster>>
 	 */
 	@Override
-	public ResponseEntity<List<KbnMaster>> getKbnMaster(String genreIds) {
-	
+	public ResponseEntity<KbnMasterInfo> getKbnMaster(@Size(max = 8) String genreIds) {
 		// KbnMasterServiceより取得
-		List<KbnMaster> response = service.select(genreIds);
+		KbnMasterInfo response = service.select(genreIds);
+		System.err.print("KbnMasterInfo_response:" + response);
 		return ResponseEntity.ok(response);
 	}
-	
 }
