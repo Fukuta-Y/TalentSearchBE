@@ -27,9 +27,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                items:
-                  $ref: '#/components/schemas/chanelKyoku'      
+                $ref: '#/components/schemas/chanelKyoku'      
 components:
   schemas:
     chanelKyoku:
