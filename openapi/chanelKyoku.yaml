@@ -20,7 +20,7 @@ paths:
           required: true
           schema:
             type: string
-            maxLength: 8
+            maxLength: 100
       responses:
         '200':
           description: チャンネル局マスタを正常取得
