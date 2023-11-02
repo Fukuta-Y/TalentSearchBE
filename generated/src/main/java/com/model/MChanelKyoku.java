@@ -17,7 +17,7 @@ import jakarta.validation.constraints.NotNull;
 
 @Schema(name = "mChanelKyoku", description = "チャンネル局マスタ情報（全列）")
 @JsonTypeName("mChanelKyoku")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-01T23:48:50.628105+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-03T00:05:56.576346+09:00[Asia/Tokyo]")
 public class MChanelKyoku {
 
   @JsonProperty("chanelId")
@@ -70,13 +70,13 @@ public class MChanelKyoku {
    * maximum: 99
    * @return chanelKyokuId
   */
-  @NotNull @Min(0) @Max(99) 
-  @Schema(name = "chanelKyokuId", description = "チャンネル局ID", required = true)
-  public Integer getchanelKyokuId() {
+  @Min(0) @Max(99) 
+  @Schema(name = "chanelKyokuId", description = "チャンネル局ID", required = false)
+  public Integer getChanelKyokuId() {
     return chanelKyokuId;
   }
 
-  public void setchanelKyokuId(Integer chanelKyokuId) {
+  public void setChanelKyokuId(Integer chanelKyokuId) {
     this.chanelKyokuId = chanelKyokuId;
   }
 
@@ -185,7 +185,7 @@ public class MChanelKyoku {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class mChanelKyoku {\n");
+    sb.append("class MChanelKyoku {\n");
     sb.append("    chanelId: ").append(toIndentedString(chanelId)).append("\n");
     sb.append("    chanelKyokuId: ").append(toIndentedString(chanelKyokuId)).append("\n");
     sb.append("    areaId: ").append(toIndentedString(areaId)).append("\n");

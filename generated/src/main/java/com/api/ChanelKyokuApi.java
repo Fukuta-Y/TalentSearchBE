@@ -22,7 +22,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Generated;
 import jakarta.validation.constraints.Size;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-01T23:48:50.628105+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-03T00:05:56.576346+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "chanelKyoku", description = "the chanelKyoku API")
 @RequestMapping("${openapi..base-path:}")
@@ -47,7 +47,7 @@ public interface ChanelKyokuApi {
     )
     @GetMapping("/chanelKyoku/{chanelIds}")
     ResponseEntity<ChanelKyoku> getChanelKyoku(
-        @Size(max = 8) @Parameter(name = "chanelIds", description = "", required = true) @PathVariable("chanelIds") String chanelIds
+        @Size(max = 100) @Parameter(name = "chanelIds", description = "", required = true) @PathVariable("chanelIds") String chanelIds
     );
 
 }
