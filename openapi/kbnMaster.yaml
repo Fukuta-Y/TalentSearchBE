@@ -27,13 +27,11 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                items:
-                  $ref: '#/components/schemas/kbnMaster'      
+                $ref: '#/components/schemas/kbnMasterInfos'
 components:
   schemas:
-    kbnMaster:
-      description: 区分マスタ
+    kbnMasterInfos:
+      description:  区分マスタDTO
       type: object
       properties:
         mKbnGenre:
@@ -41,3 +39,4 @@ components:
           type: array
           items:
             $ref: "../../TalentSearchCommon/Tables/mKbnGenre.yaml#/components/schemas/mKbnGenre"
+ 

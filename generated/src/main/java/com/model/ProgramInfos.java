@@ -1,5 +1,7 @@
 package com.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -13,22 +15,25 @@ import jakarta.validation.Valid;
  * 番組マスタ情報DTO
  */
 
-@Schema(name = "programInfo", description = "番組マスタ情報DTO")
-@JsonTypeName("programInfo")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-30T09:56:15.797989+09:00[Asia/Tokyo]")
-public class ProgramInfo {
+@Schema(name = "programInfos", description = "番組マスタ情報DTO")
+@JsonTypeName("programInfos")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-30T22:43:01.549183+09:00[Asia/Tokyo]")
+public class ProgramInfos {
 
   @JsonProperty("mProgram")
   @Valid
-  private MProgram mProgram = null;
+  private List<MProgram> mProgram = null;
 
-  public ProgramInfo mProgram(MProgram mProgram) {
+  public ProgramInfos mProgram(List<MProgram> mProgram) {
     this.mProgram = mProgram;
     return this;
   }
 
-  public ProgramInfo addMProgramItem(MProgram mProgramItem) {
-    this.mProgram = mProgramItem;
+  public ProgramInfos addMProgramItem(MProgram mProgramItem) {
+    if (this.mProgram == null) {
+      this.mProgram = new ArrayList<>();
+    }
+    this.mProgram.add(mProgramItem);
     return this;
   }
 
@@ -38,11 +43,11 @@ public class ProgramInfo {
   */
   @Valid 
   @Schema(name = "mProgram", description = "番組マスタDTO", required = false)
-  public MProgram getmProgram() {
+  public List<MProgram> getmProgram() {
     return mProgram;
   }
 
-  public void setmProgram(MProgram mProgram) {
+  public void setmProgram(List<MProgram> mProgram) {
     this.mProgram = mProgram;
   }
 
@@ -54,8 +59,8 @@ public class ProgramInfo {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProgramInfo programInfo = (ProgramInfo) o;
-    return Objects.equals(this.mProgram, programInfo.mProgram);
+    ProgramInfos programInfos = (ProgramInfos) o;
+    return Objects.equals(this.mProgram, programInfos.mProgram);
   }
 
   @Override
@@ -66,7 +71,7 @@ public class ProgramInfo {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ProgramInfo {\n");
+    sb.append("class ProgramInfos {\n");
     sb.append("    mProgram: ").append(toIndentedString(mProgram)).append("\n");
     sb.append("}");
     return sb.toString();

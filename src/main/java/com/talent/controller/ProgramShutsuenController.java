@@ -17,7 +17,7 @@ public class ProgramShutsuenController implements ProgramShutsuenApi{
     private final ProgramShutsuenService service;
 
     /**
-     * 番組出演者検索BFFController
+     * 番組出演者検索Controller
      *
      * @param programId 番組ID
      * @param onairDay  オンエア日

@@ -5,13 +5,11 @@
  */
 package com.api;
 
-import java.util.List;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.model.ChanelKyoku;
 
@@ -24,7 +22,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Generated;
 import jakarta.validation.constraints.Size;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-17T11:36:41.544800+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-01T23:48:50.628105+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "chanelKyoku", description = "the chanelKyoku API")
 @RequestMapping("${openapi..base-path:}")
@@ -47,12 +45,8 @@ public interface ChanelKyokuApi {
             })
         }
     )
-    @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/chanelKyoku/{chanelIds}}",
-        produces = { "application/json" }
-    )
-    ResponseEntity<List<ChanelKyoku>> getChanelKyoku(
+    @GetMapping("/chanelKyoku/{chanelIds}")
+    ResponseEntity<ChanelKyoku> getChanelKyoku(
         @Size(max = 8) @Parameter(name = "chanelIds", description = "", required = true) @PathVariable("chanelIds") String chanelIds
     );
 
