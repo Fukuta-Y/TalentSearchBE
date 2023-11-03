@@ -27,10 +27,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/programInfos'
+                $ref: '#/components/schemas/programInfoList'
 components:
   schemas:
-    programInfos:
+    programInfoList:
       description: 番組マスタ情報DTO
       type: object
       properties:
