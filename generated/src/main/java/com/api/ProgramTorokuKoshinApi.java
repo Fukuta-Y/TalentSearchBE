@@ -5,8 +5,6 @@
  */
 package com.api;
 
-import java.util.List;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,7 +23,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-17T11:41:00.886316+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-03T17:33:43.773006+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "programTorokuKoshin", description = "the programTorokuKoshin API")
 @RequestMapping("${openapi..base-path:}")
@@ -54,7 +52,7 @@ public interface ProgramTorokuKoshinApi {
         produces = { "application/json" },
         consumes = { "application/json" }
     )
-    ResponseEntity<List<ProgramTorokuKoshin>> postProgramTorokuKoshin(
+    ResponseEntity<ProgramTorokuKoshin> postProgramTorokuKoshin(
         @Parameter(name = "MProgram", description = "番組情報を登録または更新する") @Valid @RequestBody(required = false) MProgram mprogram
     );
 

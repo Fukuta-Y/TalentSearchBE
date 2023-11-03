@@ -15,21 +15,21 @@ import jakarta.validation.Valid;
  * 区分マスタDTO
  */
 
-@Schema(name = "kbnMasterInfos", description = "区分マスタDTO")
-@JsonTypeName("kbnMasterInfos")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-30T23:10:23.264105+09:00[Asia/Tokyo]")
-public class KbnMasterInfos {
+@Schema(name = "kbnMasterList", description = "区分マスタDTO")
+@JsonTypeName("kbnMasterList")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-03T17:07:29.665089+09:00[Asia/Tokyo]")
+public class KbnMasterList {
 
   @JsonProperty("mKbnGenre")
   @Valid
   private List<MKbnGenre> mKbnGenre = null;
 
-  public KbnMasterInfos mKbnGenre(List<MKbnGenre> mKbnGenre) {
+  public KbnMasterList mKbnGenre(List<MKbnGenre> mKbnGenre) {
     this.mKbnGenre = mKbnGenre;
     return this;
   }
 
-  public KbnMasterInfos addMKbnGenreItem(MKbnGenre mKbnGenreItem) {
+  public KbnMasterList addMKbnGenreItem(MKbnGenre mKbnGenreItem) {
     if (this.mKbnGenre == null) {
       this.mKbnGenre = new ArrayList<>();
     }
@@ -59,8 +59,8 @@ public class KbnMasterInfos {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    KbnMasterInfos kbnMasterInfos = (KbnMasterInfos) o;
-    return Objects.equals(this.mKbnGenre, kbnMasterInfos.mKbnGenre);
+    KbnMasterList kbnMasterList = (KbnMasterList) o;
+    return Objects.equals(this.mKbnGenre, kbnMasterList.mKbnGenre);
   }
 
   @Override
@@ -71,7 +71,7 @@ public class KbnMasterInfos {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class KbnMasterInfos {\n");
+    sb.append("class KbnMasterList {\n");
     sb.append("    mKbnGenre: ").append(toIndentedString(mKbnGenre)).append("\n");
     sb.append("}");
     return sb.toString();

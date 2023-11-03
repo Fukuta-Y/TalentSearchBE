@@ -27,10 +27,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/kbnMasterInfos'
+                $ref: '#/components/schemas/kbnMasterList'
 components:
   schemas:
-    kbnMasterInfos:
+    kbnMasterList:
       description:  区分マスタDTO
       type: object
       properties:

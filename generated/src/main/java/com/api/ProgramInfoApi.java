@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.model.ProgramInfos;
+import com.model.ProgramInfo;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -41,12 +41,12 @@ public interface ProgramInfoApi {
         tags = { "programInfo" },
         responses = {
             @ApiResponse(responseCode = "200", description = "番組情報を正常取得", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = ProgramInfos.class))
+                @Content(mediaType = "application/json", schema = @Schema(implementation = ProgramInfo.class))
             })
         }
     )
     @GetMapping("/programInfo/{programId}")
-    ResponseEntity<ProgramInfos> getProgramInfo(
+    ResponseEntity<ProgramInfo> getProgramInfo(
         @Size(max = 8) @Parameter(name = "programId", description = "", required = true) @PathVariable("programId") String programId
     );
 

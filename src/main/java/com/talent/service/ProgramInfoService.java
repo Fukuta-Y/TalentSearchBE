@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.model.MProgram;
-import com.model.ProgramInfos;
+import com.model.ProgramInfo;
 import com.talent.infrastructure.dto.ProgramMasterDto;
 import com.talent.infrastructure.repository.mapper.generated.MProgramMapper;
 import com.talent.service.helper.MprogramHelper;
@@ -29,10 +29,10 @@ public class ProgramInfoService {
 	  * @param programId 番組ID
 	  * @return ProgramInfo
 	  */
-	public ProgramInfos select(String  programId) {
+	public ProgramInfo select(String  programId) {
 	
 	 	// ProgramInfoをResponseに設定
-		ProgramInfos response = new ProgramInfos();
+		ProgramInfo response = new ProgramInfo();
 	 	
         // 番組IDのリストを設定
         List<String> programIdList = new ArrayList<String>();
@@ -42,9 +42,10 @@ public class ProgramInfoService {
 	 	// 番組マスタ検索
 		List<ProgramMasterDto> programList = mProgramMapper.select(programIdList);
 	
+	     // Model変換
+		MProgram program = helper.toModel(programList.get(0));
+
 	     // Responseへ設定
-		List<MProgram> program = helper.toModel(programList);
-		
 	 	response.setmProgram(program);
 	
 		// responseの返却
