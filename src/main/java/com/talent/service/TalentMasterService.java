@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.model.MTalent;
+import com.model.TalentList;
 import com.talent.infrastructure.dto.TalentMasterDto;
 import com.talent.infrastructure.repository.mapper.generated.MTalentMapper;
 import com.talent.service.helper.MTalentHelper;
@@ -28,13 +29,14 @@ public class TalentMasterService {
 	  * @param talentId タレントID
 	  * @return MTalent
 	  */
-	public MTalent select(String talentId) {
+	public TalentList select(String talentId) {
 		// responseを宣言
-		MTalent respose = new MTalent();
+		TalentList respose = new TalentList();
 		// タレントマスタ検索する
-		List<TalentMasterDto> list = mTalentMapper.selectEx(talentId);
+		List<TalentMasterDto> talentListDto = mTalentMapper.selectEx(talentId);
 		// 戻りを変換する
-		respose = helper.toModel(list.get(0));
+		List<MTalent>  talentList= helper.toModel(talentListDto);
+		respose.setmTalent(talentList);
 		// responseの返却
 	 	return respose;
 	}

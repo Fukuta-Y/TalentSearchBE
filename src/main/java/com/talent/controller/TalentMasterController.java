@@ -4,7 +4,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
 import com.api.TalentMasterApi;
-import com.model.MTalent;
+import com.model.TalentList;
 import com.talent.service.TalentMasterService;
 
 import lombok.RequiredArgsConstructor;
@@ -23,8 +23,8 @@ public class TalentMasterController implements TalentMasterApi{
      * @return MTalent
      */
 	@Override
-	public ResponseEntity<MTalent> getTalentMaster(String talentId) {
-		MTalent response = service.select(talentId);
+	public ResponseEntity<TalentList> getTalentMaster(String talentId) {
+		TalentList response = service.select(talentId);
 		return ResponseEntity.ok(response);
 	}
 }
