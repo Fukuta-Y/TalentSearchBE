@@ -10,7 +10,7 @@
     <result column="TOROKU_DAY" jdbcType="TIMESTAMP" property="torokuDay" />
     <result column="KOUSHIN_DAY" jdbcType="TIMESTAMP" property="koushinDay" />
   </resultMap>
-  <resultMap id="MaxNoResultMap"  type="com.talent.infrastructure.dto.MaxNoDto" autoMapping="true">
+  <resultMap autoMapping="true" id="MaxNoResultMap" type="com.talent.infrastructure.dto.MaxNoDto">
     <result column="PROGRAM_ID" jdbcType="VARCHAR" property="programId" />
   </resultMap>
   <select id="select" parameterType="string" resultMap="BaseResultMap">
@@ -45,4 +45,13 @@
       #{genreId,jdbcType=INTEGER}, #{deleteFlg,jdbcType=INTEGER}, #{torokuDay,jdbcType=TIMESTAMP}, 
       #{koushinDay,jdbcType=TIMESTAMP})
   </insert>
+  <update id="update" parameterType="com.model.MProgram">
+     update M_PROGRAM set
+      PROGRAM_NAME = #{programName,jdbcType=VARCHAR},
+      CHANEL_ID = #{chanelId,jdbcType=INTEGER},
+      GENRE_ID = #{genreId,jdbcType=INTEGER},
+      KOUSHIN_DAY = #{koushinDay,jdbcType=TIMESTAMP}
+     WHERE
+      PROGRAM_ID = #{programId,jdbcType=VARCHAR}
+  </update>
 </mapper>

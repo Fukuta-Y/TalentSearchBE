@@ -16,5 +16,5 @@ public interface MProgramMapper {
 	
 	int insert(MProgram mProgram);
 	
-	ProgramMasterDto update(MProgram mProgram);
+	int update(MProgram mProgram);
 }
