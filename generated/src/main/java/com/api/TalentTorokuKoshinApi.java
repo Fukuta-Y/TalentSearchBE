@@ -5,14 +5,13 @@
  */
 package com.api;
 
-import java.util.List;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.model.MTalent;
 import com.model.TalentTorokuKoshin;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -24,7 +23,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-22T20:12:14.812373+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-04T23:00:27.727617+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "talentTorokuKoshin", description = "the talentTorokuKoshin API")
 @RequestMapping("${openapi..base-path:}")
@@ -34,7 +33,7 @@ public interface TalentTorokuKoshinApi {
      * POST /talentTorokuKoshin : タレントマスタ情報を登録または更新する
      * タレントマスタ情報を登録または更新する
      *
-     * @param talentTorokuKoshin タレントマスタ情報を登録または更新する (optional)
+     * @param mtalent タレントマスタ情報を登録または更新する (optional)
      * @return 登録または更新した番組マスタ情報 (status code 200)
      */
     @Operation(
@@ -53,8 +52,8 @@ public interface TalentTorokuKoshinApi {
         produces = { "application/json" },
         consumes = { "application/json" }
     )
-    ResponseEntity<List<TalentTorokuKoshin>> postTalentTorokuKoshin(
-        @Parameter(name = "TalentTorokuKoshin", description = "タレントマスタ情報を登録または更新する") @Valid @RequestBody(required = false) TalentTorokuKoshin talentTorokuKoshin
+    ResponseEntity<TalentTorokuKoshin> postTalentTorokuKoshin(
+        @Parameter(name = "MTalent", description = "タレントマスタ情報を登録または更新する") @Valid @RequestBody(required = false) MTalent mtalent
     );
 
 }

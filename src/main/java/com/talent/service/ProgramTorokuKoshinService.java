@@ -47,7 +47,7 @@ public class ProgramTorokuKoshinService {
 			// ※事前に最大番組ID（「SELECT MAX(番組ID) FROM 番組マスタ」）を取得して、
 			// 数値に変換して、「+1」を行い、0字埋めの8桁にして、番組IDとして設定する。
 			MaxNoDto programId = mProgramMapper.selectMaxNo();
-			Integer intMaxNo = Integer.parseInt(programId.getProgramId()) + 1;
+			Integer intMaxNo = Integer.parseInt(programId.getMaxId()) + 1;
 			String maxNo = String.format("%08d", intMaxNo);
 			// IDを差し替える
 			paramValue.setProgramId(maxNo); // プログラムIDを設定
