@@ -7,6 +7,6 @@ import com.talent.infrastructure.dto.ProgramMasterDto;
 import com.talent.setting.ConfigMapper;
 
 @Mapper(config = ConfigMapper.class)
-public interface MprogramHelper {
+public interface MProgramHelper {
 	MProgram toModel(ProgramMasterDto model);
  }

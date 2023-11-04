@@ -27,10 +27,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/mTalent'
+                $ref: '#/components/schemas/TalentList'
 components:
   schemas:
-    mTalent:
+    TalentList:
       description: タレントマスタDTOの情報
       type: object
       properties:
