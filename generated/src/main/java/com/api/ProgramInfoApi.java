@@ -10,8 +10,9 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.model.ProgramInfo;
+import com.model.ProgramInfoList;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -22,7 +23,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Generated;
 import jakarta.validation.constraints.Size;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-30T22:43:01.549183+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-04T14:17:25.766833+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "programInfo", description = "the programInfo API")
 @RequestMapping("${openapi..base-path:}")
@@ -41,12 +42,17 @@ public interface ProgramInfoApi {
         tags = { "programInfo" },
         responses = {
             @ApiResponse(responseCode = "200", description = "番組情報を正常取得", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = ProgramInfo.class))
+                @Content(mediaType = "application/json", schema = @Schema(implementation = ProgramInfoList.class))
             })
         }
     )
+    @RequestMapping(
+        method = RequestMethod.GET,
+        value = "/programInfo/{programId}",
+        produces = { "application/json" }
+    )
     @GetMapping("/programInfo/{programId}")
-    ResponseEntity<ProgramInfo> getProgramInfo(
+    ResponseEntity<ProgramInfoList> getProgramInfo(
         @Size(max = 8) @Parameter(name = "programId", description = "", required = true) @PathVariable("programId") String programId
     );
 
