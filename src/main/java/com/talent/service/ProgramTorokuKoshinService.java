@@ -67,9 +67,9 @@ public class ProgramTorokuKoshinService {
     		List<MProgram> MProgramList = new ArrayList<MProgram>();
     		MProgramList.add(paramValue);
     		response.setmProgram(MProgramList);
-          	System.err.println("登録/更新成功:");
+          	System.err.println("登録/更新成功");
         } else {
-          	System.err.println("登録/更新失敗:");
+          	System.err.println("登録/更新失敗");
         }
 		// responseの返却
 	 	return response;
