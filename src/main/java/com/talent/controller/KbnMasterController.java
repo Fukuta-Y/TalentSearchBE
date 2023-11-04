@@ -16,12 +16,12 @@ public class KbnMasterController implements KbnMasterApi{
 	// KbnMasterServiceを宣言
 	private final KbnMasterService service;
 
-	 /**
-	 * 区分マスタ検索Controller
-	 *
-	 * @param genreIds ジャンルID
-	 * @return ResponseEntity<List<KbnMaster>>
-	 */
+	/**
+	* 区分マスタ検索Controller
+	*
+	* @param genreIds ジャンルID
+	* @return KbnMasterList
+	*/
 	@Override
 	public ResponseEntity<KbnMasterList> getKbnMaster(String genreIds) {
 		// KbnMasterServiceより取得

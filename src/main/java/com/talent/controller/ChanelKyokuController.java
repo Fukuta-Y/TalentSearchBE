@@ -16,6 +16,12 @@ public class ChanelKyokuController implements ChanelKyokuApi{
 	// ChanelKyokuServiceを宣言
 	private final ChanelKyokuService service;
 
+	/**
+	* チャンネル局マスタ検索Controller
+	*
+	* @param chanelIds チャンネルID【複数】
+	* @return ChanelKyoku
+	*/
 	@Override
 	public ResponseEntity<ChanelKyoku> getChanelKyoku(String chanelIds) {
 		// KbnMasterServiceより取得

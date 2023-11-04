@@ -17,6 +17,12 @@ public class ProgramTorokuKoshinController implements ProgramTorokuKoshinApi{
 	// ProgramTorokuKoshinServiceを宣言
 	private final ProgramTorokuKoshinService service;
 
+    /**
+    * 番組登録・更新Controller
+    *
+    * @param mProgram　番組マスタDTO
+    * @return ProgramTorokuKoshin
+    */
 	@Override
 	public ResponseEntity<ProgramTorokuKoshin> postProgramTorokuKoshin(MProgram mProgram) {
 		ProgramTorokuKoshin response = new ProgramTorokuKoshin();

@@ -17,13 +17,13 @@ public class ShukanTalentJohoController implements ShukanTalentJohoApi{
     private final ShukanTalentJohoService service;
 
     /**
-     * 週間タレント別情報検索Controller
-     *
-     * @param nentsuki   年月
-     * @param shu        週
-     * @param talentName タレント名
-     * @return ResponseEntity<List<ShukanTalentJohoBFF>>
-     */
+    * 週間タレント別情報検索Controller
+    *
+    * @param nentsuki   年月
+    * @param shu        週
+    * @param talentName タレント名
+    * @return ShukanTalentJoho
+    */
 	@Override
 	public ResponseEntity<ShukanTalentJoho> getShukanTalentJoho(Integer nentsuki, Integer shu, String talentName) {
 		// ShukanTalentJohoServiceより取得

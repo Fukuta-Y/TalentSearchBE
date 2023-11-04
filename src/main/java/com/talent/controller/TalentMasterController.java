@@ -17,11 +17,11 @@ public class TalentMasterController implements TalentMasterApi{
 	private final TalentMasterService service;
 	
     /**
-     * タレントマスタ検索Controller
-     *
-     * @param talentId   タレントID
-     * @return MTalent
-     */
+    * タレントマスタ検索Controller
+    *
+    * @param talentId   タレントID
+    * @return TalentList
+    */
 	@Override
 	public ResponseEntity<TalentList> getTalentMaster(String talentId) {
 		TalentList response = service.select(talentId);

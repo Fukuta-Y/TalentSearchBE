@@ -7,5 +7,5 @@ import lombok.Data;
  */
 @Data
 public class MaxNoDto implements Serializable {
-   private String programId;
+   private String maxId;
 }

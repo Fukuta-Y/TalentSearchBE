@@ -21,7 +21,7 @@ public class YearMonthWeekStartEndController implements YearMonthWeekStartEndApi
     *
     * @param nentsuki  年月
     * @param shu       週
-    * @return ResponseEntity<YearMonthWeekStartEndJoho>
+    * @return YearMonthWeekStartEndJoho
     */
 	@Override
 	public ResponseEntity<YearMonthWeekStartEndJoho> getYearMonthWeekStartEnd(Integer nentsuki, Integer shu) {
