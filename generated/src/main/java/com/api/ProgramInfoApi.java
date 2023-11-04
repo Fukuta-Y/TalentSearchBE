@@ -10,7 +10,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.model.ProgramInfoList;
 
@@ -45,11 +44,6 @@ public interface ProgramInfoApi {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = ProgramInfoList.class))
             })
         }
-    )
-    @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/programInfo/{programId}",
-        produces = { "application/json" }
     )
     @GetMapping("/programInfo/{programId}")
     ResponseEntity<ProgramInfoList> getProgramInfo(

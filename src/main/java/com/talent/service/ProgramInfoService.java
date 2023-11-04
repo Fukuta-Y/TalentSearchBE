@@ -9,7 +9,7 @@ import com.model.MProgram;
 import com.model.ProgramInfoList;
 import com.talent.infrastructure.dto.ProgramMasterDto;
 import com.talent.infrastructure.repository.mapper.generated.MProgramMapper;
-import com.talent.service.helper.MprogramHelper;
+import com.talent.service.helper.MProgramHelper;
 
 import lombok.RequiredArgsConstructor;
 
@@ -21,8 +21,8 @@ import lombok.RequiredArgsConstructor;
 public class ProgramInfoService {
 	// mapperの宣言
 	private final MProgramMapper mProgramMapper;
-	
-	private final MprogramHelper helper;
+	// helperの宣言
+	private final MProgramHelper helper;
 
 	  /**
 	  * 番組マスタ検索Service

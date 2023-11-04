@@ -19,7 +19,6 @@ public class ProgramTorokuKoshinController implements ProgramTorokuKoshinApi{
 
 	@Override
 	public ResponseEntity<ProgramTorokuKoshin> postProgramTorokuKoshin(MProgram mProgram) {
-		// TODO 自動生成されたメソッド・スタブ
 		ProgramTorokuKoshin response = new ProgramTorokuKoshin();
 		response = service.post(mProgram);
 		return ResponseEntity.ok(response);
