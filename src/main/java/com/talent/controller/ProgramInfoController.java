@@ -17,11 +17,11 @@ public class ProgramInfoController implements ProgramInfoApi{
 	private final ProgramInfoService service;
 	
 	/**
-	 * 番組マスタ検索Controller
-	 * 
-	 * @param programId 番組ID
-	 * @return ProgramInfoList
-	 */
+	* 番組マスタ検索Controller
+	* 
+	* @param programId 番組ID
+	* @return ProgramInfoList
+	*/
 	@Override
 	public ResponseEntity<ProgramInfoList> getProgramInfo(String programId) {
 		// ProgramInfoServiceより取得

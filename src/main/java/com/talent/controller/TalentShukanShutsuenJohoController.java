@@ -22,7 +22,7 @@ public class TalentShukanShutsuenJohoController implements TalentShukanShutsuenJ
     * @param nentsuki  年月
     * @param shu       週
     * @param talentId タレントID
-    * @return ResponseEntity<TalentShukanShutsuenJoho>
+    * @return TalentShukanShutsuenJoho
     */
 	@Override
 	public ResponseEntity<TalentShukanShutsuenJoho> getTalentShukanShutsuenJoho(Integer nentsuki, Integer shu, String talentId) {

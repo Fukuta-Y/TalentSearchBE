@@ -17,12 +17,12 @@ public class ProgramShutsuenController implements ProgramShutsuenApi{
     private final ProgramShutsuenService service;
 
     /**
-     * 番組出演者検索Controller
-     *
-     * @param programId 番組ID
-     * @param onairDay  オンエア日
-     * @return ResponseEntity<ProgramShutsuenList>
-     */
+    * 番組出演者検索Controller
+    *
+    * @param programId 番組ID
+    * @param onairDay  オンエア日
+    * @return ProgramShutsuenList
+    */
 	@Override
 	public ResponseEntity<ProgramShutsuenList> getprogramShutsuen(String programId, String onairDay) {
 		// ProgramShutsuenServiceより取得
