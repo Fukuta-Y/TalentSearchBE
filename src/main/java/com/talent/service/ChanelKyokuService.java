@@ -22,17 +22,23 @@ public class ChanelKyokuService {
 
 	// mapperの宣言
 	private final MChanelKyokuMapper mChanelKyokuMapper;
+
 	// helperの宣言
 	private final MChanelKyokuHelper helper;
 
-	public ChanelKyoku select(String  genreIds) {
+	  /**
+	  * チャンネル局マスタ検索Service
+	  * @param chanelIds チャンネルID 【複数】
+	  * @return ChanelKyoku
+	  */
+	public ChanelKyoku select(String chanelIds) {
 	
 	 	// ChanelKyokuをResponseに設定
 		ChanelKyoku response = new ChanelKyoku();
 	 	
 		// genreIdsをカンマ区切りで配列へ設定
 		List<String> genreIdList = new ArrayList<String>();
-		String idList[] = genreIds.split(",");
+		String idList[] = chanelIds.split(",");
         // ジャンルIDの一覧のリスト
         for (String list : idList) {
         	genreIdList.add(list);
