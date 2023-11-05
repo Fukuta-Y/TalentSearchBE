@@ -12,7 +12,7 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
-public class onAirKanriController implements OnAirKanriApi{
+public class OnAirKanriController implements OnAirKanriApi{
 	
 	// onAirKanriServiceを宣言
 	private final onAirKanriService service;

@@ -25,8 +25,7 @@ public class ProgramTorokuKoshinController implements ProgramTorokuKoshinApi{
     */
 	@Override
 	public ResponseEntity<ProgramTorokuKoshin> postProgramTorokuKoshin(MProgram mProgram) {
-		ProgramTorokuKoshin response = new ProgramTorokuKoshin();
-		response = service.post(mProgram);
+		ProgramTorokuKoshin response = service.post(mProgram);
 		return ResponseEntity.ok(response);
 	}
 }
