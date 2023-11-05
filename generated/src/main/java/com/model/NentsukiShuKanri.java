@@ -1,9 +1,10 @@
 package com.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
@@ -13,31 +14,39 @@ import jakarta.validation.Valid;
  * 登録または更新した年月週管理マスタDTOの情報
  */
 
-@Schema(name = "nentsukiShuKanri", description = "登録または更新した年月週管理マスタDTOの情報")
-@JsonTypeName("nentsukiShuKanri")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-22T20:14:27.728145+09:00[Asia/Tokyo]")
+@Schema(name = "NentsukiShuKanri", description = "登録または更新した年月週管理マスタDTOの情報")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-05T13:00:58.990819+09:00[Asia/Tokyo]")
 public class NentsukiShuKanri {
 
-  @JsonProperty("items")
-  private MNentsukiShuKanri items;
+  @JsonProperty("mNentsukiShuKanri")
+  @Valid
+  private List<MNentsukiShuKanri> mNentsukiShuKanri = null;
 
-  public NentsukiShuKanri items(MNentsukiShuKanri items) {
-    this.items = items;
+  public NentsukiShuKanri mNentsukiShuKanri(List<MNentsukiShuKanri> mNentsukiShuKanri) {
+    this.mNentsukiShuKanri = mNentsukiShuKanri;
+    return this;
+  }
+
+  public NentsukiShuKanri addMNentsukiShuKanriItem(MNentsukiShuKanri mNentsukiShuKanriItem) {
+    if (this.mNentsukiShuKanri == null) {
+      this.mNentsukiShuKanri = new ArrayList<>();
+    }
+    this.mNentsukiShuKanri.add(mNentsukiShuKanriItem);
     return this;
   }
 
   /**
-   * Get items
-   * @return items
+   * 年月週管理マスタDTO
+   * @return mNentsukiShuKanri
   */
   @Valid 
-  @Schema(name = "items", required = false)
-  public MNentsukiShuKanri getItems() {
-    return items;
+  @Schema(name = "mNentsukiShuKanri", description = "年月週管理マスタDTO", required = false)
+  public List<MNentsukiShuKanri> getmNentsukiShuKanri() {
+    return mNentsukiShuKanri;
   }
 
-  public void setItems(MNentsukiShuKanri items) {
-    this.items = items;
+  public void setmNentsukiShuKanri(List<MNentsukiShuKanri> mNentsukiShuKanri) {
+    this.mNentsukiShuKanri = mNentsukiShuKanri;
   }
 
   @Override
@@ -49,19 +58,19 @@ public class NentsukiShuKanri {
       return false;
     }
     NentsukiShuKanri nentsukiShuKanri = (NentsukiShuKanri) o;
-    return Objects.equals(this.items, nentsukiShuKanri.items);
+    return Objects.equals(this.mNentsukiShuKanri, nentsukiShuKanri.mNentsukiShuKanri);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(items);
+    return Objects.hash(mNentsukiShuKanri);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class NentsukiShuKanri {\n");
-    sb.append("    items: ").append(toIndentedString(items)).append("\n");
+    sb.append("    mNentsukiShuKanri: ").append(toIndentedString(mNentsukiShuKanri)).append("\n");
     sb.append("}");
     return sb.toString();
   }

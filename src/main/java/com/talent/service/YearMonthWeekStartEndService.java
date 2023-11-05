@@ -10,7 +10,7 @@ import com.talent.service.helper.MNentsukiShuKanriHelper;
 import lombok.RequiredArgsConstructor;
 
 /**
- * 年月週の開始終了日付検索 Service
+ * 年月週の開始終了日付検索Service
  */
 @Service
 @RequiredArgsConstructor
@@ -21,7 +21,7 @@ public class YearMonthWeekStartEndService {
     private final MNentsukiShuKanriHelper helper;
 
     /**
-     * 年月週の開始終了日付検索 Service
+     * 年月週の開始終了日付検索Service
      * @param nentsuki 年月
      * @param shu 週
      * @return YearMonthWeekStartEndJoho

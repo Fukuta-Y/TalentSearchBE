@@ -1,6 +1,6 @@
 README.md
 pom.xml
 src/main/java/com/api/ApiUtil.java
-src/main/java/com/api/TalentTorokuKoshinApi.java
-src/main/java/com/model/MTalent.java
-src/main/java/com/model/TalentTorokuKoshin.java
+src/main/java/com/api/OnAirKanriApi.java
+src/main/java/com/model/OnAirKanriList.java
+src/main/java/com/model/TOnAirKanri.java

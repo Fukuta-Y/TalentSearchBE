@@ -31,14 +31,8 @@ public class TalentTorokuKoshinService {
 	  */
 	public TalentTorokuKoshin post(MTalent mTalent) {
 
-		// IDを差し替える
+		// パラメータを取得する
 		MTalent paramValue = mTalent; // パラメータ設定
-
-		// 現在時刻を取得
-		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-		paramValue.setTorokuDay(timestamp.toString()); // 登録日
-		paramValue.setKoushinDay(timestamp.toString());// 更新日
-		
 		int count = 0; // 登録・更新件数
 		
 		// タレントIDが「00000000」の場合は、Repository「タレント登録」を呼び出す。
@@ -51,10 +45,15 @@ public class TalentTorokuKoshinService {
 			String maxNo = String.format("%08d", intMaxNo);
 			// IDを差し替える
 			paramValue.setTalentId(maxNo); // プログラムIDを設定
+			// 現在時刻を取得
+			Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+			paramValue.setTorokuDay(timestamp.toString()); // 登録日
+			paramValue.setKoushinDay(timestamp.toString());// 更新日
 			// テーブル「タレントマスタ」に対して、タレントマスタDTOを用いて、新規登録処理を行う。
 	        count = mTalentMapper.insert(paramValue);
 		} else {
-			paramValue.setTorokuDay(mTalent.getTorokuDay()); // 登録日
+			// 現在時刻を取得
+			Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 			paramValue.setKoushinDay(timestamp.toString());// 更新日
 			// テーブル「タレントマスタ」に対して、タレントマスタDTOを用いて、更新処理を行う。
 			count = mTalentMapper.update(paramValue);
@@ -63,13 +62,14 @@ public class TalentTorokuKoshinService {
 		TalentTorokuKoshin response = new TalentTorokuKoshin();
 
         // 登録/更新が成功した場合
-        if (count> 0) {
+        if (count > 0) {
     		List<MTalent> MTalentList = new ArrayList<MTalent>();
     		MTalentList.add(paramValue);
     		response.setmTalent(MTalentList);
           	System.err.println("登録/更新成功");
         } else {
           	System.err.println("登録/更新失敗");
+          	System.err.println("パラメータ:" + paramValue);
         }
 		// responseの返却
 	 	return response;

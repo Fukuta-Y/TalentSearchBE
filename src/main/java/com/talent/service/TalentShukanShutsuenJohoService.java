@@ -21,7 +21,7 @@ import com.talent.infrastructure.repository.mapper.generated.TOnAirKanriMapper;
 import lombok.RequiredArgsConstructor;
 
 /**
- * タレント週間出演情報検索 Service
+ * タレント週間出演情報検索Service
  */
 @Service
 @RequiredArgsConstructor
@@ -36,7 +36,7 @@ public class TalentShukanShutsuenJohoService {
     private final TalentShukanShutsuenJohoHelper helper;
 
     /**
-     * タレント週間出演情報検索 Service
+     * タレント週間出演情報検索Service
      * @param nentsuki 年月
      * @param shu 週
      * @param talentId タレントID

@@ -5,15 +5,15 @@
  */
 package com.api;
 
-import java.util.List;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.model.OnAirKanriList;
 import com.model.TOnAirKanri;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -26,7 +26,7 @@ import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Size;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-24T18:16:02.285946+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-05T14:32:23.923965+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "onAirKanri", description = "the onAirKanri API")
 @RequestMapping("${openapi..base-path:}")
@@ -45,16 +45,12 @@ public interface OnAirKanriApi {
         tags = { "onAirKanri" },
         responses = {
             @ApiResponse(responseCode = "200", description = "オンエア管理テーブルDTOの情報を正常取得", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = TOnAirKanri.class))
+                @Content(mediaType = "application/json", schema = @Schema(implementation = OnAirKanriList.class))
             })
         }
     )
-    @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/onAirKanri/{id}",
-        produces = { "application/json" }
-    )
-    ResponseEntity<TOnAirKanri> getOnAirKanri(
+    @GetMapping("/onAirKanri/{id}")
+    ResponseEntity<OnAirKanriList> getOnAirKanri(
         @Size(max = 8) @Parameter(name = "id", description = "", required = true) @PathVariable("id") String id
     );
 
@@ -72,7 +68,7 @@ public interface OnAirKanriApi {
         tags = { "onAirKanri" },
         responses = {
             @ApiResponse(responseCode = "200", description = "登録または更新したオンエア管理テーブルDTOの情報", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = TOnAirKanri.class))
+                @Content(mediaType = "application/json", schema = @Schema(implementation = OnAirKanriList.class))
             })
         }
     )
@@ -82,7 +78,7 @@ public interface OnAirKanriApi {
         produces = { "application/json" },
         consumes = { "application/json" }
     )
-    ResponseEntity<List<TOnAirKanri>> postOnAirKanri(
+    ResponseEntity<OnAirKanriList> postOnAirKanri(
         @Parameter(name = "TOnAirKanri", description = "オンエア管理テーブル情報を登録または更新する") @Valid @RequestBody(required = false) TOnAirKanri tonAirKanri
     );
 

@@ -20,8 +20,7 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/getNentsukiShuKanri'
+                $ref: '#/components/schemas/NentsukiShuKanri'
     post:
       tags:
         - nentsukiShuKanri
@@ -33,29 +32,22 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/postNentsukiShuKanri'
+              $ref: "../../TalentSearchCommon/Tables/mNentsukiShuKanri.yaml#/components/schemas/mNentsukiShuKanri"
       responses:
         '200':
           description: 登録または更新した年月週管理マスタDTOの情報
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/postNentsukiShuKanri'
+                $ref: '#/components/schemas/NentsukiShuKanri'
 components:
   schemas:
-    postNentsukiShuKanri:
+    NentsukiShuKanri:
       description: 登録または更新した年月週管理マスタDTOの情報
       type: object
       properties:
-          items:
-            $ref: "../../TalentSearchCommon/Tables/mNentsukiShuKanri.yaml#/components/schemas/mNentsukiShuKanri"
-    getNentsukiShuKanri:
-      description: 年月週管理マスタDTOの情報
-      type: object
-      properties:
         mNentsukiShuKanri:
-          description: 年月週管理マスタDTOの情報
+          description: 年月週管理マスタDTO
           type: array
           items:
             $ref: "../../TalentSearchCommon/Tables/mNentsukiShuKanri.yaml#/components/schemas/mNentsukiShuKanri"
