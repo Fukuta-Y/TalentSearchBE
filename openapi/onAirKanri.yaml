@@ -27,7 +27,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/tOnAirKanri'
+                $ref: '#/components/schemas/onAirKanriList'
   /onAirKanri:
     post:
       tags:
@@ -40,20 +40,23 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/tOnAirKanri'
+              $ref: "../../TalentSearchCommon/Tables/tOnAirKanri.yaml#/components/schemas/tOnAirKanri"
       responses:
         '200':
           description: 登録または更新したオンエア管理テーブルDTOの情報
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/tOnAirKanri'
+                $ref: '#/components/schemas/onAirKanriList'
 components:
   schemas:
-    tOnAirKanri:
+    onAirKanriList:
       description: オンエア管理テーブルDTOの情報
       type: object
       properties:
-        items:
-          $ref: "../../TalentSearchCommon/Tables/tOnAirKanri.yaml#/components/schemas/tOnAirKanri"
+        tOnAirKanri:
+          description: オンエア管理テーブルDTO
+          type: array
+          items:
+            $ref: "../../TalentSearchCommon/Tables/tOnAirKanri.yaml#/components/schemas/tOnAirKanri"
+ 

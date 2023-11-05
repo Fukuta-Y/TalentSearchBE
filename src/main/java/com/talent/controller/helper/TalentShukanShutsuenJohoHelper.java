@@ -19,7 +19,6 @@ import com.talent.setting.ConfigMapper;
 @Mapper(config = ConfigMapper.class)
 public interface TalentShukanShutsuenJohoHelper {
 	
-	
 	List<TOnAirKanri> toOnAirKanriTableModel(List<OnAirKanriTableDto> model);
 
 	List<MProgram> toProgramModel(List<ProgramMasterDto> model);

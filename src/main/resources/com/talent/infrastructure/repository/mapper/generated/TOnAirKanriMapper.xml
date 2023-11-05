@@ -36,4 +36,21 @@
        </if>
        	and DELETE_FLG = '0'
   </select>
+  <select id="selectId" parameterType="string" resultMap="BaseResultMap">
+       select 
+       	 ID
+       	,ONAIR_DAY
+       	,PROGRAM_ID
+       	,TALENT_ID
+       	,NENTSUKI
+       	,SHU
+       	,DELETE_FLG
+       	,TOROKU_DAY
+       	,KOUSHIN_DAY 
+       from 
+       	T_ONAIR_KANRI 
+       where 
+       	ID =#{id}
+       	and DELETE_FLG = '0'
+  </select>
 </mapper>

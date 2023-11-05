@@ -19,7 +19,7 @@ import jakarta.validation.constraints.Size;
 
 @Schema(name = "tOnAirKanri", description = "オンエア管理テーブル情報（全列）")
 @JsonTypeName("tOnAirKanri")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-24T18:26:17.261906+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-05T14:32:23.923965+09:00[Asia/Tokyo]")
 public class TOnAirKanri {
 
   @JsonProperty("id")
@@ -79,11 +79,11 @@ public class TOnAirKanri {
   */
   @Valid 
   @Schema(name = "onAirDay", description = "オンエア日", required = false)
-  public String getonAirDay() {
+  public String getOnAirDay() {
     return onAirDay;
   }
 
-  public void setonAirDay(String onAirDay) {
+  public void setOnAirDay(String onAirDay) {
     this.onAirDay = onAirDay;
   }
 
@@ -138,11 +138,11 @@ public class TOnAirKanri {
   */
   @Min(1990) @Max(2100) 
   @Schema(name = "nentsuki", description = "対象年月", required = false)
-  public Integer getnentsuki() {
+  public Integer getNentsuki() {
     return nentsuki;
   }
 
-  public void setnentsuki(Integer nentsuki) {
+  public void setNentsuki(Integer nentsuki) {
     this.nentsuki = nentsuki;
   }
 
@@ -159,11 +159,11 @@ public class TOnAirKanri {
   */
   @Min(1) @Max(5) 
   @Schema(name = "shu", description = "対象週", required = false)
-  public Integer getshu() {
+  public Integer getShu() {
     return shu;
   }
 
-  public void setshu(Integer shu) {
+  public void setShu(Integer shu) {
     this.shu = shu;
   }
 
