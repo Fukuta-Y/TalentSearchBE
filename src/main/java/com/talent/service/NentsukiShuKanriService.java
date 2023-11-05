@@ -29,7 +29,7 @@ public class NentsukiShuKanriService {
 	private final MNentsukiShuKanriHelper mNentsukiShuKanriHelper;
 	
 	  /**
-	  * 年月週管理登録・更新
+	  * 年月週管理登録・更新Service
 	  * @param NentsukiShuKanri　更新用のテーブル構造（年月週管理マスタDTO)
 	  * @return NentsukiShuKanri
 	  */

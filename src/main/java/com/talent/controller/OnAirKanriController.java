@@ -30,6 +30,7 @@ public class OnAirKanriController implements OnAirKanriApi{
 		return ResponseEntity.ok(response);
 	}
 
+	
 	@Override
 	public ResponseEntity<OnAirKanriList> postOnAirKanri(TOnAirKanri tonAirKanri) {
 		// TODO 自動生成されたメソッド・スタブ

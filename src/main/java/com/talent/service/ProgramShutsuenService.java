@@ -11,7 +11,7 @@ import com.talent.infrastructure.repository.mapper.ProgramShutsuenMapper;
 import lombok.RequiredArgsConstructor;
 
 /**
- * 番組出演者検索 Service
+ * 番組出演者検索Service
  */
 @Service
 @RequiredArgsConstructor
@@ -20,7 +20,7 @@ public class ProgramShutsuenService {
     private final ProgramShutsuenMapper programShutsuenMapper;
 
     /**
-     * 番組出演者検索 Service
+     * 番組出演者検索Service
      * @param programId 番組ID
      * @param onairDay  オンエア日
      * @return ProgramShutsuenList

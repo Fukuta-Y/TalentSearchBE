@@ -13,7 +13,7 @@ import com.talent.service.helper.TOnAirKanriHelper;
 import lombok.RequiredArgsConstructor;
 
 /**
- * オンエア管理情報 Service
+ * オンエア管理情報Service
  */
 @Service
 @RequiredArgsConstructor
@@ -26,7 +26,7 @@ public class onAirKanriService {
 	private final TOnAirKanriHelper helper;
 	
 	/**
-	  * オンエア管理情報 Service
+	  * オンエア管理情報Service
 	  * @param id　ID
 	  * @return OnAirKanriList
 	 */
