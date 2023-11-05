@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import com.api.OnAirKanriApi;
 import com.model.OnAirKanriList;
 import com.model.TOnAirKanri;
-import com.talent.service.onAirKanriService;
+import com.talent.service.OnAirKanriService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -14,8 +14,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class OnAirKanriController implements OnAirKanriApi{
 	
-	// onAirKanriServiceを宣言
-	private final onAirKanriService service;
+	// OnAirKanriServiceを宣言
+	private final OnAirKanriService service;
 	
 	/**
 	* オンエア管理テーブル検索Controller
@@ -25,8 +25,8 @@ public class OnAirKanriController implements OnAirKanriApi{
 	*/
 	@Override
 	public ResponseEntity<OnAirKanriList> getOnAirKanri(String id) {
-		// onAirKanriServiceより取得
-		OnAirKanriList response = service.select(id);
+		// OnAirKanriServiceより取得
+		OnAirKanriList response = service.getOnAirKanriList(id);
 		return ResponseEntity.ok(response);
 	}
 
@@ -38,7 +38,8 @@ public class OnAirKanriController implements OnAirKanriApi{
 	*/
 	@Override
 	public ResponseEntity<OnAirKanriList> postOnAirKanri(TOnAirKanri tOnAirKanri) {
-		OnAirKanriList response = service.post(tOnAirKanri);
+		// OnAirKanriServiceより取得
+		OnAirKanriList response = service.postOnAirKanriList(tOnAirKanri);
 		return ResponseEntity.ok(response);
 	}
 }

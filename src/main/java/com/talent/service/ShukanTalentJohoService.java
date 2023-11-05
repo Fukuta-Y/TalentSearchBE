@@ -36,7 +36,7 @@ public class ShukanTalentJohoService {
 	 * @param talentName タレント名
      * @return ShukanTalentJoho
      */
-    public ShukanTalentJoho select(Integer nentsuki, Integer shu, String talentName) {
+    public ShukanTalentJoho getShukanTalentJoho(Integer nentsuki, Integer shu, String talentName) {
 
     	// ShukanTalentJohoをResponseに設定
     	ShukanTalentJoho response = new ShukanTalentJoho();

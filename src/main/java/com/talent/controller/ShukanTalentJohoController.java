@@ -27,7 +27,7 @@ public class ShukanTalentJohoController implements ShukanTalentJohoApi{
 	@Override
 	public ResponseEntity<ShukanTalentJoho> getShukanTalentJoho(Integer nentsuki, Integer shu, String talentName) {
 		// ShukanTalentJohoServiceより取得
-		ShukanTalentJoho response = service.select(nentsuki, shu, talentName);
+		ShukanTalentJoho response = service.getShukanTalentJoho(nentsuki, shu, talentName);
 		return ResponseEntity.ok(response);
 	}
 }

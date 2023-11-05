@@ -29,7 +29,7 @@ public class TalentMasterService {
 	  * @param talentId タレントID
 	  * @return MTalent
 	  */
-	public TalentList select(String talentId) {
+	public TalentList getTalentList(String talentId) {
 		// responseを宣言
 		TalentList respose = new TalentList();
 		// タレントマスタ検索する

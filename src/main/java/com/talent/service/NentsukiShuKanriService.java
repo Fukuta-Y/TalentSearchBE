@@ -33,7 +33,7 @@ public class NentsukiShuKanriService {
 	  * @param NentsukiShuKanri　更新用のテーブル構造（年月週管理マスタDTO)
 	  * @return NentsukiShuKanri
 	  */
-	public NentsukiShuKanri post(MNentsukiShuKanri mNentsukiShuKanri) {
+	public NentsukiShuKanri postNentsukiShuKanri(MNentsukiShuKanri mNentsukiShuKanri) {
 
 		// responseを宣言
 		NentsukiShuKanri response = new NentsukiShuKanri();
@@ -55,6 +55,7 @@ public class NentsukiShuKanriService {
 		} else {
 			// 現在時刻を取得
 			Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+			paramValue.setTorokuDay(mNentsukiShuKanri.getTorokuDay()); // 登録日
 			paramValue.setKoushinDay(timestamp.toString());// 更新日
 			// テーブル「年月週管理マスタ」に対して、年月週管理マスタDTOを用いて、更新処理を行う。
 	        count = mNentsukiShuKanriMapper.update(paramValue);
@@ -79,7 +80,7 @@ public class NentsukiShuKanriService {
 	  * @param　無
 	  * @return NentsukiShuKanri
 	  */
-	public NentsukiShuKanri get() {
+	public NentsukiShuKanri getNentsukiShuKanri() {
 		// responseを宣言
 		NentsukiShuKanri response = new NentsukiShuKanri();
 		// 年月週管理マスタを全件取得

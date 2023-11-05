@@ -21,7 +21,7 @@ import lombok.RequiredArgsConstructor;
  */
 @Service
 @RequiredArgsConstructor
-public class onAirKanriService {
+public class OnAirKanriService {
 
 	// mapperの宣言
 	private final TOnAirKanriMapper tOnAirKanriMapper;
@@ -34,7 +34,7 @@ public class onAirKanriService {
 	  * @param id　ID
 	  * @return OnAirKanriList
 	 */
-	public OnAirKanriList select(String id) {
+	public OnAirKanriList getOnAirKanriList(String id) {
 		
 	 	// OnAirKanriListをResponseに設定
 		OnAirKanriList response = new OnAirKanriList();
@@ -55,7 +55,7 @@ public class onAirKanriService {
 	  * @param tOnAirKanri オンエア管理テーブルDTO
 	  * @return OnAirKanriList
 	 */
-	public OnAirKanriList post(TOnAirKanri tOnAirKanri) {
+	public OnAirKanriList postOnAirKanriList(TOnAirKanri tOnAirKanri) {
 
 		// パラメータを取得する
 		TOnAirKanri paramValue = tOnAirKanri; // パラメータ設定
@@ -73,7 +73,7 @@ public class onAirKanriService {
 			paramValue.setId(maxNo); // IDを設定
 			// 現在時刻を取得
 			Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-			paramValue.setTorokuDay(tOnAirKanri.getTorokuDay()); // 登録日
+			paramValue.setTorokuDay(timestamp.toString()); // 登録日
 			paramValue.setKoushinDay(timestamp.toString());// 更新日
 			// テーブル「オンエア管理マスタ」に対して、オンエア管理マスタDTOを用いて、新規登録処理を行う。
 	        count = tOnAirKanriMapper.insert(paramValue);

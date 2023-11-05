@@ -25,8 +25,8 @@ public class TalentTorokuKoshinController implements TalentTorokuKoshinApi{
     */
 	@Override
 	public ResponseEntity<TalentTorokuKoshin> postTalentTorokuKoshin(MTalent mTalent) {
-		TalentTorokuKoshin response = new TalentTorokuKoshin();
-		response = service.post(mTalent);
+		// TalentTorokuKoshinServiceより取得
+		TalentTorokuKoshin response = service.postTalentTorokuKoshin(mTalent);
 		return ResponseEntity.ok(response);
 	}
 }

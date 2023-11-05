@@ -24,7 +24,8 @@ public class TalentMasterController implements TalentMasterApi{
     */
 	@Override
 	public ResponseEntity<TalentList> getTalentMaster(String talentId) {
-		TalentList response = service.select(talentId);
+		// TalentMasterServiceより取得
+		TalentList response = service.getTalentList(talentId);
 		return ResponseEntity.ok(response);
 	}
 }

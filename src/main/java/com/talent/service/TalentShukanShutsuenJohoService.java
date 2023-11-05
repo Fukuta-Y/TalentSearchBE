@@ -42,7 +42,7 @@ public class TalentShukanShutsuenJohoService {
      * @param talentId タレントID
      * @return TalentShukanShutsuenJoho
      */
-    public TalentShukanShutsuenJoho select(Integer nentsuki, Integer shu, String talentId) {
+    public TalentShukanShutsuenJoho getTalentShukanShutsuenJoho(Integer nentsuki, Integer shu, String talentId) {
 
     	// TalentShukanShutsuenJohoをResponseに設定
     	TalentShukanShutsuenJoho response = new TalentShukanShutsuenJoho();

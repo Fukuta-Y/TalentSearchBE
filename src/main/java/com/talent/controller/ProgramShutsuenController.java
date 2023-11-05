@@ -26,7 +26,7 @@ public class ProgramShutsuenController implements ProgramShutsuenApi{
 	@Override
 	public ResponseEntity<ProgramShutsuenList> getprogramShutsuen(String programId, String onairDay) {
 		// ProgramShutsuenServiceより取得
-		ProgramShutsuenList response = service.select(programId, onairDay);
+		ProgramShutsuenList response = service.getProgramShutsuenList(programId, onairDay);
 		return ResponseEntity.ok(response);
 	}
 }

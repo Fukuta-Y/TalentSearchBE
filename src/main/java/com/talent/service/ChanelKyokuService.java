@@ -31,7 +31,7 @@ public class ChanelKyokuService {
 	  * @param chanelIds チャンネルID 【複数】
 	  * @return ChanelKyoku
 	  */
-	public ChanelKyoku select(String chanelIds) {
+	public ChanelKyoku getChanelKyoku(String chanelIds) {
 	
 	 	// ChanelKyokuをResponseに設定
 		ChanelKyoku response = new ChanelKyoku();
