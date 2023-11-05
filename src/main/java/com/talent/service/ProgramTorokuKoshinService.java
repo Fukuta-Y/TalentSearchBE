@@ -33,9 +33,8 @@ public class ProgramTorokuKoshinService {
 
 		// パラメータを取得する
 		MProgram paramValue = mProgram; // パラメータ設定
-
 		int count = 0; // 登録・更新件数
-		
+
 		// 番組IDが「00000000」の場合は、Repository「番組登録」を呼び出す。
 		// 番組IDが「00000000」以外の場合は、Repository「番組更新」を呼び出す。
 		if (StringUtils.equals(mProgram.getProgramId(), "00000000")) {
@@ -63,13 +62,14 @@ public class ProgramTorokuKoshinService {
 		ProgramTorokuKoshin response = new ProgramTorokuKoshin();
 
         // 登録/更新が成功した場合
-        if (count> 0) {
+        if (count > 0) {
     		List<MProgram> MProgramList = new ArrayList<MProgram>();
     		MProgramList.add(paramValue);
     		response.setmProgram(MProgramList);
           	System.err.println("登録/更新成功");
         } else {
           	System.err.println("登録/更新失敗");
+          	System.err.println("パラメータ:" + paramValue);
         }
 		// responseの返却
 	 	return response;

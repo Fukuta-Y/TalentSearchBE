@@ -33,39 +33,38 @@ public class NentsukiShuKanriService {
 
 		// responseを宣言
 		NentsukiShuKanri response = new NentsukiShuKanri();
-		
+
 		// 年月週管理検索を実施
 		NentsukiShuKanriMasterDto dto = mNentsukiShuKanriMapper.select(mNentsukiShuKanri.getNentsuki(), mNentsukiShuKanri.getShu());
-		
-		int count = 0; // 登録・更新件数
-
 		//　パラメータを取得する
 		MNentsukiShuKanri paramValue = mNentsukiShuKanri; // パラメータ設定
-
+		
+		int count = 0; // 登録・更新件数
 		// 年月週管理検索が存在する場合
-		if (Objects.nonNull(dto)) {
+		if (Objects.isNull(dto)) {
 			// 現在時刻を取得
 			Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 			paramValue.setTorokuDay(timestamp.toString()); // 登録日
 			paramValue.setKoushinDay(timestamp.toString());// 更新日
 			// テーブル「年月週管理マスタ」に対して、年月週管理マスタDTOを用いて、登録処理を行う。
-	        count = mNentsukiShuKanriMapper.insert(mNentsukiShuKanri);
+	        count = mNentsukiShuKanriMapper.insert(paramValue);
 		} else {
 			// 現在時刻を取得
 			Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 			paramValue.setKoushinDay(timestamp.toString());// 更新日
 			// テーブル「年月週管理マスタ」に対して、年月週管理マスタDTOを用いて、更新処理を行う。
-	        count = mNentsukiShuKanriMapper.update(mNentsukiShuKanri);
+	        count = mNentsukiShuKanriMapper.update(paramValue);
 		}
 		
         // 登録/更新が成功した場合
-        if (count> 0) {
+        if (count > 0) {
         	List<MNentsukiShuKanri> MNentsukiShuKanriList = new ArrayList<MNentsukiShuKanri>();
         	MNentsukiShuKanriList.add(paramValue);
     		response.setmNentsukiShuKanri(MNentsukiShuKanriList);
           	System.err.println("登録/更新成功");
         } else {
           	System.err.println("登録/更新失敗");
+          	System.err.println("パラメータ:" + paramValue);
         }
 		// responseの返却
 	 	return response;
