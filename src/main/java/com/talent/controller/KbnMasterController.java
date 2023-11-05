@@ -25,7 +25,7 @@ public class KbnMasterController implements KbnMasterApi{
 	@Override
 	public ResponseEntity<KbnMasterList> getKbnMaster(String genreIds) {
 		// KbnMasterServiceより取得
-		KbnMasterList response = service.select(genreIds);
+		KbnMasterList response = service.getKbnMasterList(genreIds);
 		return ResponseEntity.ok(response);
 	}
 }

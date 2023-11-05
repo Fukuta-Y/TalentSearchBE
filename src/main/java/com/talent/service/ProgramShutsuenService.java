@@ -25,7 +25,7 @@ public class ProgramShutsuenService {
      * @param onairDay  オンエア日
      * @return ProgramShutsuenList
      */
-    public ProgramShutsuenList select(String  programId, String onairDay) {
+    public ProgramShutsuenList getProgramShutsuenList(String  programId, String onairDay) {
 
     	// ProgramShutsuenListをResponseに設定
     	ProgramShutsuenList response = new ProgramShutsuenList();

@@ -26,7 +26,7 @@ public class YearMonthWeekStartEndService {
      * @param shu 週
      * @return YearMonthWeekStartEndJoho
      */
-    public YearMonthWeekStartEndJoho select(Integer nentsuki, Integer shu) {
+    public YearMonthWeekStartEndJoho getYearMonthWeekStartEndJoho(Integer nentsuki, Integer shu) {
  
     	// YearMonthWeekStartEndJohoをResponseに設定
     	YearMonthWeekStartEndJoho response = new YearMonthWeekStartEndJoho();

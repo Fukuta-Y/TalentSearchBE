@@ -29,7 +29,7 @@ public class TalentTorokuKoshinService {
 	  * @param MTalent　更新用のテーブル構造（タレントマスタDTO)
 	  * @return ProgramTorokuKoshin
 	  */
-	public TalentTorokuKoshin post(MTalent mTalent) {
+	public TalentTorokuKoshin postTalentTorokuKoshin(MTalent mTalent) {
 
 		// パラメータを取得する
 		MTalent paramValue = mTalent; // パラメータ設定
@@ -54,6 +54,7 @@ public class TalentTorokuKoshinService {
 		} else {
 			// 現在時刻を取得
 			Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+			paramValue.setTorokuDay(mTalent.getTorokuDay()); // 登録日
 			paramValue.setKoushinDay(timestamp.toString());// 更新日
 			// テーブル「タレントマスタ」に対して、タレントマスタDTOを用いて、更新処理を行う。
 			count = mTalentMapper.update(paramValue);

@@ -29,7 +29,7 @@ public class ProgramInfoService {
 	  * @param programId 番組ID
 	  * @return ProgramInfo
 	  */
-	public ProgramInfoList select(String  programId) {
+	public ProgramInfoList getProgramInfoList(String  programId) {
 	
 	 	// ProgramInfoListをResponseに設定
 		ProgramInfoList response = new ProgramInfoList();

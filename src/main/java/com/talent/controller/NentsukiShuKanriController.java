@@ -25,7 +25,8 @@ public class NentsukiShuKanriController implements NentsukiShuKanriApi{
 	*/
 	@Override
 	public ResponseEntity<NentsukiShuKanri> getNentsukiShuKanri() {
-		NentsukiShuKanri response = service.get();
+		// NentsukiShuKanriServiceより取得
+		NentsukiShuKanri response = service.getNentsukiShuKanri();
 		return ResponseEntity.ok(response);
 	}
 
@@ -37,7 +38,8 @@ public class NentsukiShuKanriController implements NentsukiShuKanriApi{
 	*/
 	@Override
 	public ResponseEntity<NentsukiShuKanri> postProgramTorokuKoshin(MNentsukiShuKanri mNentsukiShuKanri) {
-		NentsukiShuKanri response = service.post(mNentsukiShuKanri);
+		// NentsukiShuKanriServiceより取得
+		NentsukiShuKanri response = service.postNentsukiShuKanri(mNentsukiShuKanri);
 		return ResponseEntity.ok(response);
 	}
 }

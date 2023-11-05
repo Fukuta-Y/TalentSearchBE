@@ -30,7 +30,7 @@ public class KbnMasterService {
 	  * @param genreIds ジャンルID 【複数】
 	  * @return List<KbnMaster>
 	  */
-	public KbnMasterList select(String  genreIds) {
+	public KbnMasterList getKbnMasterList(String  genreIds) {
 	
 	 	// List<KbnMaster>をResponseに設定
 		KbnMasterList response = new KbnMasterList();
