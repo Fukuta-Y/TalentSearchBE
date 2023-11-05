@@ -23,6 +23,17 @@
        	NENTSUKI = #{nentsuki,jdbcType=INTEGER}
        	and SHU =#{shu,jdbcType=INTEGER}
   </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+       select 
+       	 NENTSUKI
+       	,SHU
+       	,SHU_FROM
+       	,SHU_TO
+       	,TOROKU_DAY
+       	,KOUSHIN_DAY
+       from 
+       	M_NENTSUKI_SHU_KANRI 
+  </select>
  <insert id="insert" parameterType="com.model.MNentsukiShuKanri">
     insert into M_NENTSUKI_SHU_KANRI (NENTSUKI, SHU, SHU_FROM, SHU_TO, TOROKU_DAY, KOUSHIN_DAY)
     values (#{nentsuki,jdbcType=INTEGER}, #{shu,jdbcType=INTEGER}, #{shuFrom,jdbcType=DATE}, 

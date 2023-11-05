@@ -11,6 +11,7 @@ import com.model.MNentsukiShuKanri;
 import com.model.NentsukiShuKanri;
 import com.talent.infrastructure.repository.mapper.generated.MNentsukiShuKanriMapper;
 import com.talent.service.dto.NentsukiShuKanriMasterDto;
+import com.talent.service.helper.MNentsukiShuKanriHelper;
 
 import lombok.RequiredArgsConstructor;
 
@@ -23,7 +24,10 @@ public class NentsukiShuKanriService {
 
 	// mapperの宣言
 	private final MNentsukiShuKanriMapper mNentsukiShuKanriMapper;
-
+	
+	// helperの宣言
+	private final MNentsukiShuKanriHelper mNentsukiShuKanriHelper;
+	
 	  /**
 	  * 年月週管理登録・更新
 	  * @param NentsukiShuKanri　更新用のテーブル構造（年月週管理マスタDTO)
@@ -78,7 +82,10 @@ public class NentsukiShuKanriService {
 	public NentsukiShuKanri get() {
 		// responseを宣言
 		NentsukiShuKanri response = new NentsukiShuKanri();
-		
+		// 年月週管理マスタを全件取得
+		List<NentsukiShuKanriMasterDto> dto = mNentsukiShuKanriMapper.selectAll();
+		List<MNentsukiShuKanri> list = mNentsukiShuKanriHelper.toListModel(dto);
+		response.setmNentsukiShuKanri(list);
 		// responseの返却
 	 	return response;
 	}	
