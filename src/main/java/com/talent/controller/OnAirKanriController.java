@@ -30,10 +30,15 @@ public class OnAirKanriController implements OnAirKanriApi{
 		return ResponseEntity.ok(response);
 	}
 
-	
+	/**
+	* オンエア管理登録・更新Controller
+	* 
+	* @param　tOnAirKanri オンエア管理テーブルDTO
+	* @return OnAirKanriList
+	*/
 	@Override
-	public ResponseEntity<OnAirKanriList> postOnAirKanri(TOnAirKanri tonAirKanri) {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
+	public ResponseEntity<OnAirKanriList> postOnAirKanri(TOnAirKanri tOnAirKanri) {
+		OnAirKanriList response = service.post(tOnAirKanri);
+		return ResponseEntity.ok(response);
 	}
 }

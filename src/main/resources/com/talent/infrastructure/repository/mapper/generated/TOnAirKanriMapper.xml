@@ -12,6 +12,9 @@
     <result column="TOROKU_DAY" jdbcType="TIMESTAMP" property="torokuDay" />
     <result column="KOUSHIN_DAY" jdbcType="TIMESTAMP" property="koushinDay" />
   </resultMap>
+  <resultMap autoMapping="true" id="MaxNoResultMap" type="com.talent.infrastructure.dto.MaxNoDto">
+    <result column="ID" jdbcType="VARCHAR" property="maxId" />
+  </resultMap>
   <select id="select" parameterType="integer" resultMap="BaseResultMap">
        select 
        	 ID
@@ -53,4 +56,27 @@
        	ID =#{id}
        	and DELETE_FLG = '0'
   </select>
+  <select id="selectMaxNo" parameterType="string" resultMap="MaxNoResultMap">
+	   select
+	     MAX(ID) AS ID
+	   from
+	    T_ONAIR_KANRI
+  </select>
+  <insert id="insert" parameterType="com.model.TOnAirKanri">
+    insert into T_ONAIR_KANRI (ID, ONAIR_DAY, PROGRAM_ID, TALENT_ID, NENTSUKI, SHU, DELETE_FLG, TOROKU_DAY, KOUSHIN_DAY)
+    values (#{id,jdbcType=VARCHAR}, #{onAirDay,jdbcType=TIMESTAMP}, #{programId,jdbcType=VARCHAR}, #{talentId,jdbcType=VARCHAR}, #{nentsuki,jdbcType=INTEGER},
+    #{shu,jdbcType=INTEGER}, #{deleteFlg,jdbcType=INTEGER}, #{torokuDay,jdbcType=TIMESTAMP}, #{koushinDay,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="update" parameterType="com.model.TOnAirKanri">
+	update T_ONAIR_KANRI set
+		ONAIR_DAY = #{onAirDay,jdbcType=TIMESTAMP},
+		PROGRAM_ID = #{programId,jdbcType=VARCHAR}, 
+		TALENT_ID = #{talentId,jdbcType=VARCHAR},
+		NENTSUKI = #{nentsuki,jdbcType=INTEGER},
+		SHU = #{shu,jdbcType=INTEGER},
+		KOUSHIN_DAY = #{koushinDay,jdbcType=TIMESTAMP}
+     WHERE
+      ID = #{id,jdbcType=VARCHAR}
+  </update>
+  
 </mapper>
