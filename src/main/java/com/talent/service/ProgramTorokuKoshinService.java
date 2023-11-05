@@ -31,14 +31,9 @@ public class ProgramTorokuKoshinService {
 	  */
 	public ProgramTorokuKoshin post(MProgram  mProgram) {
 
-		// IDを差し替える
+		// パラメータを取得する
 		MProgram paramValue = mProgram; // パラメータ設定
 
-		// 現在時刻を取得
-		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-		paramValue.setTorokuDay(timestamp.toString()); // 登録日
-		paramValue.setKoushinDay(timestamp.toString());// 更新日
-		
 		int count = 0; // 登録・更新件数
 		
 		// 番組IDが「00000000」の場合は、Repository「番組登録」を呼び出す。
@@ -51,10 +46,15 @@ public class ProgramTorokuKoshinService {
 			String maxNo = String.format("%08d", intMaxNo);
 			// IDを差し替える
 			paramValue.setProgramId(maxNo); // プログラムIDを設定
+			// 現在時刻を取得
+			Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+			paramValue.setTorokuDay(mProgram.getTorokuDay()); // 登録日
+			paramValue.setKoushinDay(timestamp.toString());// 更新日
 			// テーブル「番組マスタ」に対して、番組マスタDTOを用いて、新規登録処理を行う。
 	        count = mProgramMapper.insert(paramValue);
 		} else {
-			paramValue.setTorokuDay(mProgram.getTorokuDay()); // 登録日
+			// 現在時刻を取得
+			Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 			paramValue.setKoushinDay(timestamp.toString());// 更新日
 			// テーブル「番組マスタ」に対して、番組マスタDTOを用いて、更新処理を行う。
 			count = mProgramMapper.update(paramValue);
