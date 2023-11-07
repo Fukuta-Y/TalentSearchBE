@@ -13,6 +13,8 @@ public interface TOnAirKanriMapper {
 
 	List<OnAirKanriTableDto> select(Integer nentsuki, Integer shu, List<String> talentIdList);
 	
+	List<OnAirKanriTableDto> selectEx(String id, String onAirDay);
+	
 	List<OnAirKanriTableDto> selectId(String id);
 	
 	MaxNoDto selectMaxNo();
