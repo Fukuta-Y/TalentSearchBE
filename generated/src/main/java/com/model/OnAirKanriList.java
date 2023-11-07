@@ -17,7 +17,7 @@ import jakarta.validation.Valid;
 
 @Schema(name = "onAirKanriList", description = "オンエア管理テーブルDTOの情報")
 @JsonTypeName("onAirKanriList")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-05T14:32:23.923965+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-07T23:18:23.147447+09:00[Asia/Tokyo]")
 public class OnAirKanriList {
 
   @JsonProperty("tOnAirKanri")

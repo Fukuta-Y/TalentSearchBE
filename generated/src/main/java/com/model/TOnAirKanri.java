@@ -19,7 +19,7 @@ import jakarta.validation.constraints.Size;
 
 @Schema(name = "tOnAirKanri", description = "オンエア管理テーブル情報（全列）")
 @JsonTypeName("tOnAirKanri")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-05T14:32:23.923965+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-07T23:18:23.147447+09:00[Asia/Tokyo]")
 public class TOnAirKanri {
 
   @JsonProperty("id")
@@ -132,11 +132,11 @@ public class TOnAirKanri {
 
   /**
    * 対象年月
-   * minimum: 199001
-   * maximum: 210012
+   * minimum: 1990
+   * maximum: 2100
    * @return nentsuki
   */
-  @Min(199001) @Max(210012) 
+  @Min(1990) @Max(2100) 
   @Schema(name = "nentsuki", description = "対象年月", required = false)
   public Integer getNentsuki() {
     return nentsuki;
