@@ -14,6 +14,8 @@ public interface MProgramMapper {
 	
 	MaxNoDto selectMaxNo();
 	
+	List<ProgramMasterDto> selectEx(String programId, String programName);
+	
 	int insert(MProgram mProgram);
 	
 	int update(MProgram mProgram);

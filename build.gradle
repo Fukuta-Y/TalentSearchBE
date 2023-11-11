@@ -58,7 +58,7 @@ tasks.named('test') {
 // openApiの設定を追加
 openApiGenerate {
 	generatorName = 'spring'
-    inputSpec = "$rootDir/openapi/onAirKanriRef.yaml"
+    inputSpec = "$rootDir/openapi/programRef.yaml"
 	outputDir = "$openApiOutputDir"
 	apiPackage = 'com.api'
 	modelPackage = 'com.model'
