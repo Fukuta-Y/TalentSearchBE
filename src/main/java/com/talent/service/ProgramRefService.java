@@ -19,7 +19,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ProgramRefService {
 	// mapperの宣言
-	private final MProgramMapper mProgramMapper;
+	private final MProgramMapper mapper;
 
 	// helperの宣言
 	private final MProgramHelper helper;
@@ -37,7 +37,7 @@ public class ProgramRefService {
 		ProgramInfoList response = new ProgramInfoList();
 
 	 	// 番組参照検索
-		List<ProgramMasterDto> dtoList = mProgramMapper.selectEx(programId, programName);
+		List<ProgramMasterDto> dtoList = mapper.selectEx(programId, programName);
 	
 	     // Model変換
 		List<MProgram> modelList = helper.toModel(dtoList);

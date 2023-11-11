@@ -42,7 +42,7 @@ public class ShukanTalentJohoService {
     	ShukanTalentJoho response = new ShukanTalentJoho();
     	
     	// タレントマスタ検索
-		List<TalentMasterDto> talentMasterDto = mTalentMapper.select(talentName);
+		List<TalentMasterDto> talentMasterDto = mTalentMapper.select("" , talentName);
 		List<String> talentIdList = new ArrayList<String>();
 		
 		//　名称検索の結果のIDをリスト化する

@@ -22,29 +22,15 @@
 	    ,KOUSHIN_DAY
 	   from
 	    M_TALENT
-	   where
-	    TALENT_NAME LIKE CONCAT('%', #{talentName}, '%')
-	    and DELETE_FLG = "0"
-	  </select>
-	  <select id="selectEx" parameterType="string" resultMap="BaseResultMap">
-	    select
-	    TALENT_ID
-	    ,TALENT_NAME
-	    ,GENRE_ID
-	    ,DELETE_FLG
-	    ,TOROKU_DAY
-	    ,KOUSHIN_DAY
-	    from
-	      M_TALENT
-	    where
-	     TALENT_ID =#{talentId}
-	     and DELETE_FLG = '0'
-  </select>
-  <select id="selectMaxNo" parameterType="string" resultMap="MaxNoResultMap">
-	   select
-	     MAX(TALENT_ID) AS TALENT_ID
-	   from
-	    M_TALENT
+       where
+       1 = 1 
+       and DELETE_FLG = '0'
+      <if test="talentId != ''"> 
+      	and TALENT_ID =#{talentId,jdbcType=VARCHAR}
+      </if>
+      <if test="talentName != ''"> 
+      	and TALENT_NAME LIKE CONCAT('%', #{talentName,jdbcType=VARCHAR}, '%')
+      </if>
   </select>
   <insert id="insert" parameterType="com.model.MTalent">
     insert into M_TALENT (TALENT_ID, TALENT_NAME, GENRE_ID, DELETE_FLG, TOROKU_DAY, KOUSHIN_DAY)
