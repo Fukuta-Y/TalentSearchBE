@@ -5,15 +5,13 @@
  */
 package com.api;
 
-import java.util.List;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.model.MNentsukiShuKanri;
+import com.model.NentsukiShuKanri;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -27,7 +25,7 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-24T18:28:20.250886+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-11T16:44:03.101386+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "nentsukiShuKanrRef", description = "the nentsukiShuKanrRef API")
 @RequestMapping("${openapi..base-path:}")
@@ -47,16 +45,12 @@ public interface NentsukiShuKanrRefApi {
         tags = { "nentsukiShuKanrRef" },
         responses = {
             @ApiResponse(responseCode = "200", description = "年月週管理情報を正常取得", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = MNentsukiShuKanri.class))
+                @Content(mediaType = "application/json", schema = @Schema(implementation = NentsukiShuKanri.class))
             })
         }
     )
-    @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/nentsukiShuKanrRef",
-        produces = { "application/json" }
-    )
-    ResponseEntity<List<MNentsukiShuKanri>> getNentsukiShuKanrRef(
+    @GetMapping("/nentsukiShuKanrRef")
+    ResponseEntity<NentsukiShuKanri> getNentsukiShuKanrRef(
         @NotNull @Min(199001) @Max(210012) @Parameter(name = "nentsuki", description = "年月", required = true) @Valid @RequestParam(value = "nentsuki", required = true) Integer nentsuki,
         @NotNull @Min(1) @Max(5) @Parameter(name = "shu", description = "週", required = true) @Valid @RequestParam(value = "shu", required = true) Integer shu
     );
