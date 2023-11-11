@@ -20,7 +20,7 @@ public class TalentTorokuKoshinController implements TalentTorokuKoshinApi{
     /**
     * タレント登録・更新Controller
     *
-    * @param talentTorokuKoshin   タレントID
+    * @param mTalent　タレントマスタDTO
     * @return TalentTorokuKoshin
     */
 	@Override

@@ -32,6 +32,12 @@
       	and TALENT_NAME LIKE CONCAT('%', #{talentName,jdbcType=VARCHAR}, '%')
       </if>
   </select>
+  <select id="selectMaxNo" parameterType="string" resultMap="MaxNoResultMap">
+	   select
+	     MAX(TALENT_ID) AS TALENT_ID
+	   from
+	    M_TALENT
+  </select>
   <insert id="insert" parameterType="com.model.MTalent">
     insert into M_TALENT (TALENT_ID, TALENT_NAME, GENRE_ID, DELETE_FLG, TOROKU_DAY, KOUSHIN_DAY)
     values (#{talentId,jdbcType=VARCHAR}, #{talentName,jdbcType=VARCHAR}, #{genreId,jdbcType=INTEGER}, 
