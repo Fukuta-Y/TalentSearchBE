@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 
 import com.api.NentsukiShuKanrRefApi;
 import com.model.NentsukiShuKanri;
+import com.talent.service.NentsukiShuKanrRefService;
 
 import lombok.RequiredArgsConstructor;
 

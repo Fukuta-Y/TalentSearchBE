@@ -23,9 +23,8 @@ import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-11T16:44:03.101386+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-11T17:00:44.506852+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "nentsukiShuKanrRef", description = "the nentsukiShuKanrRef API")
 @RequestMapping("${openapi..base-path:}")
@@ -35,8 +34,8 @@ public interface NentsukiShuKanrRefApi {
      * GET /nentsukiShuKanrRef : 年月、週によって年月週管理情報を返す
      * 年月、週によって年月週管理情報を返す
      *
-     * @param nentsuki 年月 (required)
-     * @param shu 週 (required)
+     * @param nentsuki 年月 (optional)
+     * @param shu 週 (optional)
      * @return 年月週管理情報を正常取得 (status code 200)
      */
     @Operation(
@@ -51,8 +50,8 @@ public interface NentsukiShuKanrRefApi {
     )
     @GetMapping("/nentsukiShuKanrRef")
     ResponseEntity<NentsukiShuKanri> getNentsukiShuKanrRef(
-        @NotNull @Min(199001) @Max(210012) @Parameter(name = "nentsuki", description = "年月", required = true) @Valid @RequestParam(value = "nentsuki", required = true) Integer nentsuki,
-        @NotNull @Min(1) @Max(5) @Parameter(name = "shu", description = "週", required = true) @Valid @RequestParam(value = "shu", required = true) Integer shu
+        @Min(199001) @Max(210012) @Parameter(name = "nentsuki", description = "年月") @Valid @RequestParam(value = "nentsuki", required = false) Integer nentsuki,
+        @Min(1) @Max(5) @Parameter(name = "shu", description = "週") @Valid @RequestParam(value = "shu", required = false) Integer shu
     );
 
 }

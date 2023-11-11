@@ -1,5 +1,7 @@
 package com.talent.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.model.YearMonthWeekStartEndJoho;
@@ -32,10 +34,10 @@ public class YearMonthWeekStartEndService {
     	YearMonthWeekStartEndJoho response = new YearMonthWeekStartEndJoho();
 
     	// 年月週の開始終了日付検索
-    	NentsukiShuKanriMasterDto dto = mapper.select(nentsuki, shu);
+    	List<NentsukiShuKanriMasterDto> dto = mapper.select(nentsuki, shu);
 
         // Responseへ設定
-    	response.setmNentsukiShuKanri(helper.toModel(dto));
+    	response.setmNentsukiShuKanri(helper.toModel(dto.get(0)));
     	
 		// responseの返却
         return response;
