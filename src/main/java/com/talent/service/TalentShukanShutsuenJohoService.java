@@ -57,7 +57,7 @@ public class TalentShukanShutsuenJohoService {
         List<OnAirKanriTableDto> onAirKanriTableDto = tOnAirKanriMapper.select(nentsuki, shu, talentIdList);
         
         // タレントマスタ検索
-    	List<TalentMasterDto> talentMasterDto = mTalentMapper.selectEx(talentId);
+    	List<TalentMasterDto> talentMasterDto = mTalentMapper.select(talentId, "");
 
         // 番組IDのリストを設定
         List<String> programIdList = new ArrayList<String>();

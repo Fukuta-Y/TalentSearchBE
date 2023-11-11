@@ -32,17 +32,17 @@ public class OnAirKanriRefService {
 	  */
 	public OnAirKanriList getOnAirKanriRef(String id, String onAirDay) {
 	
-	 	// ProgramInfoListをResponseに設定
+	 	// ProgramInfoListをresponseに設定
 		OnAirKanriList response = new OnAirKanriList();
 
-	 	// オンエア管理テーブルDTO検索
-		List<OnAirKanriTableDto> onAirKanriList = tOnAirKanriMapper.selectEx(id, onAirDay);
+	 	// オンエア管理参照検索
+		List<OnAirKanriTableDto> dtoList = tOnAirKanriMapper.selectEx(id, onAirDay);
 	
 	     // Model変換
-		List<TOnAirKanri> tOnAirKanriList = helper.toModel(onAirKanriList);
+		List<TOnAirKanri> modelList = helper.toModel(dtoList);
 
-	     // Responseへ設定
-	 	response.settOnAirKanri(tOnAirKanriList);
+	     // responseへ設定
+	 	response.settOnAirKanri(modelList);
 	
 		// responseの返却
 	 	return response;

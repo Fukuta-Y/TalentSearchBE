@@ -33,7 +33,7 @@ public class TalentMasterService {
 		// responseを宣言
 		TalentList respose = new TalentList();
 		// タレントマスタ検索する
-		List<TalentMasterDto> talentListDto = mTalentMapper.selectEx(talentId);
+		List<TalentMasterDto> talentListDto = mTalentMapper.select(talentId, "");
 		// 戻りを変換する
 		List<MTalent>  talentList= helper.toModel(talentListDto);
 		respose.setmTalent(talentList);

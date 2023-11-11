@@ -12,5 +12,5 @@ import com.talent.setting.ConfigMapper;
 public interface MNentsukiShuKanriHelper {
 	MNentsukiShuKanri toModel(NentsukiShuKanriMasterDto model);
 	
-	List<MNentsukiShuKanri> toListModel(List<NentsukiShuKanriMasterDto>  model);
+	List<MNentsukiShuKanri> toListModel(List<NentsukiShuKanriMasterDto> model);
  }

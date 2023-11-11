@@ -37,6 +37,27 @@
 	   from
 	    M_PROGRAM
   </select>
+  <select id="selectEx" parameterType="string" resultMap="BaseResultMap">
+       select 
+	     PROGRAM_ID
+	    ,PROGRAM_NAME
+	    ,CHANEL_ID
+	    ,GENRE_ID
+	    ,DELETE_FLG
+	    ,TOROKU_DAY
+	    ,KOUSHIN_DAY
+	   from
+	    M_PROGRAM
+	   where
+       1 = 1 
+       and DELETE_FLG = '0'
+      <if test="programId != ''"> 
+      	and PROGRAM_ID = #{programId,jdbcType=VARCHAR} 
+      </if>
+      <if test="programName != ''"> 
+      	and PROGRAM_NAME LIKE CONCAT('%', #{programName}, '%')
+      </if>
+  </select>
   <insert id="insert" parameterType="com.model.MProgram">
     insert into M_PROGRAM (PROGRAM_ID, PROGRAM_NAME, CHANEL_ID, GENRE_ID, DELETE_FLG, TOROKU_DAY, KOUSHIN_DAY)
     values (#{programId,jdbcType=VARCHAR}, #{programName,jdbcType=VARCHAR}, #{chanelId,jdbcType=INTEGER}, 
