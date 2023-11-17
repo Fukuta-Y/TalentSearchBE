@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  <mapper namespace="com.talent.infrastructure.repository.mapper.generated.MChanelKyokuMapper">
-  <resultMap id="BaseResultMap" type="com.talent.infrastructure.dto.ChanelKyokuMasterDto" autoMapping="true">
-    <result column="CHANEL_ID" jdbcType="INTEGER" property="chanelId" />
-    <result column="CHANEL_KYOKU_ID" jdbcType="INTEGER" property="chanelKyokuId" />
+  <mapper namespace="com.talent.infrastructure.repository.mapper.generated.MChannelKyokuMapper">
+  <resultMap id="BaseResultMap" type="com.talent.infrastructure.dto.ChannelKyokuMasterDto" autoMapping="true">
+    <result column="CHANNEL_ID" jdbcType="INTEGER" property="channelId" />
+    <result column="CHANNEL_KYOKU_ID" jdbcType="INTEGER" property="channelKyokuId" />
     <result column="AREA_ID" jdbcType="INTEGER" property="areaId" />
     <result column="DELETE_FLG" jdbcType="INTEGER" property="deleteFlg" />
     <result column="TOROKU_DAY" jdbcType="TIMESTAMP" property="torokuDay" />
@@ -11,17 +11,17 @@
   </resultMap>
   <select id="select" parameterType="string" resultMap="BaseResultMap">
        select 
-       	 CHANEL_ID
-       	,CHANEL_KYOKU_ID
+       	 CHANNEL_ID
+       	,CHANNEL_KYOKU_ID
        	,AREA_ID
        	,DELETE_FLG
        	,TOROKU_DAY
        	,KOUSHIN_DAY 
        from 
-       	M_CHANEL_KYOKU 
+       	M_CHANNEL_KYOKU 
        where
-       	CHANEL_ID IN
-        <foreach item="item" collection="chanelIdList" open="(" separator="," close=")">
+       	CHANNEL_ID IN
+        <foreach item="item" collection="genreIdList" open="(" separator="," close=")">
           #{item}
         </foreach>
   </select>

@@ -10,7 +10,7 @@ import lombok.Data;
 public class ProgramMasterDto implements Serializable {
    private String programId;
    private String programName;
-   private Integer chanelId;
+   private Integer channelId;
    private Integer genreId;
    private Integer deleteFlg;
    private LocalDate torokuDay;

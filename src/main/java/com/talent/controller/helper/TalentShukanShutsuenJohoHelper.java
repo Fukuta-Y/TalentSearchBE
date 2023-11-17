@@ -4,12 +4,12 @@ import java.util.List;
 
 import org.mapstruct.Mapper;
 
-import com.model.MChanelKyoku;
+import com.model.MChannelKyoku;
 import com.model.MKbnGenre;
 import com.model.MProgram;
 import com.model.MTalent;
 import com.model.TOnAirKanri;
-import com.talent.infrastructure.dto.ChanelKyokuMasterDto;
+import com.talent.infrastructure.dto.ChannelKyokuMasterDto;
 import com.talent.infrastructure.dto.KbnGenreMasterDto;
 import com.talent.infrastructure.dto.OnAirKanriTableDto;
 import com.talent.infrastructure.dto.ProgramMasterDto;
@@ -25,7 +25,7 @@ public interface TalentShukanShutsuenJohoHelper {
 
 	List<MTalent> toTalentModel(List<TalentMasterDto> model);
 
-	List<MChanelKyoku> toChanelKyokuModel(List<ChanelKyokuMasterDto> model);
+	List<MChannelKyoku> toChannelKyokuModel(List<ChannelKyokuMasterDto> model);
 
 	List<MKbnGenre> toKbnGenreModel(List<KbnGenreMasterDto> model);
  }
