@@ -23,7 +23,7 @@ public class ChanelKyokuController implements ChanelKyokuApi{
 	* @return ChanelKyoku
 	*/
 	@Override
-	public ResponseEntity<ChanelKyoku> getChanelKyoku(String chanelIds) {
+	public ResponseEntity<ChanelKyoku> getChannelKyoku(String chanelIds) {
 		// ChanelKyokuServiceより取得
 		ChanelKyoku response = service.getChanelKyoku(chanelIds);
 		return ResponseEntity.ok(response);

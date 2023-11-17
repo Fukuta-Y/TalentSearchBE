@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.talent.infrastructure.repository.mapper.generated.MChanelKyokuMapper">
   <resultMap id="BaseResultMap" type="com.talent.infrastructure.dto.ChanelKyokuMasterDto" autoMapping="true">
-    <result column="CHANNEL_ID" jdbcType="INTEGER" property="chanelId" />
-    <result column="CHANNEL_KYOKU_ID" jdbcType="INTEGER" property="chanelKyokuId" />
+    <result column="CHANNEL_ID" jdbcType="INTEGER" property="channelId" />
+    <result column="CHANNEL_KYOKU_ID" jdbcType="INTEGER" property="channelKyokuId" />
     <result column="AREA_ID" jdbcType="INTEGER" property="areaId" />
     <result column="DELETE_FLG" jdbcType="INTEGER" property="deleteFlg" />
     <result column="TOROKU_DAY" jdbcType="TIMESTAMP" property="torokuDay" />

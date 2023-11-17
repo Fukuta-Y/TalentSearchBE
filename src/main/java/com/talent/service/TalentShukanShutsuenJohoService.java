@@ -80,7 +80,7 @@ public class TalentShukanShutsuenJohoService {
         if (programMasterDto.size() != 0) {
             chanelIdList = new ArrayList<String>();
             //　名称検索の結果のIDをリスト化する
-            for(ProgramMasterDto dto: programMasterDto) chanelIdList.add(dto.getChanelId().toString());
+            for(ProgramMasterDto dto: programMasterDto) chanelIdList.add(dto.getChannelId().toString());
             // チャンネル局マスタ検索
             chanelKyokuMasterDto = mChanelKyokuMapper.select(chanelIdList);
         }

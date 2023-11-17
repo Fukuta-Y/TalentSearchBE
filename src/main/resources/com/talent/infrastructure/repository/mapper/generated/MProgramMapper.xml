@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap"  type="com.talent.infrastructure.dto.ProgramMasterDto" autoMapping="true">
     <result column="PROGRAM_ID" jdbcType="VARCHAR" property="programId" />
     <result column="PROGRAM_NAME" jdbcType="VARCHAR" property="programName" />
-    <result column="CHANNEL_ID" jdbcType="INTEGER" property="chanelId" />
+    <result column="CHANNEL_ID" jdbcType="INTEGER" property="channelId" />
     <result column="GENRE_ID" jdbcType="INTEGER" property="genreId" />
     <result column="DELETE_FLG" jdbcType="INTEGER" property="deleteFlg" />
     <result column="TOROKU_DAY" jdbcType="TIMESTAMP" property="torokuDay" />
