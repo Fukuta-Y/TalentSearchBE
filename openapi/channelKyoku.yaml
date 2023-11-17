@@ -7,16 +7,16 @@ servers:
   - url: https://localhost:8082
     description: チャンネル局マスタ検索
 paths:
-  /chanelKyoku/{chanelIds}}:
+  /channelKyoku/{channelIds}}:
     get:
       tags:
-        - chanelKyoku
-      operationId: getChanelKyoku
+        - channelKyoku
+      operationId: getChannelKyoku
       summary: チャンネル局マスタをチャンネル局IDによって取得する
       description: チャンネル局マスタをチャンネル局IDによって取得する
       parameters:
         - in: path
-          name: chanelIds
+          name: channelIds
           required: true
           schema:
             type: string
@@ -27,15 +27,15 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/chanelKyoku'      
+                $ref: '#/components/schemas/channelKyoku'      
 components:
   schemas:
-    chanelKyoku:
+    channelKyoku:
       description: チャンネル局マスタ
       type: object
       properties:
-        mChanelKyoku:
+        mChannelKyoku:
           description: チャンネル局マスタDTO
           type: array
           items:
-            $ref: "../../TalentSearchCommon/Tables/mChanelKyoku.yaml#/components/schemas/mChanelKyoku"
+            $ref: "../../TalentSearchCommon/Tables/mChannelKyoku.yaml#/components/schemas/mChannelKyoku"
