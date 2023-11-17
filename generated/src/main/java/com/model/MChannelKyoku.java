@@ -18,7 +18,7 @@ import jakarta.validation.constraints.NotNull;
 @Schema(name = "mChannelKyoku", description = "チャンネル局マスタ情報（全列）")
 @JsonTypeName("mChannelKyoku")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-03T00:05:56.576346+09:00[Asia/Tokyo]")
-public class MChanelKyoku {
+public class MChannelKyoku {
 
   @JsonProperty("channelId")
   private Integer channelId;
@@ -38,7 +38,7 @@ public class MChanelKyoku {
   @JsonProperty("koushinDay")
   private String koushinDay;
 
-  public MChanelKyoku channelId(Integer channelId) {
+  public MChannelKyoku channelId(Integer channelId) {
     this.channelId = channelId;
     return this;
   }
@@ -59,7 +59,7 @@ public class MChanelKyoku {
     this.channelId = channelId;
   }
 
-  public MChanelKyoku channelKyokuId(Integer channelKyokuId) {
+  public MChannelKyoku channelKyokuId(Integer channelKyokuId) {
     this.channelKyokuId = channelKyokuId;
     return this;
   }
@@ -80,7 +80,7 @@ public class MChanelKyoku {
     this.channelKyokuId = channelKyokuId;
   }
 
-  public MChanelKyoku areaId(Integer areaId) {
+  public MChannelKyoku areaId(Integer areaId) {
     this.areaId = areaId;
     return this;
   }
@@ -101,7 +101,7 @@ public class MChanelKyoku {
     this.areaId = areaId;
   }
 
-  public MChanelKyoku deleteFlg(Integer deleteFlg) {
+  public MChannelKyoku deleteFlg(Integer deleteFlg) {
     this.deleteFlg = deleteFlg;
     return this;
   }
@@ -122,7 +122,7 @@ public class MChanelKyoku {
     this.deleteFlg = deleteFlg;
   }
 
-  public MChanelKyoku torokuDay(String torokuDay) {
+  public MChannelKyoku torokuDay(String torokuDay) {
     this.torokuDay = torokuDay;
     return this;
   }
@@ -141,7 +141,7 @@ public class MChanelKyoku {
     this.torokuDay = torokuDay;
   }
 
-  public MChanelKyoku koushinDay(String koushinDay) {
+  public MChannelKyoku koushinDay(String koushinDay) {
     this.koushinDay = koushinDay;
     return this;
   }
@@ -168,7 +168,7 @@ public class MChanelKyoku {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MChanelKyoku mChannelKyoku = (MChanelKyoku) o;
+    MChannelKyoku mChannelKyoku = (MChannelKyoku) o;
     return Objects.equals(this.channelId, mChannelKyoku.channelId) &&
         Objects.equals(this.channelKyokuId, mChannelKyoku.channelKyokuId) &&
         Objects.equals(this.areaId, mChannelKyoku.areaId) &&
@@ -185,7 +185,7 @@ public class MChanelKyoku {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MChanelKyoku {\n");
+    sb.append("class MChannelKyoku {\n");
     sb.append("    channelId: ").append(toIndentedString(channelId)).append("\n");
     sb.append("    channelKyokuId: ").append(toIndentedString(channelKyokuId)).append("\n");
     sb.append("    areaId: ").append(toIndentedString(areaId)).append("\n");

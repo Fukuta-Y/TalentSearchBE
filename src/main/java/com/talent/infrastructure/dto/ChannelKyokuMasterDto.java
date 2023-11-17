@@ -7,7 +7,7 @@ import lombok.Data;
  * チャンネル局マスタDTO
  */
 @Data
-public class ChanelKyokuMasterDto implements Serializable {
+public class ChannelKyokuMasterDto implements Serializable {
    private Integer channelId;
    private Integer channelKyokuId;
    private Integer areaId;

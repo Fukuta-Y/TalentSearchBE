@@ -60,13 +60,13 @@
   </select>
   <insert id="insert" parameterType="com.model.MProgram">
     insert into M_PROGRAM (PROGRAM_ID, PROGRAM_NAME, CHANNEL_ID, GENRE_ID, DELETE_FLG, TOROKU_DAY, KOUSHIN_DAY)
-    values (#{programId,jdbcType=VARCHAR}, #{programName,jdbcType=VARCHAR}, #{chanelId,jdbcType=INTEGER}, 
+    values (#{programId,jdbcType=VARCHAR}, #{programName,jdbcType=VARCHAR}, #{channelId,jdbcType=INTEGER}, 
       #{genreId,jdbcType=INTEGER}, #{deleteFlg,jdbcType=INTEGER}, #{torokuDay,jdbcType=TIMESTAMP}, #{koushinDay,jdbcType=TIMESTAMP})
   </insert>
   <update id="update" parameterType="com.model.MProgram">
      update M_PROGRAM set
       PROGRAM_NAME = #{programName,jdbcType=VARCHAR},
-      CHANNEL_ID = #{chanelId,jdbcType=INTEGER},
+      CHANNEL_ID = #{channelId,jdbcType=INTEGER},
       GENRE_ID = #{genreId,jdbcType=INTEGER},
       KOUSHIN_DAY = #{koushinDay,jdbcType=TIMESTAMP}
      WHERE

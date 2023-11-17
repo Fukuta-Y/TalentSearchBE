@@ -7,12 +7,12 @@ import org.springframework.stereotype.Service;
 
 import com.model.TalentShukanShutsuenJoho;
 import com.talent.controller.helper.TalentShukanShutsuenJohoHelper;
-import com.talent.infrastructure.dto.ChanelKyokuMasterDto;
+import com.talent.infrastructure.dto.ChannelKyokuMasterDto;
 import com.talent.infrastructure.dto.KbnGenreMasterDto;
 import com.talent.infrastructure.dto.OnAirKanriTableDto;
 import com.talent.infrastructure.dto.ProgramMasterDto;
 import com.talent.infrastructure.dto.TalentMasterDto;
-import com.talent.infrastructure.repository.mapper.generated.MChanelKyokuMapper;
+import com.talent.infrastructure.repository.mapper.generated.MChannelKyokuMapper;
 import com.talent.infrastructure.repository.mapper.generated.MKbnGenreMapper;
 import com.talent.infrastructure.repository.mapper.generated.MProgramMapper;
 import com.talent.infrastructure.repository.mapper.generated.MTalentMapper;
@@ -30,7 +30,7 @@ public class TalentShukanShutsuenJohoService {
     private final TOnAirKanriMapper tOnAirKanriMapper;
     private final MTalentMapper mTalentMapper;
     private final MProgramMapper mProgramMapper;
-    private final MChanelKyokuMapper mChanelKyokuMapper;
+    private final MChannelKyokuMapper mChannelKyokuMapper;
     private final MKbnGenreMapper mKbnGenreMapper;
     // helperの宣言
     private final TalentShukanShutsuenJohoHelper helper;
@@ -74,7 +74,7 @@ public class TalentShukanShutsuenJohoService {
         
         // チャンネルIDのリストを設定
         List<String> chanelIdList = new ArrayList<String>();
-        List<ChanelKyokuMasterDto> chanelKyokuMasterDto = new ArrayList<ChanelKyokuMasterDto>();
+        List<ChannelKyokuMasterDto> channelKyokuMasterDto = new ArrayList<ChannelKyokuMasterDto>();
         
         // オンエア管理テーブルが設定されている場合
         if (programMasterDto.size() != 0) {
@@ -82,7 +82,7 @@ public class TalentShukanShutsuenJohoService {
             //　名称検索の結果のIDをリスト化する
             for(ProgramMasterDto dto: programMasterDto) chanelIdList.add(dto.getChannelId().toString());
             // チャンネル局マスタ検索
-            chanelKyokuMasterDto = mChanelKyokuMapper.select(chanelIdList);
+            channelKyokuMasterDto = mChannelKyokuMapper.select(chanelIdList);
         }
 
         // 区分ジャンルのリストを設定
@@ -97,7 +97,7 @@ public class TalentShukanShutsuenJohoService {
         response.setmProgram(helper.toProgramModel(programMasterDto));
         response.settOnAirKanri(helper.toOnAirKanriTableModel(onAirKanriTableDto));
         response.setmTalent(helper.toTalentModel(talentMasterDto));
-        response.setmChanelKyoku(helper.toChanelKyokuModel(chanelKyokuMasterDto));
+        response.setmChannelKyoku(helper.toChannelKyokuModel(channelKyokuMasterDto));
         response.setmKbnGenre(helper.toKbnGenreModel(kbnGenreMasterDto));
 
 		// responseの返却

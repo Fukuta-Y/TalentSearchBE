@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  <mapper namespace="com.talent.infrastructure.repository.mapper.generated.MChanelKyokuMapper">
-  <resultMap id="BaseResultMap" type="com.talent.infrastructure.dto.ChanelKyokuMasterDto" autoMapping="true">
+  <mapper namespace="com.talent.infrastructure.repository.mapper.generated.MChannelKyokuMapper">
+  <resultMap id="BaseResultMap" type="com.talent.infrastructure.dto.ChannelKyokuMasterDto" autoMapping="true">
     <result column="CHANNEL_ID" jdbcType="INTEGER" property="channelId" />
     <result column="CHANNEL_KYOKU_ID" jdbcType="INTEGER" property="channelKyokuId" />
     <result column="AREA_ID" jdbcType="INTEGER" property="areaId" />
@@ -21,7 +21,7 @@
        	M_CHANNEL_KYOKU 
        where
        	CHANNEL_ID IN
-        <foreach item="item" collection="chanelIdList" open="(" separator="," close=")">
+        <foreach item="item" collection="genreIdList" open="(" separator="," close=")">
           #{item}
         </foreach>
   </select>
