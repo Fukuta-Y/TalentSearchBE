@@ -49,7 +49,7 @@ public interface ProgramShutsuenApi {
     @GetMapping("/programShutsuen")
     ResponseEntity<ProgramShutsuenList> getprogramShutsuen(
         @NotNull @Size(max = 8) @Parameter(name = "programId", description = "", required = true) @Valid @RequestParam(value = "programId", required = true) String programId,
-        @NotNull @Parameter(name = "onairDay", description = "", required = true) @Valid @RequestParam(value = "onairDay", required = true) String onairDay
+        @NotNull @Parameter(name = "onAirDay", description = "", required = true) @Valid @RequestParam(value = "onAirDay", required = true) String onAirDay
     );
 
 }

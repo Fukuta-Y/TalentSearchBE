@@ -8,5 +8,5 @@ import com.model.ProgramShutsuen;
 
 @Mapper
 public interface ProgramShutsuenMapper {
-	List<ProgramShutsuen> select(String  programId, String onairDay);
+	List<ProgramShutsuen> select(String  programId, String onAirDay);
 }
