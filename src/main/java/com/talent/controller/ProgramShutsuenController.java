@@ -20,13 +20,13 @@ public class ProgramShutsuenController implements ProgramShutsuenApi{
     * 番組出演者検索Controller
     *
     * @param programId 番組ID
-    * @param onairDay  オンエア日
+    * @param onAirDay  オンエア日
     * @return ProgramShutsuenList
     */
 	@Override
-	public ResponseEntity<ProgramShutsuenList> getprogramShutsuen(String programId, String onairDay) {
+	public ResponseEntity<ProgramShutsuenList> getprogramShutsuen(String programId, String onAirDay) {
 		// ProgramShutsuenServiceより取得
-		ProgramShutsuenList response = service.getProgramShutsuenList(programId, onairDay);
+		ProgramShutsuenList response = service.getProgramShutsuenList(programId, onAirDay);
 		return ResponseEntity.ok(response);
 	}
 }

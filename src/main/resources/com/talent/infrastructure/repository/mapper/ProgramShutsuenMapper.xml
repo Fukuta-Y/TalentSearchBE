@@ -30,7 +30,7 @@
     and
      c.GENRE_ID = d.JYUNJYO
     where a.PROGRAM_ID =#{programId}
-    and a.ONAIR_DAY =#{onairDay}
+    and a.ONAIR_DAY =#{onAirDay}
     and a.DELETE_FLG = '0'
     and b.DELETE_FLG = '0'
     and c.DELETE_FLG = '0'
