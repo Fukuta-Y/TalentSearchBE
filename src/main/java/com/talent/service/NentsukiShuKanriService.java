@@ -40,12 +40,13 @@ public class NentsukiShuKanriService {
 
 		// 年月週管理検索を実施
 		List<NentsukiShuKanriMasterDto> dtoList = mNentsukiShuKanriMapper.select(mNentsukiShuKanri.getNentsuki(), mNentsukiShuKanri.getShu());
+
 		//　パラメータを取得する
 		MNentsukiShuKanri paramValue = mNentsukiShuKanri; // パラメータ設定
 		
 		int count = 0; // 登録・更新件数
 		// 年月週管理検索が存在する場合
-		if (Objects.isNull(dtoList.get(0))) {
+		if (Objects.isNull(dtoList) || dtoList.isEmpty()) {
 			// 現在時刻を取得
 			Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 			paramValue.setTorokuDay(timestamp.toString()); // 登録日
