@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.model.TOnAirKanri;
 import com.talent.infrastructure.dto.MaxNoDto;
+import com.talent.infrastructure.dto.OnAirKanriRefDto;
 import com.talent.infrastructure.dto.OnAirKanriTableDto;
 
 @Mapper
@@ -13,7 +14,7 @@ public interface TOnAirKanriMapper {
 
 	List<OnAirKanriTableDto> select(Integer nentsuki, Integer shu, List<String> talentIdList);
 	
-	List<OnAirKanriTableDto> selectEx(String id, String onAirDay);
+	List<OnAirKanriRefDto> selectEx(String id, String onAirDay);
 	
 	List<OnAirKanriTableDto> selectId(String id);
 	

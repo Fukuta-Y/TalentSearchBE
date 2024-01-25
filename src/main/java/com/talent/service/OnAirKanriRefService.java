@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.model.OnAirKanriList;
 import com.model.TOnAirKanri;
-import com.talent.infrastructure.dto.OnAirKanriTableDto;
+import com.talent.infrastructure.dto.OnAirKanriRefDto;
 import com.talent.infrastructure.repository.mapper.generated.TOnAirKanriMapper;
 import com.talent.service.helper.TOnAirKanriHelper;
 
@@ -36,7 +36,7 @@ public class OnAirKanriRefService {
 		OnAirKanriList response = new OnAirKanriList();
 
 	 	// オンエア管理参照検索
-		List<OnAirKanriTableDto> dtoList = tOnAirKanriMapper.selectEx(id, onAirDay);
+		List<OnAirKanriRefDto> dtoList = tOnAirKanriMapper.selectEx(id, onAirDay);
 	
 	     // Model変換
 		List<TOnAirKanri> modelList = helper.toModel(dtoList);

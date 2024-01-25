@@ -41,25 +41,33 @@
   </select>
   <select id="selectEx" parameterType="string" resultMap="BaseResultMap">
        select 
-       	 ID
-       	,ONAIR_DAY
-       	,PROGRAM_ID
-       	,TALENT_ID
-       	,NENTSUKI
-       	,SHU
-       	,DELETE_FLG
-       	,TOROKU_DAY
-       	,KOUSHIN_DAY 
+       	 a.ID
+       	,a.ONAIR_DAY
+       	,a.PROGRAM_ID
+       	,c.PROGRAM_NAME
+       	,a.TALENT_ID
+       	,b.TALENT_NAME
+       	,a.NENTSUKI
+       	,a.SHU
+       	,a.DELETE_FLG
+       	,a.TOROKU_DAY
+       	,a.KOUSHIN_DAY 
        from 
-       	T_ONAIR_KANRI 
+       	T_ONAIR_KANRI a
+       inner join M_TALENT b
+       on a.TALENT_ID = b.TALENT_ID
+       and b.DELETE_FLG = '0'
+       inner join M_PROGRAM c
+       on a.PROGRAM_ID = c.PROGRAM_ID
+       and c.DELETE_FLG = '0'
        where
        1 = 1 
-       and DELETE_FLG = '0'
+       and a.DELETE_FLG = '0'
       <if test="id != ''"> 
-      	and ID = #{id,jdbcType=VARCHAR} 
+      	and a.ID = #{id,jdbcType=VARCHAR} 
       </if>
       <if test="onAirDay != ''"> 
-      	and ONAIR_DAY = #{onAirDay,jdbcType=TIMESTAMP}
+      	and a.ONAIR_DAY = #{onAirDay,jdbcType=TIMESTAMP}
       </if>
   </select>
   <select id="selectId" parameterType="string" resultMap="BaseResultMap">
