@@ -12,6 +12,19 @@
     <result column="TOROKU_DAY" jdbcType="TIMESTAMP" property="torokuDay" />
     <result column="KOUSHIN_DAY" jdbcType="TIMESTAMP" property="koushinDay" />
   </resultMap>
+  <resultMap id="TOnAriKanriRefReslut"  type="com.talent.infrastructure.dto.OnAirKanriRefDto" autoMapping="true">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="ONAIR_DAY" jdbcType="TIMESTAMP" property="onAirDay" />
+    <result column="PROGRAM_ID" jdbcType="VARCHAR" property="programId" />
+    <result column="PROGRAM_NAME" jdbcType="VARCHAR" property="programName" />
+    <result column="TALENT_ID" jdbcType="VARCHAR" property="talentId" />
+    <result column="TALENT_NAME" jdbcType="VARCHAR" property="talentName" />
+    <result column="NENTSUKI" jdbcType="INTEGER" property="nentsuki" />
+    <result column="SHU" jdbcType="INTEGER" property="shu" />
+    <result column="DELETE_FLG" jdbcType="INTEGER" property="deleteFlg" />
+    <result column="TOROKU_DAY" jdbcType="TIMESTAMP" property="torokuDay" />
+    <result column="KOUSHIN_DAY" jdbcType="TIMESTAMP" property="koushinDay" />
+  </resultMap>
   <resultMap autoMapping="true" id="MaxNoResultMap" type="com.talent.infrastructure.dto.MaxNoDto">
     <result column="ID" jdbcType="VARCHAR" property="maxId" />
   </resultMap>
@@ -39,27 +52,35 @@
        </if>
        	and DELETE_FLG = '0'
   </select>
-  <select id="selectEx" parameterType="string" resultMap="BaseResultMap">
+  <select id="selectEx" parameterType="string" resultMap="TOnAriKanriRefReslut">
        select 
-       	 ID
-       	,ONAIR_DAY
-       	,PROGRAM_ID
-       	,TALENT_ID
-       	,NENTSUKI
-       	,SHU
-       	,DELETE_FLG
-       	,TOROKU_DAY
-       	,KOUSHIN_DAY 
+       	 a.ID
+       	,a.ONAIR_DAY
+       	,a.PROGRAM_ID
+       	,c.PROGRAM_NAME
+       	,a.TALENT_ID
+       	,b.TALENT_NAME
+       	,a.NENTSUKI
+       	,a.SHU
+       	,a.DELETE_FLG
+       	,a.TOROKU_DAY
+       	,a.KOUSHIN_DAY 
        from 
-       	T_ONAIR_KANRI 
+       	T_ONAIR_KANRI a
+       inner join M_TALENT b
+       on a.TALENT_ID = b.TALENT_ID
+       and b.DELETE_FLG = '0'
+       inner join M_PROGRAM c
+       on a.PROGRAM_ID = c.PROGRAM_ID
+       and c.DELETE_FLG = '0'
        where
        1 = 1 
-       and DELETE_FLG = '0'
+       and a.DELETE_FLG = '0'
       <if test="id != ''"> 
-      	and ID = #{id,jdbcType=VARCHAR} 
+      	and a.ID = #{id,jdbcType=VARCHAR} 
       </if>
       <if test="onAirDay != ''"> 
-      	and ONAIR_DAY = #{onAirDay,jdbcType=TIMESTAMP}
+      	and a.ONAIR_DAY = #{onAirDay,jdbcType=TIMESTAMP}
       </if>
   </select>
   <select id="selectId" parameterType="string" resultMap="BaseResultMap">
