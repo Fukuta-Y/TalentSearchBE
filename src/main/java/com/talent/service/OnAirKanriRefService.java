@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.model.OnAirKanriList;
-import com.model.TOnAirKanri;
+import com.model.OnAirKanriRefList;
+import com.model.TOnAirKanriRef;
 import com.talent.infrastructure.dto.OnAirKanriRefDto;
 import com.talent.infrastructure.repository.mapper.generated.TOnAirKanriMapper;
 import com.talent.service.helper.TOnAirKanriHelper;
@@ -28,21 +28,21 @@ public class OnAirKanriRefService {
 	  * オンエア管理参照検索Service
 	  * @param　id ID
 	  * @param　onAirDay オンエア日
-	  * @return OnAirKanriList
+	  * @return OnAirKanriRefList
 	  */
-	public OnAirKanriList getOnAirKanriRef(String id, String onAirDay) {
+	public OnAirKanriRefList getOnAirKanriRef(String id, String onAirDay) {
 	
 	 	// ProgramInfoListをresponseに設定
-		OnAirKanriList response = new OnAirKanriList();
+		OnAirKanriRefList response = new OnAirKanriRefList();
 
 	 	// オンエア管理参照検索
 		List<OnAirKanriRefDto> dtoList = tOnAirKanriMapper.selectEx(id, onAirDay);
 	
 	     // Model変換
-		List<TOnAirKanri> modelList = helper.toModel(dtoList);
+		List<TOnAirKanriRef> modelList = helper.toRefModel(dtoList);
 
 	     // responseへ設定
-	 	response.settOnAirKanri(modelList);
+	 	response.settOnAirKanriRef(modelList);
 	
 		// responseの返却
 	 	return response;

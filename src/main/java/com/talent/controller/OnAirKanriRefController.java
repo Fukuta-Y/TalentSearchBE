@@ -4,7 +4,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
 import com.api.OnAirKanriRefApi;
-import com.model.OnAirKanriList;
+import com.model.OnAirKanriRefList;
 import com.talent.service.OnAirKanriRefService;
 
 import lombok.RequiredArgsConstructor;
@@ -15,7 +15,7 @@ public class OnAirKanriRefController implements OnAirKanriRefApi{
 
 	// OnAirKanriRefServiceを宣言
 	private final OnAirKanriRefService service;
-	
+
 	/**
 	* オンエア管理参照検索Controller
 	* 
@@ -24,8 +24,8 @@ public class OnAirKanriRefController implements OnAirKanriRefApi{
 	* @return OnAirKanriList
 	*/
 	@Override
-	public ResponseEntity<OnAirKanriList> getOnAirKanriRef(String id, String onAirDay) {
-		OnAirKanriList response = service.getOnAirKanriRef(id, onAirDay);
+	public ResponseEntity<OnAirKanriRefList> getOnAirKanriRef(String id, String onAirDay) {
+		OnAirKanriRefList response = service.getOnAirKanriRef(id, onAirDay);
 		return ResponseEntity.ok(response);
 	}
 }

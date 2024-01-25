@@ -12,6 +12,19 @@
     <result column="TOROKU_DAY" jdbcType="TIMESTAMP" property="torokuDay" />
     <result column="KOUSHIN_DAY" jdbcType="TIMESTAMP" property="koushinDay" />
   </resultMap>
+  <resultMap id="TOnAriKanriRefReslut"  type="com.talent.infrastructure.dto.OnAirKanriRefDto" autoMapping="true">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="ONAIR_DAY" jdbcType="TIMESTAMP" property="onAirDay" />
+    <result column="PROGRAM_ID" jdbcType="VARCHAR" property="programId" />
+    <result column="PROGRAM_NAME" jdbcType="VARCHAR" property="programName" />
+    <result column="TALENT_ID" jdbcType="VARCHAR" property="talentId" />
+    <result column="TALENT_NAME" jdbcType="VARCHAR" property="talentName" />
+    <result column="NENTSUKI" jdbcType="INTEGER" property="nentsuki" />
+    <result column="SHU" jdbcType="INTEGER" property="shu" />
+    <result column="DELETE_FLG" jdbcType="INTEGER" property="deleteFlg" />
+    <result column="TOROKU_DAY" jdbcType="TIMESTAMP" property="torokuDay" />
+    <result column="KOUSHIN_DAY" jdbcType="TIMESTAMP" property="koushinDay" />
+  </resultMap>
   <resultMap autoMapping="true" id="MaxNoResultMap" type="com.talent.infrastructure.dto.MaxNoDto">
     <result column="ID" jdbcType="VARCHAR" property="maxId" />
   </resultMap>
@@ -39,7 +52,7 @@
        </if>
        	and DELETE_FLG = '0'
   </select>
-  <select id="selectEx" parameterType="string" resultMap="BaseResultMap">
+  <select id="selectEx" parameterType="string" resultMap="TOnAriKanriRefReslut">
        select 
        	 a.ID
        	,a.ONAIR_DAY
