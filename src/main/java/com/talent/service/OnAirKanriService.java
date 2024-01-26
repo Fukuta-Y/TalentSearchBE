@@ -10,9 +10,7 @@ import org.springframework.stereotype.Service;
 import com.model.OnAirKanriList;
 import com.model.TOnAirKanri;
 import com.talent.infrastructure.dto.MaxNoDto;
-import com.talent.infrastructure.dto.OnAirKanriTableDto;
 import com.talent.infrastructure.repository.mapper.generated.TOnAirKanriMapper;
-import com.talent.service.helper.TOnAirKanriHelper;
 
 import lombok.RequiredArgsConstructor;
 
@@ -25,30 +23,6 @@ public class OnAirKanriService {
 
 	// mapperの宣言
 	private final TOnAirKanriMapper tOnAirKanriMapper;
-
-	// helperの宣言
-	private final TOnAirKanriHelper helper;
-	
-	/**
-	  * オンエア管理情報Service
-	  * @param id　ID
-	  * @return OnAirKanriList
-	 */
-	public OnAirKanriList getOnAirKanriList(String id) {
-		
-	 	// OnAirKanriListをResponseに設定
-		OnAirKanriList response = new OnAirKanriList();
-
-		List<OnAirKanriTableDto> dto = tOnAirKanriMapper.selectId(id);
-		
-		// (1) パラメータのIDをキーとして、BE「オンエア管理テーブル検索」へ検索して、
-		// 取得したオンエア管理テーブルDTOをレスポンスへ設定する。
-		List<TOnAirKanri> list = helper.toModel(dto);
-		response.settOnAirKanri(list);
-
-		// responseの返却
-	 	return response;
-	}
 	
 	/**
 	  * オンエア管理登録・更新Service

@@ -16,8 +16,6 @@ public interface TOnAirKanriMapper {
 	
 	List<OnAirKanriRefDto> selectEx(String id, String onAirDay);
 	
-	List<OnAirKanriTableDto> selectId(String id);
-	
 	MaxNoDto selectMaxNo();
 	
 	int insert(TOnAirKanri tOnAirKanri);

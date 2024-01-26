@@ -7,8 +7,6 @@ package com.api;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,36 +22,12 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.Size;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-05T14:32:23.923965+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-01-26T18:15:08.923380+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "onAirKanri", description = "the onAirKanri API")
 @RequestMapping("${openapi..base-path:}")
 public interface OnAirKanriApi {
-
-    /**
-     * GET /onAirKanri/{id} : オンエア管理テーブル情報を返す
-     * オンエア管理テーブル情報を返す
-     *
-     * @param id  (required)
-     * @return オンエア管理テーブルDTOの情報を正常取得 (status code 200)
-     */
-    @Operation(
-        operationId = "getOnAirKanri",
-        summary = "オンエア管理テーブル情報を返す",
-        tags = { "onAirKanri" },
-        responses = {
-            @ApiResponse(responseCode = "200", description = "オンエア管理テーブルDTOの情報を正常取得", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = OnAirKanriList.class))
-            })
-        }
-    )
-    @GetMapping("/onAirKanri/{id}")
-    ResponseEntity<OnAirKanriList> getOnAirKanri(
-        @Size(max = 8) @Parameter(name = "id", description = "", required = true) @PathVariable("id") String id
-    );
-
 
     /**
      * POST /onAirKanri : オンエア管理テーブル情報を登録または更新する
