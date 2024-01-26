@@ -16,19 +16,6 @@ public class OnAirKanriController implements OnAirKanriApi{
 	
 	// OnAirKanriServiceを宣言
 	private final OnAirKanriService service;
-	
-	/**
-	* オンエア管理テーブル検索Controller
-	* 
-	* @param　id ID
-	* @return OnAirKanriList
-	*/
-	@Override
-	public ResponseEntity<OnAirKanriList> getOnAirKanri(String id) {
-		// OnAirKanriServiceより取得
-		OnAirKanriList response = service.getOnAirKanriList(id);
-		return ResponseEntity.ok(response);
-	}
 
 	/**
 	* オンエア管理登録・更新Controller

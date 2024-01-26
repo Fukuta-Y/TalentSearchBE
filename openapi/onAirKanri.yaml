@@ -7,27 +7,6 @@ servers:
   - url: https://localhost:8082
     description: オンエア管理テーブル検索
 paths:
-  /onAirKanri/{id}:
-    get:
-      tags:
-        - onAirKanri
-      operationId: getOnAirKanri
-      summary: オンエア管理テーブル情報を返す
-      description: オンエア管理テーブル情報を返す
-      parameters:
-        - in: path
-          name: id
-          required: true
-          schema:
-            type: string
-            maxLength: 8
-      responses:
-        '200':
-          description: オンエア管理テーブルDTOの情報を正常取得
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/onAirKanriList'
   /onAirKanri:
     post:
       tags:
