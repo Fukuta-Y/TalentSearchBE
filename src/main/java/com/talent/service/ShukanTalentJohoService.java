@@ -41,12 +41,22 @@ public class ShukanTalentJohoService {
     	// ShukanTalentJohoをResponseに設定
     	ShukanTalentJoho response = new ShukanTalentJoho();
     	
-    	// タレントマスタ検索
+    	// タレントマスタ検索の結果を格納用
 		List<TalentMasterDto> talentMasterDto = mTalentMapper.select("" , talentName);
-		List<String> talentIdList = new ArrayList<String>();
+		List<String> talentIdList = null;
 		
-		//　名称検索の結果のIDをリスト化する
-		for(TalentMasterDto dto:talentMasterDto) talentIdList.add(dto.getTalentId());
+		// タレント名前が設定されている場合
+		if(!talentName.isEmpty()) {
+			//　名称検索の結果のIDをリスト化する
+			talentIdList = new ArrayList<String>();
+			for(TalentMasterDto dto:talentMasterDto) talentIdList.add(dto.getTalentId());
+		}
+		
+		// タレント名が設定されているのに検索結果がない場合はもう検索結果は0件となる
+		if(!talentName.isEmpty() && talentIdList.size() == 0) {
+			// responseの返却
+	        return response;
+		}
 
     	// オンエア管理テーブル検索
 		List<OnAirKanriTableDto> onAirKanriTableDto = tOnAirKanriMapper.select(nentsuki, shu, talentIdList);
