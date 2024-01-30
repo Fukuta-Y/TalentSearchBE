@@ -25,5 +25,6 @@
 	     #{item}
 	   </foreach>
 	   and DELETE_FLG = '0'
+	   order by GENRE_ID,JYUNJYO,GENRE
   </select>
 </mapper>

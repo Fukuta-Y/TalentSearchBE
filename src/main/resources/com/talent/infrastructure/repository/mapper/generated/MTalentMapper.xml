@@ -31,6 +31,7 @@
       <if test="talentName != ''"> 
       	and TALENT_NAME LIKE CONCAT('%', #{talentName,jdbcType=VARCHAR}, '%')
       </if>
+      order by TALENT_ID
   </select>
   <select id="selectMaxNo" parameterType="string" resultMap="MaxNoResultMap">
 	   select
