@@ -56,6 +56,12 @@ public class TalentShukanShutsuenJohoService {
         // オンエア管理テーブル検索
         List<OnAirKanriTableDto> onAirKanriTableDto = tOnAirKanriMapper.select(nentsuki, shu, talentIdList);
         
+		// 検索結果がない場合はもう検索結果は0件となる
+		if(onAirKanriTableDto.size() == 0) {
+			// responseの返却
+	        return response;
+		}
+
         // タレントマスタ検索
     	List<TalentMasterDto> talentMasterDto = mTalentMapper.select(talentId, "");
 
