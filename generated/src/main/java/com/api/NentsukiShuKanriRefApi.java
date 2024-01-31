@@ -26,12 +26,12 @@ import jakarta.validation.constraints.Min;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-11T17:00:44.506852+09:00[Asia/Tokyo]")
 @Validated
-@Tag(name = "nentsukiShuKanrRef", description = "the nentsukiShuKanrRef API")
+@Tag(name = "nentsukiShuKanriRef", description = "the nentsukiShuKanriRef API")
 @RequestMapping("${openapi..base-path:}")
-public interface NentsukiShuKanrRefApi {
+public interface NentsukiShuKanriRefApi {
 
     /**
-     * GET /nentsukiShuKanrRef : 年月、週によって年月週管理情報を返す
+     * GET /nentsukiShuKanriRef : 年月、週によって年月週管理情報を返す
      * 年月、週によって年月週管理情報を返す
      *
      * @param nentsuki 年月 (optional)
@@ -39,17 +39,17 @@ public interface NentsukiShuKanrRefApi {
      * @return 年月週管理情報を正常取得 (status code 200)
      */
     @Operation(
-        operationId = "getNentsukiShuKanrRef",
+        operationId = "getNentsukiShuKanriRef",
         summary = "年月、週によって年月週管理情報を返す",
-        tags = { "nentsukiShuKanrRef" },
+        tags = { "nentsukiShuKanriRef" },
         responses = {
             @ApiResponse(responseCode = "200", description = "年月週管理情報を正常取得", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = NentsukiShuKanri.class))
             })
         }
     )
-    @GetMapping("/nentsukiShuKanrRef")
-    ResponseEntity<NentsukiShuKanri> getNentsukiShuKanrRef(
+    @GetMapping("/nentsukiShuKanriRef")
+    ResponseEntity<NentsukiShuKanri> getNentsukiShuKanriRef(
         @Min(199001) @Max(210012) @Parameter(name = "nentsuki", description = "年月") @Valid @RequestParam(value = "nentsuki", required = false) Integer nentsuki,
         @Min(1) @Max(5) @Parameter(name = "shu", description = "週") @Valid @RequestParam(value = "shu", required = false) Integer shu
     );
