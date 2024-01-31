@@ -17,7 +17,7 @@ import lombok.RequiredArgsConstructor;
  */
 @Service
 @RequiredArgsConstructor
-public class NentsukiShuKanrRefService {
+public class NentsukiShuKanriRefService {
 	// mapperの宣言
 	private final MNentsukiShuKanriMapper mapper;
 
@@ -31,7 +31,7 @@ public class NentsukiShuKanrRefService {
 	* @param　shu 週
 	* @return NentsukiShuKanri
 	*/
-	public NentsukiShuKanri getNentsukiShuKanrRef(Integer nentsuki, Integer shu) {
+	public NentsukiShuKanri getNentsukiShuKanriRef(Integer nentsuki, Integer shu) {
 	
 	 	// NentsukiShuKanriをresponseに設定
 		NentsukiShuKanri response = new NentsukiShuKanri();

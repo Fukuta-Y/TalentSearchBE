@@ -24,5 +24,6 @@
         <foreach item="item" collection="genreIdList" open="(" separator="," close=")">
           #{item}
         </foreach>
+       order by CHANNEL_ID
   </select>
 </mapper>

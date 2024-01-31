@@ -51,6 +51,7 @@
        	</foreach>
        </if>
        	and DELETE_FLG = '0'
+       	order by ID
   </select>
   <select id="selectEx" parameterType="string" resultMap="TOnAriKanriRefReslut">
        select 
@@ -82,6 +83,7 @@
       <if test="onAirDay != ''"> 
       	and a.ONAIR_DAY = #{onAirDay,jdbcType=TIMESTAMP}
       </if>
+       	order by ID
   </select>
   <select id="selectMaxNo" parameterType="string" resultMap="MaxNoResultMap">
 	   select

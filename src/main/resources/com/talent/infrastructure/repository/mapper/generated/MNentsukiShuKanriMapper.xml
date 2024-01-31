@@ -27,6 +27,7 @@
        	<if test="shu != null"> 
       	 and SHU = #{shu,jdbcType=INTEGER}
        	</if>
+       	ORDER BY NENTSUKI,SHU
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
        select 
@@ -37,7 +38,8 @@
        	,TOROKU_DAY
        	,KOUSHIN_DAY
        from 
-       	M_NENTSUKI_SHU_KANRI 
+       	M_NENTSUKI_SHU_KANRI
+       order by NENTSUKI,SHU
   </select>
  <insert id="insert" parameterType="com.model.MNentsukiShuKanri">
     insert into M_NENTSUKI_SHU_KANRI (NENTSUKI, SHU, SHU_FROM, SHU_TO, TOROKU_DAY, KOUSHIN_DAY)

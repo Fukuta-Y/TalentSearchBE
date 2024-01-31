@@ -30,6 +30,7 @@
 	       #{item}
 	    </foreach>
 	    and DELETE_FLG = '0'
+	    order by PROGRAM_ID
   </select>
   <select id="selectMaxNo" parameterType="string" resultMap="MaxNoResultMap">
 	   select
@@ -57,6 +58,7 @@
       <if test="programName != ''"> 
       	and PROGRAM_NAME LIKE CONCAT('%', #{programName}, '%')
       </if>
+      order by PROGRAM_ID
   </select>
   <insert id="insert" parameterType="com.model.MProgram">
     insert into M_PROGRAM (PROGRAM_ID, PROGRAM_NAME, CHANNEL_ID, GENRE_ID, DELETE_FLG, TOROKU_DAY, KOUSHIN_DAY)
