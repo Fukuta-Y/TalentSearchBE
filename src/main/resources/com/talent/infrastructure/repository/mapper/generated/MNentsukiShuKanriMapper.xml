@@ -9,50 +9,67 @@
     <result column="TOROKU_DAY" jdbcType="TIMESTAMP" property="torokuDay" />
     <result column="KOUSHIN_DAY" jdbcType="TIMESTAMP" property="koushinDay" />
   </resultMap>
-  <select id="select" parameterType="integer" resultMap="BaseResultMap">
-       select 
-       	 NENTSUKI
-       	,SHU
-       	,SHU_FROM
-       	,SHU_TO
-       	,TOROKU_DAY
-       	,KOUSHIN_DAY
-       from 
-       	M_NENTSUKI_SHU_KANRI 
-       where 
+
+  <select id="select" parameterType="java.util.Map" resultMap="BaseResultMap">
+       SELECT
+       	 "NENTSUKI",
+       	 "SHU",
+       	 "SHU_FROM",
+       	 "SHU_TO",
+       	 "TOROKU_DAY",
+       	 "KOUSHIN_DAY"
+       FROM
+       	 "M_NENTSUKI_SHU_KANRI"
+       WHERE
         1 = 1
-       	<if test="nentsuki != null"> 
-      	 and NENTSUKI = #{nentsuki,jdbcType=INTEGER} 
+       	<if test="nentsuki != null">
+      	 AND "NENTSUKI" = #{nentsuki,jdbcType=INTEGER}
        	</if>
-       	<if test="shu != null"> 
-      	 and SHU = #{shu,jdbcType=INTEGER}
+       	<if test="shu != null">
+      	 AND "SHU" = #{shu,jdbcType=INTEGER}
        	</if>
-       	ORDER BY NENTSUKI,SHU
+       	ORDER BY "NENTSUKI", "SHU"
   </select>
+
   <select id="selectAll" resultMap="BaseResultMap">
-       select 
-       	 NENTSUKI
-       	,SHU
-       	,SHU_FROM
-       	,SHU_TO
-       	,TOROKU_DAY
-       	,KOUSHIN_DAY
-       from 
-       	M_NENTSUKI_SHU_KANRI
-       order by NENTSUKI,SHU
+       SELECT
+       	 "NENTSUKI",
+       	 "SHU",
+       	 "SHU_FROM",
+       	 "SHU_TO",
+       	 "TOROKU_DAY",
+       	 "KOUSHIN_DAY"
+       FROM
+       	 "M_NENTSUKI_SHU_KANRI"
+       ORDER BY "NENTSUKI", "SHU"
   </select>
+
  <insert id="insert" parameterType="com.model.MNentsukiShuKanri">
-    insert into M_NENTSUKI_SHU_KANRI (NENTSUKI, SHU, SHU_FROM, SHU_TO, TOROKU_DAY, KOUSHIN_DAY)
-    values (#{nentsuki,jdbcType=INTEGER}, #{shu,jdbcType=INTEGER}, #{shuFrom,jdbcType=DATE}, 
-      #{shuTo,jdbcType=DATE}, #{torokuDay,jdbcType=TIMESTAMP}, #{koushinDay,jdbcType=TIMESTAMP})
+    INSERT INTO "M_NENTSUKI_SHU_KANRI" (
+      "NENTSUKI",
+      "SHU",
+      "SHU_FROM",
+      "SHU_TO",
+      "TOROKU_DAY",
+      "KOUSHIN_DAY"
+    )
+    VALUES (
+      #{nentsuki,jdbcType=INTEGER},
+      #{shu,jdbcType=INTEGER},
+      #{shuFrom,jdbcType=DATE},
+      #{shuTo,jdbcType=DATE},
+      #{torokuDay,jdbcType=TIMESTAMP},
+      #{koushinDay,jdbcType=TIMESTAMP}
+    )
   </insert>
+
   <update id="update" parameterType="com.model.MNentsukiShuKanri">
-     update M_NENTSUKI_SHU_KANRI set
-      SHU_FROM = #{shuFrom,jdbcType=DATE},
-      SHU_TO = #{shuTo,jdbcType=DATE},
-      KOUSHIN_DAY = #{koushinDay,jdbcType=TIMESTAMP}
+     UPDATE "M_NENTSUKI_SHU_KANRI" SET
+      "SHU_FROM" = #{shuFrom,jdbcType=DATE},
+      "SHU_TO" = #{shuTo,jdbcType=DATE},
+      "KOUSHIN_DAY" = #{koushinDay,jdbcType=TIMESTAMP}
      WHERE
-      NENTSUKI = #{nentsuki,jdbcType=INTEGER} and
-      SHU = #{shu,jdbcType=INTEGER}
+      "NENTSUKI" = #{nentsuki,jdbcType=INTEGER} AND
+      "SHU" = #{shu,jdbcType=INTEGER}
   </update>
 </mapper>

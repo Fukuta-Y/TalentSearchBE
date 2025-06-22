@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.talent.infrastructure.repository.mapper.generated.MTalentMapper">
-  <resultMap id="BaseResultMap"  type="com.talent.infrastructure.dto.TalentMasterDto" autoMapping="true">
+  <resultMap id="BaseResultMap" type="com.talent.infrastructure.dto.TalentMasterDto" autoMapping="true">
     <result column="TALENT_ID" jdbcType="VARCHAR" property="talentId" />
     <result column="TALENT_NAME" jdbcType="VARCHAR" property="talentName" />
     <result column="GENRE_ID" jdbcType="INTEGER" property="genreId" />
@@ -9,47 +9,63 @@
     <result column="TOROKU_DAY" jdbcType="TIMESTAMP" property="torokuDay" />
     <result column="KOUSHIN_DAY" jdbcType="TIMESTAMP" property="koushinDay" />
   </resultMap>
+
   <resultMap autoMapping="true" id="MaxNoResultMap" type="com.talent.infrastructure.dto.MaxNoDto">
     <result column="TALENT_ID" jdbcType="VARCHAR" property="maxId" />
   </resultMap>
-  <select id="select" parameterType="string" resultMap="BaseResultMap">
-	   select
-	     TALENT_ID
-	    ,TALENT_NAME
-	    ,GENRE_ID
-	    ,DELETE_FLG
-	    ,TOROKU_DAY
-	    ,KOUSHIN_DAY
-	   from
-	    M_TALENT
-       where
-       1 = 1 
-       and DELETE_FLG = '0'
-      <if test="talentId != ''"> 
-      	and TALENT_ID =#{talentId,jdbcType=VARCHAR}
+
+  <select id="select" parameterType="java.util.Map" resultMap="BaseResultMap">
+       SELECT
+         "TALENT_ID",
+         "TALENT_NAME",
+         "GENRE_ID",
+         "DELETE_FLG",
+         "TOROKU_DAY",
+         "KOUSHIN_DAY"
+       FROM
+         "M_TALENT"
+       WHERE
+         1 = 1
+         AND "DELETE_FLG" = 0  <if test="talentId != null and talentId != ''">
+        AND "TALENT_ID" = #{talentId,jdbcType=VARCHAR}
       </if>
-      <if test="talentName != ''"> 
-      	and TALENT_NAME LIKE CONCAT('%', #{talentName,jdbcType=VARCHAR}, '%')
-      </if>
-      order by TALENT_ID
+      <if test="talentName != null and talentName != ''">
+        AND "TALENT_NAME" ILIKE CONCAT('%', #{talentName,jdbcType=VARCHAR}, '%') </if>
+      ORDER BY "TALENT_ID"
   </select>
+
   <select id="selectMaxNo" parameterType="string" resultMap="MaxNoResultMap">
-	   select
-	     MAX(TALENT_ID) AS TALENT_ID
-	   from
-	    M_TALENT
+       SELECT
+         MAX("TALENT_ID") AS "TALENT_ID"
+       FROM
+         "M_TALENT"
   </select>
+
   <insert id="insert" parameterType="com.model.MTalent">
-    insert into M_TALENT (TALENT_ID, TALENT_NAME, GENRE_ID, DELETE_FLG, TOROKU_DAY, KOUSHIN_DAY)
-    values (#{talentId,jdbcType=VARCHAR}, #{talentName,jdbcType=VARCHAR}, #{genreId,jdbcType=INTEGER}, 
-      #{deleteFlg,jdbcType=INTEGER}, #{torokuDay,jdbcType=TIMESTAMP}, #{koushinDay,jdbcType=TIMESTAMP})
+    INSERT INTO "M_TALENT" (
+      "TALENT_ID",
+      "TALENT_NAME",
+      "GENRE_ID",
+      "DELETE_FLG",
+      "TOROKU_DAY",
+      "KOUSHIN_DAY"
+    )
+    VALUES (
+      #{talentId,jdbcType=VARCHAR},
+      #{talentName,jdbcType=VARCHAR},
+      #{genreId,jdbcType=INTEGER},
+      #{deleteFlg,jdbcType=INTEGER},
+      #{torokuDay,jdbcType=TIMESTAMP},
+      #{koushinDay,jdbcType=TIMESTAMP}
+    )
   </insert>
+
   <update id="update" parameterType="com.model.MTalent">
-     update M_TALENT set
-      TALENT_NAME = #{talentName,jdbcType=VARCHAR},
-      GENRE_ID = #{genreId,jdbcType=INTEGER},
-      KOUSHIN_DAY = #{koushinDay,jdbcType=TIMESTAMP}
+     UPDATE "M_TALENT" SET
+      "TALENT_NAME" = #{talentName,jdbcType=VARCHAR},
+      "GENRE_ID" = #{genreId,jdbcType=INTEGER},
+      "KOUSHIN_DAY" = #{koushinDay,jdbcType=TIMESTAMP}
      WHERE
-      TALENT_ID = #{talentId,jdbcType=VARCHAR}
+      "TALENT_ID" = #{talentId,jdbcType=VARCHAR}
   </update>
 </mapper>

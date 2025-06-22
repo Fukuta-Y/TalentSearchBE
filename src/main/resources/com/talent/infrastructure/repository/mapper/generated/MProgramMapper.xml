@@ -10,68 +10,89 @@
     <result column="TOROKU_DAY" jdbcType="TIMESTAMP" property="torokuDay" />
     <result column="KOUSHIN_DAY" jdbcType="TIMESTAMP" property="koushinDay" />
   </resultMap>
+
   <resultMap autoMapping="true" id="MaxNoResultMap" type="com.talent.infrastructure.dto.MaxNoDto">
     <result column="PROGRAM_ID" jdbcType="VARCHAR" property="maxId" />
   </resultMap>
-  <select id="select" parameterType="string" resultMap="BaseResultMap">
-	   select
-	     PROGRAM_ID
-	    ,PROGRAM_NAME
-	    ,CHANNEL_ID
-	    ,GENRE_ID
-	    ,DELETE_FLG
-	    ,TOROKU_DAY
-	    ,KOUSHIN_DAY
-	   from
-	    M_PROGRAM
-	   where
-	    PROGRAM_ID IN
-	    <foreach item="item" collection="programIdList" open="(" separator="," close=")">
-	       #{item}
-	    </foreach>
-	    and DELETE_FLG = '0'
-	    order by PROGRAM_ID
+
+  <select id="select" parameterType="java.util.Map" resultMap="BaseResultMap">
+       SELECT
+         "PROGRAM_ID",
+         "PROGRAM_NAME",
+         "CHANNEL_ID",
+         "GENRE_ID",
+         "DELETE_FLG",
+         "TOROKU_DAY",
+         "KOUSHIN_DAY"
+       FROM
+         "M_PROGRAM"
+       WHERE
+         "PROGRAM_ID" IN
+        <foreach item="item" collection="programIdList" open="(" separator="," close=")">
+           #{item}
+        </foreach>
+        AND "DELETE_FLG" = '0'
+       ORDER BY "PROGRAM_ID"
   </select>
+
   <select id="selectMaxNo" parameterType="string" resultMap="MaxNoResultMap">
-	   select
-	     MAX(PROGRAM_ID) AS PROGRAM_ID
-	   from
-	    M_PROGRAM
+       SELECT
+         MAX("PROGRAM_ID") AS "PROGRAM_ID"
+       FROM
+         "M_PROGRAM"
   </select>
-  <select id="selectEx" parameterType="string" resultMap="BaseResultMap">
-       select 
-	     PROGRAM_ID
-	    ,PROGRAM_NAME
-	    ,CHANNEL_ID
-	    ,GENRE_ID
-	    ,DELETE_FLG
-	    ,TOROKU_DAY
-	    ,KOUSHIN_DAY
-	   from
-	    M_PROGRAM
-	   where
-       1 = 1 
-       and DELETE_FLG = '0'
-      <if test="programId != ''"> 
-      	and PROGRAM_ID = #{programId,jdbcType=VARCHAR} 
+
+  <select id="selectEx" parameterType="java.util.Map" resultMap="BaseResultMap">
+       SELECT
+         "PROGRAM_ID",
+         "PROGRAM_NAME",
+         "CHANNEL_ID",
+         "GENRE_ID",
+         "DELETE_FLG",
+         "TOROKU_DAY",
+         "KOUSHIN_DAY"
+       FROM
+         "M_PROGRAM"
+       WHERE
+         1 = 1
+         AND "DELETE_FLG" = '0'
+      <if test="programId != null and programId != ''">
+        AND "PROGRAM_ID" = #{programId,jdbcType=VARCHAR}
       </if>
-      <if test="programName != ''"> 
-      	and PROGRAM_NAME LIKE CONCAT('%', #{programName}, '%')
+      <if test="programName != null and programName != ''">
+        AND "PROGRAM_NAME" ILIKE CONCAT('%', #{programName}, '%')
       </if>
-      order by PROGRAM_ID
+       ORDER BY "PROGRAM_ID"
   </select>
+
   <insert id="insert" parameterType="com.model.MProgram">
-    insert into M_PROGRAM (PROGRAM_ID, PROGRAM_NAME, CHANNEL_ID, GENRE_ID, DELETE_FLG, TOROKU_DAY, KOUSHIN_DAY)
-    values (#{programId,jdbcType=VARCHAR}, #{programName,jdbcType=VARCHAR}, #{channelId,jdbcType=INTEGER}, 
-      #{genreId,jdbcType=INTEGER}, #{deleteFlg,jdbcType=INTEGER}, #{torokuDay,jdbcType=TIMESTAMP}, #{koushinDay,jdbcType=TIMESTAMP})
+    INSERT INTO "M_PROGRAM" (
+      "PROGRAM_ID",
+      "PROGRAM_NAME",
+      "CHANNEL_ID",
+      "GENRE_ID",
+      "DELETE_FLG",
+      "TOROKU_DAY",
+      "KOUSHIN_DAY"
+    )
+    VALUES (
+      #{programId,jdbcType=VARCHAR},
+      #{programName,jdbcType=VARCHAR},
+      #{channelId,jdbcType=INTEGER},
+      #{genreId,jdbcType=INTEGER},
+      #{deleteFlg,jdbcType=INTEGER},
+      #{torokuDay,jdbcType=TIMESTAMP},
+      #{koushinDay,jdbcType=TIMESTAMP}
+    )
   </insert>
+
   <update id="update" parameterType="com.model.MProgram">
-     update M_PROGRAM set
-      PROGRAM_NAME = #{programName,jdbcType=VARCHAR},
-      CHANNEL_ID = #{channelId,jdbcType=INTEGER},
-      GENRE_ID = #{genreId,jdbcType=INTEGER},
-      KOUSHIN_DAY = #{koushinDay,jdbcType=TIMESTAMP}
+     UPDATE "M_PROGRAM" SET
+      "PROGRAM_NAME" = #{programName,jdbcType=VARCHAR},
+      "CHANNEL_ID" = #{channelId,jdbcType=INTEGER},
+      "GENRE_ID" = #{genreId,jdbcType=INTEGER},
+      "KOUSHIN_DAY" = #{koushinDay,jdbcType=TIMESTAMP}
      WHERE
-      PROGRAM_ID = #{programId,jdbcType=VARCHAR}
+      "PROGRAM_ID" = #{programId,jdbcType=VARCHAR}
   </update>
 </mapper>

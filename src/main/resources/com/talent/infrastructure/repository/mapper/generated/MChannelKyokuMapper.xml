@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  <mapper namespace="com.talent.infrastructure.repository.mapper.generated.MChannelKyokuMapper">
+<mapper namespace="com.talent.infrastructure.repository.mapper.generated.MChannelKyokuMapper">
   <resultMap id="BaseResultMap" type="com.talent.infrastructure.dto.ChannelKyokuMasterDto" autoMapping="true">
     <result column="CHANNEL_ID" jdbcType="INTEGER" property="channelId" />
     <result column="CHANNEL_KYOKU_ID" jdbcType="INTEGER" property="channelKyokuId" />
@@ -9,21 +9,22 @@
     <result column="TOROKU_DAY" jdbcType="TIMESTAMP" property="torokuDay" />
     <result column="KOUSHIN_DAY" jdbcType="TIMESTAMP" property="koushinDay" />
   </resultMap>
-  <select id="select" parameterType="string" resultMap="BaseResultMap">
-       select 
-       	 CHANNEL_ID
-       	,CHANNEL_KYOKU_ID
-       	,AREA_ID
-       	,DELETE_FLG
-       	,TOROKU_DAY
-       	,KOUSHIN_DAY 
-       from 
-       	M_CHANNEL_KYOKU 
-       where
-       	CHANNEL_ID IN
+
+  <select id="select" parameterType="java.util.Map" resultMap="BaseResultMap">
+       SELECT
+       	 "CHANNEL_ID",
+       	 "CHANNEL_KYOKU_ID",
+       	 "AREA_ID",
+       	 "DELETE_FLG",
+       	 "TOROKU_DAY",
+       	 "KOUSHIN_DAY"
+       FROM
+       	 "M_CHANNEL_KYOKU"
+       WHERE
+       	 "CHANNEL_ID" IN
         <foreach item="item" collection="genreIdList" open="(" separator="," close=")">
           #{item}
         </foreach>
-       order by CHANNEL_ID
+       ORDER BY "CHANNEL_ID"
   </select>
 </mapper>

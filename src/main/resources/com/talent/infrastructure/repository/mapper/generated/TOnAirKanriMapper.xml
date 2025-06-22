@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.talent.infrastructure.repository.mapper.generated.TOnAirKanriMapper">
-  <resultMap id="BaseResultMap"  type="com.talent.infrastructure.dto.OnAirKanriTableDto" autoMapping="true">
+  <resultMap id="BaseResultMap" type="com.talent.infrastructure.dto.OnAirKanriTableDto" autoMapping="true">
     <result column="ID" jdbcType="VARCHAR" property="id" />
     <result column="ONAIR_DAY" jdbcType="TIMESTAMP" property="onAirDay" />
     <result column="PROGRAM_ID" jdbcType="VARCHAR" property="programId" />
@@ -12,7 +12,8 @@
     <result column="TOROKU_DAY" jdbcType="TIMESTAMP" property="torokuDay" />
     <result column="KOUSHIN_DAY" jdbcType="TIMESTAMP" property="koushinDay" />
   </resultMap>
-  <resultMap id="TOnAriKanriRefReslut"  type="com.talent.infrastructure.dto.OnAirKanriRefDto" autoMapping="true">
+
+  <resultMap id="TOnAriKanriRefReslut" type="com.talent.infrastructure.dto.OnAirKanriRefDto" autoMapping="true">
     <result column="ID" jdbcType="VARCHAR" property="id" />
     <result column="ONAIR_DAY" jdbcType="TIMESTAMP" property="onAirDay" />
     <result column="PROGRAM_ID" jdbcType="VARCHAR" property="programId" />
@@ -25,87 +26,107 @@
     <result column="TOROKU_DAY" jdbcType="TIMESTAMP" property="torokuDay" />
     <result column="KOUSHIN_DAY" jdbcType="TIMESTAMP" property="koushinDay" />
   </resultMap>
+
   <resultMap autoMapping="true" id="MaxNoResultMap" type="com.talent.infrastructure.dto.MaxNoDto">
     <result column="ID" jdbcType="VARCHAR" property="maxId" />
   </resultMap>
-  <select id="select" parameterType="integer" resultMap="BaseResultMap">
-       select 
-       	 ID
-       	,ONAIR_DAY
-       	,PROGRAM_ID
-       	,TALENT_ID
-       	,NENTSUKI
-       	,SHU
-       	,DELETE_FLG
-       	,TOROKU_DAY
-       	,KOUSHIN_DAY 
-       from 
-       	T_ONAIR_KANRI 
-       where 
-       	NENTSUKI =#{nentsuki}
-       	and SHU =#{shu}
-       <if test="talentIdList != null"> 
-        and TALENT_ID IN
-       	<foreach item="item" collection="talentIdList" open="(" separator="," close=")">
+
+  <select id="select" parameterType="java.util.Map" resultMap="BaseResultMap">
+       SELECT
+         "ID",
+         "ONAIR_DAY",
+         "PROGRAM_ID",
+         "TALENT_ID",
+         "NENTSUKI",
+         "SHU",
+         "DELETE_FLG",
+         "TOROKU_DAY",
+         "KOUSHIN_DAY"
+       FROM
+         "T_ONAIR_KANRI"
+       WHERE
+         "NENTSUKI" = #{nentsuki,jdbcType=INTEGER}
+         AND "SHU" = #{shu,jdbcType=INTEGER}
+       <if test="talentIdList != null and !talentIdList.isEmpty()">
+        AND "TALENT_ID" IN
+        <foreach item="item" collection="talentIdList" open="(" separator="," close=")">
            #{item}
-       	</foreach>
+        </foreach>
        </if>
-       	and DELETE_FLG = '0'
-       	order by ID
+       AND "DELETE_FLG" = 0  ORDER BY "ID"
   </select>
-  <select id="selectEx" parameterType="string" resultMap="TOnAriKanriRefReslut">
-       select 
-       	 a.ID
-       	,a.ONAIR_DAY
-       	,a.PROGRAM_ID
-       	,c.PROGRAM_NAME
-       	,a.TALENT_ID
-       	,b.TALENT_NAME
-       	,a.NENTSUKI
-       	,a.SHU
-       	,a.DELETE_FLG
-       	,a.TOROKU_DAY
-       	,a.KOUSHIN_DAY 
-       from 
-       	T_ONAIR_KANRI a
-       inner join M_TALENT b
-       on a.TALENT_ID = b.TALENT_ID
-       and b.DELETE_FLG = '0'
-       inner join M_PROGRAM c
-       on a.PROGRAM_ID = c.PROGRAM_ID
-       and c.DELETE_FLG = '0'
-       where
-       1 = 1 
-       and a.DELETE_FLG = '0'
-      <if test="id != ''"> 
-      	and a.ID = #{id,jdbcType=VARCHAR} 
+
+  <select id="selectEx" parameterType="java.util.Map" resultMap="TOnAriKanriRefReslut">
+       SELECT
+         a."ID",
+         a."ONAIR_DAY",
+         a."PROGRAM_ID",
+         c."PROGRAM_NAME",
+         a."TALENT_ID",
+         b."TALENT_NAME",
+         a."NENTSUKI",
+         a."SHU",
+         a."DELETE_FLG",
+         a."TOROKU_DAY",
+         a."KOUSHIN_DAY"
+       FROM
+         "T_ONAIR_KANRI" a
+       INNER JOIN "M_TALENT" b
+         ON a."TALENT_ID" = b."TALENT_ID"
+        AND b."DELETE_FLG" = 0  INNER JOIN "M_PROGRAM" c
+         ON a."PROGRAM_ID" = c."PROGRAM_ID"
+        AND c."DELETE_FLG" = 0  WHERE
+         1 = 1
+         AND a."DELETE_FLG" = 0  <if test="id != null and id != ''">
+        AND a."ID" = #{id,jdbcType=VARCHAR}
       </if>
-      <if test="onAirDay != ''"> 
-      	and a.ONAIR_DAY = #{onAirDay,jdbcType=TIMESTAMP}
+      <if test="onAirDay != null"> AND a."ONAIR_DAY" = #{onAirDay,jdbcType=TIMESTAMP}
       </if>
-       	order by ID
+       ORDER BY a."ID"
   </select>
+
   <select id="selectMaxNo" parameterType="string" resultMap="MaxNoResultMap">
-	   select
-	     MAX(ID) AS ID
-	   from
-	    T_ONAIR_KANRI
+       SELECT
+         MAX("ID") AS "ID"
+       FROM
+         "T_ONAIR_KANRI"
   </select>
+
   <insert id="insert" parameterType="com.model.TOnAirKanri">
-    insert into T_ONAIR_KANRI (ID, ONAIR_DAY, PROGRAM_ID, TALENT_ID, NENTSUKI, SHU, DELETE_FLG, TOROKU_DAY, KOUSHIN_DAY)
-    values (#{id,jdbcType=VARCHAR}, #{onAirDay,jdbcType=TIMESTAMP}, #{programId,jdbcType=VARCHAR}, #{talentId,jdbcType=VARCHAR}, #{nentsuki,jdbcType=INTEGER},
-    #{shu,jdbcType=INTEGER}, #{deleteFlg,jdbcType=INTEGER}, #{torokuDay,jdbcType=TIMESTAMP}, #{koushinDay,jdbcType=TIMESTAMP})
+    INSERT INTO "T_ONAIR_KANRI" (
+      "ID",
+      "ONAIR_DAY",
+      "PROGRAM_ID",
+      "TALENT_ID",
+      "NENTSUKI",
+      "SHU",
+      "DELETE_FLG",
+      "TOROKU_DAY",
+      "KOUSHIN_DAY"
+    )
+    VALUES (
+      #{id,jdbcType=VARCHAR},
+      #{onAirDay,jdbcType=TIMESTAMP},
+      #{programId,jdbcType=VARCHAR},
+      #{talentId,jdbcType=VARCHAR},
+      #{nentsuki,jdbcType=INTEGER},
+      #{shu,jdbcType=INTEGER},
+      #{deleteFlg,jdbcType=INTEGER},
+      #{torokuDay,jdbcType=TIMESTAMP},
+      #{koushinDay,jdbcType=TIMESTAMP}
+    )
   </insert>
+
   <update id="update" parameterType="com.model.TOnAirKanri">
-	update T_ONAIR_KANRI set
-		ONAIR_DAY = #{onAirDay,jdbcType=TIMESTAMP},
-		PROGRAM_ID = #{programId,jdbcType=VARCHAR}, 
-		TALENT_ID = #{talentId,jdbcType=VARCHAR},
-		NENTSUKI = #{nentsuki,jdbcType=INTEGER},
-		SHU = #{shu,jdbcType=INTEGER},
-		KOUSHIN_DAY = #{koushinDay,jdbcType=TIMESTAMP}
-     WHERE
-      ID = #{id,jdbcType=VARCHAR}
+    UPDATE "T_ONAIR_KANRI" SET
+      "ONAIR_DAY" = #{onAirDay,jdbcType=TIMESTAMP},
+      "PROGRAM_ID" = #{programId,jdbcType=VARCHAR},
+      "TALENT_ID" = #{talentId,jdbcType=VARCHAR},
+      "NENTSUKI" = #{nentsuki,jdbcType=INTEGER},
+      "SHU" = #{shu,jdbcType=INTEGER},
+      "KOUSHIN_DAY" = #{koushinDay,jdbcType=TIMESTAMP}
+    WHERE
+      "ID" = #{id,jdbcType=VARCHAR}
   </update>
-  
+
 </mapper>

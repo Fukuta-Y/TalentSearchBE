@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  <mapper namespace="com.talent.infrastructure.repository.mapper.generated.MKbnGenreMapper">
+<mapper namespace="com.talent.infrastructure.repository.mapper.generated.MKbnGenreMapper">
   <resultMap id="BaseResultMap" type="com.talent.infrastructure.dto.KbnGenreMasterDto" autoMapping="true">
     <result column="GENRE_ID" jdbcType="INTEGER" property="genreId" />
     <result column="JYUNJYO" jdbcType="INTEGER" property="jyunjyo" />
@@ -9,22 +9,23 @@
     <result column="TOROKU_DAY" jdbcType="TIMESTAMP" property="torokuDay" />
     <result column="KOUSHIN_DAY" jdbcType="TIMESTAMP" property="koushinDay" />
   </resultMap>
-  <select id="select" parameterType="integer" resultMap="BaseResultMap">
-	   select
-	      GENRE_ID
-	     ,JYUNJYO
-	     ,GENRE
-	     ,DELETE_FLG
-	     ,TOROKU_DAY
-	     ,KOUSHIN_DAY
-	   from 
-	    M_KBN_GENRE
-	   where 
-	    GENRE_ID IN
-	   <foreach item="item" collection="genreIdList" open="(" separator="," close=")">
-	     #{item}
-	   </foreach>
-	   and DELETE_FLG = '0'
-	   order by GENRE_ID,JYUNJYO,GENRE
+
+  <select id="select" parameterType="java.util.Map" resultMap="BaseResultMap">
+       SELECT
+          "GENRE_ID",
+          "JYUNJYO",
+          "GENRE",
+          "DELETE_FLG",
+          "TOROKU_DAY",
+          "KOUSHIN_DAY"
+       FROM
+         "M_KBN_GENRE"
+       WHERE
+         "GENRE_ID" IN
+       <foreach item="item" collection="genreIdList" open="(" separator="," close=")">
+         #{item}
+       </foreach>
+       AND "DELETE_FLG" = 0
+       ORDER BY "GENRE_ID", "JYUNJYO", "GENRE"
   </select>
 </mapper>
