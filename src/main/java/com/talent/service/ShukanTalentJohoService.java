@@ -40,18 +40,18 @@ public class ShukanTalentJohoService {
 
     	// ShukanTalentJohoをResponseに設定
     	ShukanTalentJoho response = new ShukanTalentJoho();
-    	
+
     	// タレントマスタ検索の結果を格納用
 		List<TalentMasterDto> talentMasterDto = mTalentMapper.select("" , talentName);
-		List<String> talentIdList = null;
-		
+		List<Integer> talentIdList = null;
+
 		// タレント名前が設定されている場合
 		if(!talentName.isEmpty()) {
 			//　名称検索の結果のIDをリスト化する
-			talentIdList = new ArrayList<String>();
-			for(TalentMasterDto dto:talentMasterDto) talentIdList.add(dto.getTalentId());
+			talentIdList = new ArrayList<Integer>();
+			for(TalentMasterDto dto:talentMasterDto) talentIdList.add(Integer.parseInt(dto.getTalentId()));
 		}
-		
+
 		// タレント名が設定されているのに検索結果がない場合はもう検索結果は0件となる
 		if(!talentName.isEmpty() && talentIdList.size() == 0) {
 			// responseの返却
@@ -66,11 +66,11 @@ public class ShukanTalentJohoService {
 
 		// オンエア管理テーブルとタレントマスタの内容が設定されている場合
 		if (onAirKanriTableDto.size() != 0 && talentMasterDto.size() != 0) {
-			List<String> idList = new ArrayList<String>();
-			onAirKanriTableDto.forEach(s -> idList.add(s.getProgramId())); 
+			List<Integer> idList = new ArrayList<Integer>();
+			onAirKanriTableDto.forEach(s -> idList.add(Integer.parseInt(s.getProgramId())));
 			programMasterDto = mProgramMapper.select(idList);
 		}
-		
+
         // Responseへ設定
 		response.setmTalent(helper.toTalentModel(talentMasterDto));
 		response.settOnAirKanri(helper.toOnAirKanriTableModel(onAirKanriTableDto));

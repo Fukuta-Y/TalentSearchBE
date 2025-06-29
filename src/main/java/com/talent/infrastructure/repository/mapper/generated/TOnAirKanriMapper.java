@@ -12,14 +12,14 @@ import com.talent.infrastructure.dto.OnAirKanriTableDto;
 @Mapper
 public interface TOnAirKanriMapper {
 
-	List<OnAirKanriTableDto> select(Integer nentsuki, Integer shu, List<String> talentIdList);
-	
+	List<OnAirKanriTableDto> select(Integer nentsuki, Integer shu, List<Integer> talentIdList);
+
 	List<OnAirKanriRefDto> selectEx(String id, String onAirDay);
-	
+
 	MaxNoDto selectMaxNo();
-	
+
 	int insert(TOnAirKanri tOnAirKanri);
-	
+
 	int update(TOnAirKanri tOnAirKanri);
-	
+
 }

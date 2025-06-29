@@ -30,18 +30,18 @@ public class ProgramInfoService {
 	  * @return ProgramInfo
 	  */
 	public ProgramInfoList getProgramInfoList(String  programId) {
-	
+
 	 	// ProgramInfoListをResponseに設定
 		ProgramInfoList response = new ProgramInfoList();
-	 	
+
         // 番組IDのリストを設定
-        List<String> programIdList = new ArrayList<String>();
+        List<Integer> programIdList = new ArrayList<Integer>();
         // 引数の内容を設定
-        programIdList.add(programId);
+        programIdList.add(Integer.parseInt(programId));
 
 	 	// 番組マスタ検索
 		List<ProgramMasterDto> programList = mProgramMapper.select(programIdList);
-	
+
 	     // Model変換（キー検索で1行目のみ使用する）
 		MProgram program = helper.toModel(programList.get(0));
 
@@ -49,7 +49,7 @@ public class ProgramInfoService {
 		List<MProgram> pgrmList = new ArrayList<MProgram>();
 		pgrmList.add(program);
 	 	response.setmProgram(pgrmList);
-	
+
 		// responseの返却
 	 	return response;
 	}

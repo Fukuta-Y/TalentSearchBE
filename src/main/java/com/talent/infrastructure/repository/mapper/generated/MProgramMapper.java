@@ -10,13 +10,13 @@ import com.talent.infrastructure.dto.ProgramMasterDto;
 
 @Mapper
 public interface MProgramMapper {
-	List<ProgramMasterDto> select(List<String> programIdList);
-	
+	List<ProgramMasterDto> select(List<Integer> programIdList);
+
 	MaxNoDto selectMaxNo();
-	
+
 	List<ProgramMasterDto> selectEx(String programId, String programName);
-	
+
 	int insert(MProgram mProgram);
-	
+
 	int update(MProgram mProgram);
 }
