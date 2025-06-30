@@ -31,7 +31,7 @@
         <foreach item="item" collection="programIdList" open="(" separator="," close=")">
            #{item}
         </foreach>
-        AND "DELETE_FLG" = '0'
+        AND "DELETE_FLG" = 0
        ORDER BY "PROGRAM_ID"
   </select>
 
@@ -55,7 +55,7 @@
          "M_PROGRAM"
        WHERE
          1 = 1
-         AND "DELETE_FLG" = '0'
+         AND "DELETE_FLG" = 0
       <if test="programId != null and programId != ''">
         AND "PROGRAM_ID" = #{programId,jdbcType=VARCHAR}
       </if>
