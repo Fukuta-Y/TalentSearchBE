@@ -25,7 +25,7 @@
       c."GENRE_ID" = d."JYUNJYO"
     WHERE
       a."PROGRAM_ID" = #{programId,jdbcType=VARCHAR}
-      AND a."ONAIR_DAY" = #{onAirDay,jdbcType=TIMESTAMP}
+      AND a."ONAIR_DAY" = CAST(#{onAirDay,jdbcType=VARCHAR} AS TIMESTAMP),
       AND a."DELETE_FLG" = 0  AND b."DELETE_FLG" = 0  AND c."DELETE_FLG" = 0  AND d."DELETE_FLG" = 0
   </select>
 </mapper>

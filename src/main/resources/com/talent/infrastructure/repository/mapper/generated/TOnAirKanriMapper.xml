@@ -121,7 +121,7 @@
 
   <update id="update" parameterType="com.model.TOnAirKanri">
     UPDATE "T_ONAIR_KANRI" SET
-      "ONAIR_DAY" = #{onAirDay,jdbcType=TIMESTAMP},
+      "ONAIR_DAY" = CAST(#{onAirDay,jdbcType=VARCHAR} AS TIMESTAMP),
       "PROGRAM_ID" = #{programId,jdbcType=VARCHAR},
       "TALENT_ID" = #{talentId,jdbcType=VARCHAR},
       "NENTSUKI" = #{nentsuki,jdbcType=INTEGER},
