@@ -64,7 +64,7 @@
      UPDATE "M_TALENT" SET
       "TALENT_NAME" = #{talentName,jdbcType=VARCHAR},
       "GENRE_ID" = #{genreId,jdbcType=INTEGER},
-      "KOUSHIN_DAY" = #{koushinDay,jdbcType=TIMESTAMP}
+      "KOUSHIN_DAY" = CAST(#{koushinDay,jdbcType=VARCHAR} AS TIMESTAMP)
      WHERE
       "TALENT_ID" = #{talentId,jdbcType=VARCHAR}
   </update>
