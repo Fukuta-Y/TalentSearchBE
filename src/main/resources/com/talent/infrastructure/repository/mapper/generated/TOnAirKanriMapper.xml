@@ -80,7 +80,8 @@
          AND a."DELETE_FLG" = 0  <if test="id != null and id != ''">
         AND a."ID" = #{id,jdbcType=VARCHAR}
       </if>
-      <if test="onAirDay != null"> AND a."ONAIR_DAY" = #{onAirDay,jdbcType=TIMESTAMP}
+      <if test="onAirDay != null">
+        AND a."ONAIR_DAY" = CAST(#{onAirDay,jdbcType=VARCHAR} AS TIMESTAMP)
       </if>
        ORDER BY a."ID"
   </select>
