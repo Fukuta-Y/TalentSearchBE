@@ -67,7 +67,7 @@
      UPDATE "M_NENTSUKI_SHU_KANRI" SET
       "SHU_FROM" = #{shuFrom,jdbcType=DATE},
       "SHU_TO" = #{shuTo,jdbcType=DATE},
-      "KOUSHIN_DAY" = #{koushinDay,jdbcType=TIMESTAMP}
+      "KOUSHIN_DAY" = CAST(#{koushinDay,jdbcType=VARCHAR} AS TIMESTAMP)
      WHERE
       "NENTSUKI" = #{nentsuki,jdbcType=INTEGER} AND
       "SHU" = #{shu,jdbcType=INTEGER}
