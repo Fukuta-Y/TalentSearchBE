@@ -126,7 +126,7 @@
       "TALENT_ID" = #{talentId,jdbcType=VARCHAR},
       "NENTSUKI" = #{nentsuki,jdbcType=INTEGER},
       "SHU" = #{shu,jdbcType=INTEGER},
-      "KOUSHIN_DAY" = #{koushinDay,jdbcType=TIMESTAMP}
+      "KOUSHIN_DAY" = CAST(#{koushinDay,jdbcType=VARCHAR} AS TIMESTAMP)
     WHERE
       "ID" = #{id,jdbcType=VARCHAR}
   </update>

@@ -91,7 +91,7 @@
       "PROGRAM_NAME" = #{programName,jdbcType=VARCHAR},
       "CHANNEL_ID" = #{channelId,jdbcType=INTEGER},
       "GENRE_ID" = #{genreId,jdbcType=INTEGER},
-      "KOUSHIN_DAY" = #{koushinDay,jdbcType=TIMESTAMP}
+      "KOUSHIN_DAY" = CAST(#{koushinDay,jdbcType=VARCHAR} AS TIMESTAMP)
      WHERE
       "PROGRAM_ID" = #{programId,jdbcType=VARCHAR}
   </update>
