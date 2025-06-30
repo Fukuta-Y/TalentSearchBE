@@ -108,7 +108,7 @@
     )
     VALUES (
       #{id,jdbcType=VARCHAR},
-      #{onAirDay,jdbcType=TIMESTAMP},
+      CAST(#{onAirDay,jdbcType=VARCHAR} AS TIMESTAMP),
       #{programId,jdbcType=VARCHAR},
       #{talentId,jdbcType=VARCHAR},
       #{nentsuki,jdbcType=INTEGER},
