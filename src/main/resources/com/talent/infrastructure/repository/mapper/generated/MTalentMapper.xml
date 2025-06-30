@@ -55,8 +55,8 @@
       #{talentName,jdbcType=VARCHAR},
       #{genreId,jdbcType=INTEGER},
       #{deleteFlg,jdbcType=INTEGER},
-      #{torokuDay,jdbcType=TIMESTAMP},
-      #{koushinDay,jdbcType=TIMESTAMP}
+      CAST(#{torokuDay,jdbcType=VARCHAR} AS TIMESTAMP),
+      CAST(#{koushinDay,jdbcType=VARCHAR} AS TIMESTAMP)
     )
   </insert>
 
