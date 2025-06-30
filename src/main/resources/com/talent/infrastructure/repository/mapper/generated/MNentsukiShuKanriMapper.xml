@@ -56,8 +56,8 @@
     VALUES (
       #{nentsuki,jdbcType=INTEGER},
       #{shu,jdbcType=INTEGER},
-      #{shuFrom,jdbcType=DATE},
-      #{shuTo,jdbcType=DATE},
+      CAST(#{shuFrom,jdbcType=VARCHAR} AS DATE),
+      CAST(#{shuTo,jdbcType=VARCHAR} AS DATE),
       #{torokuDay,jdbcType=TIMESTAMP},
       #{koushinDay,jdbcType=TIMESTAMP}
     )
@@ -65,8 +65,8 @@
 
   <update id="update" parameterType="com.model.MNentsukiShuKanri">
      UPDATE "M_NENTSUKI_SHU_KANRI" SET
-      "SHU_FROM" = #{shuFrom,jdbcType=DATE},
-      "SHU_TO" = #{shuTo,jdbcType=DATE},
+      "SHU_FROM" = CAST(#{shuFrom,jdbcType=VARCHAR} AS DATE),
+      "SHU_TO" = CAST(#{shuTo,jdbcType=VARCHAR} AS DATE),
       "KOUSHIN_DAY" = CAST(#{koushinDay,jdbcType=VARCHAR} AS TIMESTAMP)
      WHERE
       "NENTSUKI" = #{nentsuki,jdbcType=INTEGER} AND
