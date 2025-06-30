@@ -50,7 +50,7 @@
        <if test="talentIdList != null and !talentIdList.isEmpty()">
         AND "TALENT_ID" IN
         <foreach item="item" collection="talentIdList" open="(" separator="," close=")">
-           #{item}
+           CAST(#{item,jdbcType=INTEGER} AS VARCHAR)
         </foreach>
        </if>
        AND "DELETE_FLG" = 0  ORDER BY "ID"
