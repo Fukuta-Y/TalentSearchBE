@@ -10,4 +10,5 @@
 [Front] https://dashboard.render.com/static/srv-d1ge7uripnbc73ak2m1g
 
 DB側も起動すること。
+
 https://supabase.com/dashboard/project/szdcftaezxmhxjxqdeyi
