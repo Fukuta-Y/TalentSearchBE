@@ -66,8 +66,8 @@ public class ShukanTalentJohoService {
 
 		// オンエア管理テーブルとタレントマスタの内容が設定されている場合
 		if (onAirKanriTableDto.size() != 0 && talentMasterDto.size() != 0) {
-			List<Integer> idList = new ArrayList<Integer>();
-			onAirKanriTableDto.forEach(s -> idList.add(Integer.parseInt(s.getProgramId())));
+			List<String> idList = new ArrayList<String>();
+			onAirKanriTableDto.forEach(s -> idList.add(s.getProgramId()));
 			programMasterDto = mProgramMapper.select(idList);
 		}
 

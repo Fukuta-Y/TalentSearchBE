@@ -10,7 +10,7 @@ import com.talent.infrastructure.dto.ProgramMasterDto;
 
 @Mapper
 public interface MProgramMapper {
-	List<ProgramMasterDto> select(List<Integer> programIdList);
+	List<ProgramMasterDto> select(List<String> programIdList);
 
 	MaxNoDto selectMaxNo();
 

@@ -35,9 +35,9 @@ public class ProgramInfoService {
 		ProgramInfoList response = new ProgramInfoList();
 
         // 番組IDのリストを設定
-        List<Integer> programIdList = new ArrayList<Integer>();
+        List<String> programIdList = new ArrayList<String>();
         // 引数の内容を設定
-        programIdList.add(Integer.parseInt(programId));
+        programIdList.add(programId);
 
 	 	// 番組マスタ検索
 		List<ProgramMasterDto> programList = mProgramMapper.select(programIdList);

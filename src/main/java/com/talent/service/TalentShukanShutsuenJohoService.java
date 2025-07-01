@@ -64,7 +64,12 @@ public class TalentShukanShutsuenJohoService {
 
         // オンエア管理テーブル検索
         // ここでtalentIdListはList<Integer>として渡されます
+        System.out.println("[logic]nentsuki:" + shu);
+        System.out.println("[logic]shu:" + shu);
+        System.out.println("[logic]talentIdList:" + talentIdList);
         List<OnAirKanriTableDto> onAirKanriTableDto = tOnAirKanriMapper.select(nentsuki, shu, talentIdList);
+
+        System.out.println("[logic]talentIdList[size]:" + onAirKanriTableDto.size());
 
         // 検索結果がない場合はもう検索結果は0件となる
         if(onAirKanriTableDto.isEmpty()) { // .size() == 0 よりも .isEmpty() が推奨
@@ -79,16 +84,18 @@ public class TalentShukanShutsuenJohoService {
 
 
         // 番組IDのリストを設定
-        List<Integer> programIdList = new ArrayList<>(); // List<String> ではなく List<Integer> に変更
+        List<String> programIdList = new ArrayList<>(); // List<String> ではなく List<Integer> に変更
         List<ProgramMasterDto> programMasterDto = new ArrayList<>();
 
         // オンエア管理テーブルが設定されている場合
         if (!onAirKanriTableDto.isEmpty()) { // .size() != 0 よりも .isEmpty() が推奨
+
+            System.out.println("[logic]getProgramId[size]:" + onAirKanriTableDto.get(0).getProgramId());
+
             // Stream APIを使ってプログラムIDを抽出し、List<Integer>に変換
             programIdList = onAirKanriTableDto.stream()
                                               .map(OnAirKanriTableDto::getProgramId) // ここでStringが返る場合
                                               .filter(Objects::nonNull) // nullを除外
-                                              .map(Integer::parseInt)   // StringをIntegerに変換する行を追加
                                               .collect(Collectors.toList());
             // 番組マスタ検索
             // ここでprogramIdListはList<Integer>として渡されます
