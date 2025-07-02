@@ -1,3 +1,7 @@
+URL
+
+https://talent-search-frontend.onrender.com
+
 デプロイ先
 　https://dashboard.render.com/web/srv-d1bvheje5dus73f16d7g
 
