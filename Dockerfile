@@ -1,16 +1,24 @@
 # === Build Stage ===
 FROM gradle:8.5-jdk17 AS build
 WORKDIR /app
-COPY . .
-RUN gradle clean build -x test
+
+# 依存関係のキャッシュを有効にするため、先に設定ファイルだけコピーしてビルド
+COPY build.gradle settings.gradle /app/
+COPY src /app/src
+
+# 実行可能なJAR（bootJar）のみをビルドし、テストはスキップ
+RUN gradle clean bootJar -x test
 
 # === Run Stage ===
 FROM eclipse-temurin:17-jre-jammy
 WORKDIR /app
 
-# 修正箇所：plainではない、実行可能なJARだけをコピーするように指定
-# もしこれでもエラーが出る場合は、/app/build/libs/プロジェクト名-0.0.1-SNAPSHOT.jar のようにフルネームで指定するのが確実です
+# Step 7: 複数のファイルがヒットしないよう、
+# bootJarタスクで生成された実行可能JARのみを一意に指定してコピー
 COPY --from=build /app/build/libs/*[!plain].jar app.jar
 
+# Cloud Runのデフォルトポート
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+
+# メモリ制限（無料枠を意識）を追加して実行
+ENTRYPOINT ["java", "-Xmx512m", "-jar", "app.jar"]
