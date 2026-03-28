@@ -12,21 +12,22 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
-public class ProgramTorokuKoshinController implements ProgramTorokuKoshinApi{
-
-	// ProgramTorokuKoshinServiceを宣言
-	private final ProgramTorokuKoshinService service;
+public class ProgramTorokuKoshinController implements ProgramTorokuKoshinApi
+{
+    // ProgramTorokuKoshinServiceを宣言
+    private final ProgramTorokuKoshinService service;
 
     /**
-    * 番組登録・更新Controller
-    *
-    * @param mProgram　番組マスタDTO
-    * @return ProgramTorokuKoshin
-    */
-	@Override
-	public ResponseEntity<ProgramTorokuKoshin> postProgramTorokuKoshin(MProgram mProgram) {
-		// ProgramTorokuKoshinServiceより取得
-		ProgramTorokuKoshin response = service.postProgramTorokuKoshin(mProgram);
-		return ResponseEntity.ok(response);
-	}
+     * 番組登録・更新Controller
+     *
+     * @param mProgram 番組マスタDTO
+     * @return ProgramTorokuKoshin
+     */
+    @Override
+    public ResponseEntity<ProgramTorokuKoshin> postProgramTorokuKoshin(MProgram mProgram)
+    {
+        // ProgramTorokuKoshinServiceより取得
+        ProgramTorokuKoshin response = service.postProgramTorokuKoshin(mProgram);
+        return ResponseEntity.ok(response);
+    }
 }

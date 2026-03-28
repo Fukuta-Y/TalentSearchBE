@@ -11,23 +11,26 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
-public class TalentShukanShutsuenJohoController implements TalentShukanShutsuenJohoApi{
-
-	// TalentShukanShutsuenJohoServiceを宣言
+public class TalentShukanShutsuenJohoController implements TalentShukanShutsuenJohoApi
+{
+    // TalentShukanShutsuenJohoServiceを宣言
     private final TalentShukanShutsuenJohoService service;
-	
+
     /**
-    * タレント週間出演情報検索Controller
-    *
-    * @param nentsuki  年月
-    * @param shu       週
-    * @param talentId タレントID
-    * @return TalentShukanShutsuenJoho
-    */
-	@Override
-	public ResponseEntity<TalentShukanShutsuenJoho> getTalentShukanShutsuenJoho(Integer nentsuki, Integer shu, String talentId) {
-		// TalentShukanShutsuenJohoServiceより取得
-		TalentShukanShutsuenJoho response = service.getTalentShukanShutsuenJoho(nentsuki, shu, talentId);
-		return ResponseEntity.ok(response);
-	}
+     * タレント週間出演情報検索Controller
+     *
+     * @param nentsuki 年月
+     * @param shu 週
+     * @param talentId タレントID
+     * @return TalentShukanShutsuenJoho
+     */
+    @Override
+    public ResponseEntity<TalentShukanShutsuenJoho> getTalentShukanShutsuenJoho(
+        Integer nentsuki, Integer shu, String talentId
+    )
+    {
+        // TalentShukanShutsuenJohoServiceより取得
+        TalentShukanShutsuenJoho response = service.getTalentShukanShutsuenJoho(nentsuki, shu, talentId);
+        return ResponseEntity.ok(response);
+    }
 }

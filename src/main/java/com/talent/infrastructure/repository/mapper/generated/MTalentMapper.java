@@ -1,4 +1,5 @@
 package com.talent.infrastructure.repository.mapper.generated;
+
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -8,13 +9,14 @@ import com.talent.infrastructure.dto.MaxNoDto;
 import com.talent.infrastructure.dto.TalentMasterDto;
 
 @Mapper
-public interface MTalentMapper {
+public interface MTalentMapper
+{
 
     List<TalentMasterDto> select(String talentId, String talentName);
 
-	MaxNoDto selectMaxNo();
+    MaxNoDto selectMaxNo();
 
-	int insert(MTalent mProgram);
+    int insert(MTalent mProgram);
 
-	int update(MTalent mProgram);
+    int update(MTalent mProgram);
 }

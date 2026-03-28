@@ -17,15 +17,16 @@ import com.talent.infrastructure.dto.TalentMasterDto;
 import com.talent.setting.ConfigMapper;
 
 @Mapper(config = ConfigMapper.class)
-public interface TalentShukanShutsuenJohoHelper {
-	
-	List<TOnAirKanri> toOnAirKanriTableModel(List<OnAirKanriTableDto> model);
+public interface TalentShukanShutsuenJohoHelper
+{
 
-	List<MProgram> toProgramModel(List<ProgramMasterDto> model);
+    List<TOnAirKanri> toOnAirKanriTableModel(List<OnAirKanriTableDto> model);
 
-	List<MTalent> toTalentModel(List<TalentMasterDto> model);
+    List<MProgram> toProgramModel(List<ProgramMasterDto> model);
 
-	List<MChannelKyoku> toChannelKyokuModel(List<ChannelKyokuMasterDto> model);
+    List<MTalent> toTalentModel(List<TalentMasterDto> model);
 
-	List<MKbnGenre> toKbnGenreModel(List<KbnGenreMasterDto> model);
- }
+    List<MChannelKyoku> toChannelKyokuModel(List<ChannelKyokuMasterDto> model);
+
+    List<MKbnGenre> toKbnGenreModel(List<KbnGenreMasterDto> model);
+}

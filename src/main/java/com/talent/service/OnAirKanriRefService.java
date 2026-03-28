@@ -17,34 +17,36 @@ import lombok.RequiredArgsConstructor;
  */
 @Service
 @RequiredArgsConstructor
-public class OnAirKanriRefService {
-	// mapperの宣言
-	private final TOnAirKanriMapper tOnAirKanriMapper;
+public class OnAirKanriRefService
+{
+    // mapperの宣言
+    private final TOnAirKanriMapper tOnAirKanriMapper;
 
-	// helperの宣言
-	private final TOnAirKanriHelper helper;
+    // helperの宣言
+    private final TOnAirKanriHelper helper;
 
-	  /**
-	  * オンエア管理参照検索Service
-	  * @param　id ID
-	  * @param　onAirDay オンエア日
-	  * @return OnAirKanriRefList
-	  */
-	public OnAirKanriRefList getOnAirKanriRef(String id, String onAirDay) {
-	
-	 	// ProgramInfoListをresponseに設定
-		OnAirKanriRefList response = new OnAirKanriRefList();
+    /**
+     * オンエア管理参照検索Service
+     *
+     * @param id ID
+     * @param onAirDay オンエア日
+     * @return OnAirKanriRefList
+     */
+    public OnAirKanriRefList getOnAirKanriRef(String id, String onAirDay)
+    {
+        // ProgramInfoListをresponseに設定
+        OnAirKanriRefList response = new OnAirKanriRefList();
 
-	 	// オンエア管理参照検索
-		List<OnAirKanriRefDto> dtoList = tOnAirKanriMapper.selectEx(id, onAirDay);
-	
-	     // Model変換
-		List<TOnAirKanriRef> modelList = helper.toRefModel(dtoList);
+        // オンエア管理参照検索
+        List<OnAirKanriRefDto> dtoList = tOnAirKanriMapper.selectEx(id, onAirDay);
 
-	     // responseへ設定
-	 	response.settOnAirKanriRef(modelList);
-	
-		// responseの返却
-	 	return response;
-	}
+        // Model変換
+        List<TOnAirKanriRef> modelList = helper.toRefModel(dtoList);
+
+        // responseへ設定
+        response.settOnAirKanriRef(modelList);
+
+        // responseの返却
+        return response;
+    }
 }

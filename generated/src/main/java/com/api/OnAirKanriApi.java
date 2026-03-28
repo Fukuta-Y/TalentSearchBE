@@ -23,12 +23,14 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-01-26T18:15:08.923380+09:00[Asia/Tokyo]")
+@Generated(
+    value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-01-26T18:15:08.923380+09:00[Asia/Tokyo]"
+)
 @Validated
 @Tag(name = "onAirKanri", description = "the onAirKanri API")
 @RequestMapping("${openapi..base-path:}")
-public interface OnAirKanriApi {
-
+public interface OnAirKanriApi
+{
     /**
      * POST /onAirKanri : オンエア管理テーブル情報を登録または更新する
      * オンエア管理テーブル情報を登録または更新する
@@ -39,21 +41,24 @@ public interface OnAirKanriApi {
     @Operation(
         operationId = "postOnAirKanri",
         summary = "オンエア管理テーブル情報を登録または更新する",
-        tags = { "onAirKanri" },
+        tags = {"onAirKanri"},
         responses = {
-            @ApiResponse(responseCode = "200", description = "登録または更新したオンエア管理テーブルDTOの情報", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = OnAirKanriList.class))
-            })
+            @ApiResponse(
+                responseCode = "200", description = "登録または更新したオンエア管理テーブルDTOの情報", content = {
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = OnAirKanriList.class))
+                }
+            )
         }
     )
     @RequestMapping(
         method = RequestMethod.POST,
         value = "/onAirKanri",
-        produces = { "application/json" },
-        consumes = { "application/json" }
+        produces = {"application/json"},
+        consumes = {"application/json"}
     )
     ResponseEntity<OnAirKanriList> postOnAirKanri(
-        @Parameter(name = "TOnAirKanri", description = "オンエア管理テーブル情報を登録または更新する") @Valid @RequestBody(required = false) TOnAirKanri tonAirKanri
+        @Parameter(name = "TOnAirKanri", description = "オンエア管理テーブル情報を登録または更新する") @Valid @RequestBody(
+            required = false
+        ) TOnAirKanri tonAirKanri
     );
-
 }

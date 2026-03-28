@@ -11,21 +11,22 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
-public class OnAirKanriRefController implements OnAirKanriRefApi{
+public class OnAirKanriRefController implements OnAirKanriRefApi
+{
+    // OnAirKanriRefServiceを宣言
+    private final OnAirKanriRefService service;
 
-	// OnAirKanriRefServiceを宣言
-	private final OnAirKanriRefService service;
-
-	/**
-	* オンエア管理参照検索Controller
-	* 
-	* @param　id ID
-	* @param　onAirDay オンエア日
-	* @return OnAirKanriList
-	*/
-	@Override
-	public ResponseEntity<OnAirKanriRefList> getOnAirKanriRef(String id, String onAirDay) {
-		OnAirKanriRefList response = service.getOnAirKanriRef(id, onAirDay);
-		return ResponseEntity.ok(response);
-	}
+    /**
+     * オンエア管理参照検索Controller
+     *
+     * @param id ID
+     * @param onAirDay オンエア日
+     * @return OnAirKanriList
+     */
+    @Override
+    public ResponseEntity<OnAirKanriRefList> getOnAirKanriRef(String id, String onAirDay)
+    {
+        OnAirKanriRefList response = service.getOnAirKanriRef(id, onAirDay);
+        return ResponseEntity.ok(response);
+    }
 }

@@ -1,14 +1,17 @@
 package com.talent.infrastructure.dto;
+
 import java.io.Serializable;
 
 import lombok.Data;
+
 /**
  * 番組出演者検索DTO
  */
 @Data
-public class ProgramShutsuenDto implements Serializable {
-   private String programName;
-   private String programGenre;
-   private String talentId;
-   private String talentName;
+public class ProgramShutsuenDto implements Serializable
+{
+    private String programName;
+    private String programGenre;
+    private String talentId;
+    private String talentName;
 }

@@ -10,16 +10,16 @@ import com.talent.infrastructure.dto.OnAirKanriRefDto;
 import com.talent.infrastructure.dto.OnAirKanriTableDto;
 
 @Mapper
-public interface TOnAirKanriMapper {
+public interface TOnAirKanriMapper
+{
 
-	List<OnAirKanriTableDto> select(Integer nentsuki, Integer shu, List<Integer> talentIdList);
+    List<OnAirKanriTableDto> select(Integer nentsuki, Integer shu, List<Integer> talentIdList);
 
-	List<OnAirKanriRefDto> selectEx(String id, String onAirDay);
+    List<OnAirKanriRefDto> selectEx(String id, String onAirDay);
 
-	MaxNoDto selectMaxNo();
+    MaxNoDto selectMaxNo();
 
-	int insert(TOnAirKanri tOnAirKanri);
+    int insert(TOnAirKanri tOnAirKanri);
 
-	int update(TOnAirKanri tOnAirKanri);
-
+    int update(TOnAirKanri tOnAirKanri);
 }

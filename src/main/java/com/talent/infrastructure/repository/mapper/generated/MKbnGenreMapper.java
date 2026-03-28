@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import com.talent.infrastructure.dto.KbnGenreMasterDto;
 
 @Mapper
-public interface MKbnGenreMapper {
-	List<KbnGenreMasterDto> select(List<Integer> genreIdList);
+public interface MKbnGenreMapper
+{
+    List<KbnGenreMasterDto> select(List<Integer> genreIdList);
 }

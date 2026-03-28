@@ -11,21 +11,22 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
-public class ChannelKyokuController implements ChannelKyokuApi{
+public class ChannelKyokuController implements ChannelKyokuApi
+{
+    // ChannelKyokuServiceを宣言
+    private final ChannelKyokuService service;
 
-	// ChannelKyokuServiceを宣言
-	private final ChannelKyokuService service;
-
-	/**
-	* チャンネル局マスタ検索Controller
-	*
-	* @param channelIds チャンネルID【複数】
-	* @return ChannelKyoku
-	*/
-	@Override
-	public ResponseEntity<ChannelKyoku> getChannelKyoku(String channelIds) {
-		// ChannelKyokuServiceより取得
-		ChannelKyoku response = service.getChannelKyoku(channelIds);
-		return ResponseEntity.ok(response);
-	}
+    /**
+     * チャンネル局マスタ検索Controller
+     *
+     * @param channelIds チャンネルID【複数】
+     * @return ChannelKyoku
+     */
+    @Override
+    public ResponseEntity<ChannelKyoku> getChannelKyoku(String channelIds)
+    {
+        // ChannelKyokuServiceより取得
+        ChannelKyoku response = service.getChannelKyoku(channelIds);
+        return ResponseEntity.ok(response);
+    }
 }

@@ -22,32 +22,37 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Generated;
 import jakarta.validation.constraints.Size;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-03T17:07:29.665089+09:00[Asia/Tokyo]")
+@Generated(
+    value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-03T17:07:29.665089+09:00[Asia/Tokyo]"
+)
 @Validated
 @Tag(name = "kbnMaster", description = "the kbnMaster API")
 @RequestMapping("${openapi..base-path:}")
-public interface KbnMasterApi {
-
+public interface KbnMasterApi
+{
     /**
      * GET /kbnMaster/{genreIds}} : 区分マスタをジャンルIDによって取得する
      * 区分マスタをジャンルIDによって取得する
      *
-     * @param genreIds  (required)
+     * @param genreIds (required)
      * @return 区分マスタを正常取得 (status code 200)
      */
     @Operation(
         operationId = "getKbnMaster",
         summary = "区分マスタをジャンルIDによって取得する",
-        tags = { "kbnMaster" },
+        tags = {"kbnMaster"},
         responses = {
-            @ApiResponse(responseCode = "200", description = "区分マスタを正常取得", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = KbnMasterList.class))
-            })
+            @ApiResponse(
+                responseCode = "200", description = "区分マスタを正常取得", content = {
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = KbnMasterList.class))
+                }
+            )
         }
     )
     @GetMapping("/kbnMaster/{genreIds}")
     ResponseEntity<KbnMasterList> getKbnMaster(
-        @Size(max = 8) @Parameter(name = "genreIds", description = "", required = true) @PathVariable("genreIds") String genreIds
+        @Size(max = 8) @Parameter(name = "genreIds", description = "", required = true) @PathVariable(
+            "genreIds"
+        ) String genreIds
     );
-
 }

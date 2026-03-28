@@ -9,6 +9,7 @@ import com.talent.infrastructure.model.generated.MChannelKyoku;
 import com.talent.setting.ConfigMapper;
 
 @Mapper(config = ConfigMapper.class)
-public interface MChannelKyokuHelper {
-    List<MChannelKyoku> toModel(List<ChannelKyokuMasterDto>model);
- }
+public interface MChannelKyokuHelper
+{
+    List<MChannelKyoku> toModel(List<ChannelKyokuMasterDto> model);
+}

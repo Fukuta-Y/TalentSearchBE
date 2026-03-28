@@ -23,12 +23,14 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-04T23:00:27.727617+09:00[Asia/Tokyo]")
+@Generated(
+    value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-04T23:00:27.727617+09:00[Asia/Tokyo]"
+)
 @Validated
 @Tag(name = "talentTorokuKoshin", description = "the talentTorokuKoshin API")
 @RequestMapping("${openapi..base-path:}")
-public interface TalentTorokuKoshinApi {
-
+public interface TalentTorokuKoshinApi
+{
     /**
      * POST /talentTorokuKoshin : タレントマスタ情報を登録または更新する
      * タレントマスタ情報を登録または更新する
@@ -39,21 +41,26 @@ public interface TalentTorokuKoshinApi {
     @Operation(
         operationId = "postTalentTorokuKoshin",
         summary = "タレントマスタ情報を登録または更新する",
-        tags = { "talentTorokuKoshin" },
+        tags = {"talentTorokuKoshin"},
         responses = {
-            @ApiResponse(responseCode = "200", description = "登録または更新した番組マスタ情報", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = TalentTorokuKoshin.class))
-            })
+            @ApiResponse(
+                responseCode = "200", description = "登録または更新した番組マスタ情報", content = {
+                    @Content(
+                        mediaType = "application/json", schema = @Schema(implementation = TalentTorokuKoshin.class)
+                    )
+                }
+            )
         }
     )
     @RequestMapping(
         method = RequestMethod.POST,
         value = "/talentTorokuKoshin",
-        produces = { "application/json" },
-        consumes = { "application/json" }
+        produces = {"application/json"},
+        consumes = {"application/json"}
     )
     ResponseEntity<TalentTorokuKoshin> postTalentTorokuKoshin(
-        @Parameter(name = "MTalent", description = "タレントマスタ情報を登録または更新する") @Valid @RequestBody(required = false) MTalent mtalent
+        @Parameter(name = "MTalent", description = "タレントマスタ情報を登録または更新する") @Valid @RequestBody(
+            required = false
+        ) MTalent mtalent
     );
-
 }

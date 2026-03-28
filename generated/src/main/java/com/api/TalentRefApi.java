@@ -23,12 +23,14 @@ import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Size;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-11T16:11:35.853778+09:00[Asia/Tokyo]")
+@Generated(
+    value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-11T16:11:35.853778+09:00[Asia/Tokyo]"
+)
 @Validated
 @Tag(name = "talentRef", description = "the talentRef API")
 @RequestMapping("${openapi..base-path:}")
-public interface TalentRefApi {
-
+public interface TalentRefApi
+{
     /**
      * GET /talentRef : タレントID、タレント名によってタレント情報を返す
      * タレントID、タレント名によってタレント情報を返す
@@ -40,17 +42,22 @@ public interface TalentRefApi {
     @Operation(
         operationId = "getTalentRef",
         summary = "タレントID、タレント名によってタレント情報を返す",
-        tags = { "talentRef" },
+        tags = {"talentRef"},
         responses = {
-            @ApiResponse(responseCode = "200", description = "タレント情報を正常取得", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = TalentList.class))
-            })
+            @ApiResponse(
+                responseCode = "200", description = "タレント情報を正常取得", content = {
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = TalentList.class))
+                }
+            )
         }
     )
     @GetMapping("/talentRef")
     ResponseEntity<TalentList> getTalentRef(
-        @Size(max = 8) @Parameter(name = "talentId", description = "タレントID") @Valid @RequestParam(value = "talentId", required = false) String talentId,
-        @Size(max = 30) @Parameter(name = "talentName", description = "タレント名") @Valid @RequestParam(value = "talentName", required = false) String talentName
+        @Size(max = 8) @Parameter(name = "talentId", description = "タレントID") @Valid @RequestParam(
+            value = "talentId", required = false
+        ) String talentId,
+        @Size(max = 30) @Parameter(name = "talentName", description = "タレント名") @Valid @RequestParam(
+            value = "talentName", required = false
+        ) String talentName
     );
-
 }

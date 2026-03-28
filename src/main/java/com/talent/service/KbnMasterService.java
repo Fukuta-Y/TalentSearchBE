@@ -18,39 +18,41 @@ import lombok.RequiredArgsConstructor;
  */
 @Service
 @RequiredArgsConstructor
-public class KbnMasterService {
+public class KbnMasterService
+{
+    // mapperの宣言
+    private final MKbnGenreMapper mKbnGenreMapper;
+    // helperの宣言
+    private final KbnMasterHelper helper;
 
-	// mapperの宣言
-	private final MKbnGenreMapper mKbnGenreMapper;
-	// helperの宣言
-	private final KbnMasterHelper helper;
+    /**
+     * 区分マスタ検索Service
+     *
+     * @param genreIds ジャンルID 【複数】
+     * @return List<KbnMaster>
+     */
+    public KbnMasterList getKbnMasterList(String genreIds)
+    {
+        // List<KbnMaster>をResponseに設定
+        KbnMasterList response = new KbnMasterList();
 
-	  /**
-	  * 区分マスタ検索Service
-	  * @param genreIds ジャンルID 【複数】
-	  * @return List<KbnMaster>
-	  */
-	public KbnMasterList getKbnMasterList(String  genreIds) {
-	
-	 	// List<KbnMaster>をResponseに設定
-		KbnMasterList response = new KbnMasterList();
-	 	
-		// genreIdsをカンマ区切りで配列へ設定
-		List<Integer> genreIdList = new ArrayList<Integer>();
-		String idList[] = genreIds.split(",");
+        // genreIdsをカンマ区切りで配列へ設定
+        List<Integer> genreIdList = new ArrayList<Integer>();
+        String idList[] = genreIds.split(",");
         // ジャンルIDの一覧のリスト
-        for (String list : idList) {
-        	genreIdList.add(Integer.parseInt(list));
+        for (String list : idList)
+        {
+            genreIdList.add(Integer.parseInt(list));
         }
 
-	 	// 区分マスタ検索
+        // 区分マスタ検索
         List<KbnGenreMasterDto> kbnList = mKbnGenreMapper.select(genreIdList);
 
-        List<MKbnGenre> genreList= helper.toModel(kbnList);
-        
+        List<MKbnGenre> genreList = helper.toModel(kbnList);
+
         response.setmKbnGenre(genreList);
-        
-		// responseの返却
-	 	return response;
-	}
+
+        // responseの返却
+        return response;
+    }
 }

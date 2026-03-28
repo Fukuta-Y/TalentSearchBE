@@ -23,12 +23,14 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-03T17:33:43.773006+09:00[Asia/Tokyo]")
+@Generated(
+    value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-03T17:33:43.773006+09:00[Asia/Tokyo]"
+)
 @Validated
 @Tag(name = "programTorokuKoshin", description = "the programTorokuKoshin API")
 @RequestMapping("${openapi..base-path:}")
-public interface ProgramTorokuKoshinApi {
-
+public interface ProgramTorokuKoshinApi
+{
     /**
      * POST /programTorokuKoshin : 番組情報を登録または更新する
      * 番組情報を登録または更新する
@@ -39,21 +41,27 @@ public interface ProgramTorokuKoshinApi {
     @Operation(
         operationId = "postProgramTorokuKoshin",
         summary = "番組情報を登録または更新する",
-        tags = { "programTorokuKoshin" },
+        tags = {"programTorokuKoshin"},
         responses = {
-            @ApiResponse(responseCode = "200", description = "登録または更新した番組マスタ情報", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = ProgramTorokuKoshin.class))
-            })
+            @ApiResponse(
+                responseCode = "200", description = "登録または更新した番組マスタ情報", content = {
+                    @Content(
+                        mediaType = "application/json", schema = @Schema(implementation = ProgramTorokuKoshin.class)
+                    )
+                }
+            )
         }
     )
     @RequestMapping(
         method = RequestMethod.POST,
         value = "/programTorokuKoshin",
-        produces = { "application/json" },
-        consumes = { "application/json" }
+        produces = {"application/json"},
+        consumes = {"application/json"}
     )
     ResponseEntity<ProgramTorokuKoshin> postProgramTorokuKoshin(
-        @Parameter(name = "MProgram", description = "番組情報を登録または更新する") @Valid @RequestBody(required = false) MProgram mprogram
+        @Parameter(name = "MProgram", description = "番組情報を登録または更新する") @Valid @RequestBody(
+            required = false
+        ) MProgram mprogram
     );
 
 }

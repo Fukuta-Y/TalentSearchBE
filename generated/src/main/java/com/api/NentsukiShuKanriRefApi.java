@@ -24,12 +24,14 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-11T17:00:44.506852+09:00[Asia/Tokyo]")
+@Generated(
+    value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-11T17:00:44.506852+09:00[Asia/Tokyo]"
+)
 @Validated
 @Tag(name = "nentsukiShuKanriRef", description = "the nentsukiShuKanriRef API")
 @RequestMapping("${openapi..base-path:}")
-public interface NentsukiShuKanriRefApi {
-
+public interface NentsukiShuKanriRefApi
+{
     /**
      * GET /nentsukiShuKanriRef : 年月、週によって年月週管理情報を返す
      * 年月、週によって年月週管理情報を返す
@@ -41,17 +43,22 @@ public interface NentsukiShuKanriRefApi {
     @Operation(
         operationId = "getNentsukiShuKanriRef",
         summary = "年月、週によって年月週管理情報を返す",
-        tags = { "nentsukiShuKanriRef" },
+        tags = {"nentsukiShuKanriRef"},
         responses = {
-            @ApiResponse(responseCode = "200", description = "年月週管理情報を正常取得", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = NentsukiShuKanri.class))
-            })
+            @ApiResponse(
+                responseCode = "200", description = "年月週管理情報を正常取得", content = {
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = NentsukiShuKanri.class))
+                }
+            )
         }
     )
     @GetMapping("/nentsukiShuKanriRef")
     ResponseEntity<NentsukiShuKanri> getNentsukiShuKanriRef(
-        @Min(199001) @Max(210012) @Parameter(name = "nentsuki", description = "年月") @Valid @RequestParam(value = "nentsuki", required = false) Integer nentsuki,
-        @Min(1) @Max(5) @Parameter(name = "shu", description = "週") @Valid @RequestParam(value = "shu", required = false) Integer shu
+        @Min(199001) @Max(210012) @Parameter(name = "nentsuki", description = "年月") @Valid @RequestParam(
+            value = "nentsuki", required = false
+        ) Integer nentsuki,
+        @Min(1) @Max(
+            5
+        ) @Parameter(name = "shu", description = "週") @Valid @RequestParam(value = "shu", required = false) Integer shu
     );
-
 }

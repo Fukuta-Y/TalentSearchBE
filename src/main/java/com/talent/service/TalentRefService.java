@@ -17,35 +17,36 @@ import lombok.RequiredArgsConstructor;
  */
 @Service
 @RequiredArgsConstructor
-public class TalentRefService {
-	// mapperの宣言
-	private final MTalentMapper mapper;
+public class TalentRefService
+{
+    // mapperの宣言
+    private final MTalentMapper mapper;
 
-	// helperの宣言
-	private final MTalentHelper helper;
+    // helperの宣言
+    private final MTalentHelper helper;
 
-	/**
-	* タレント参照検索Service
-	* 
-	* @param　talentId タレントID
-	* @param　talentName タレント名
-	* @return TalentList
-	*/
-	public TalentList getTalentRef(String talentId, String talentName) {
-	
-	 	// TalentListをresponseに設定
-		TalentList response = new TalentList();
+    /**
+     * タレント参照検索Service
+     *
+     * @param talentId タレントID
+     * @param talentName タレント名
+     * @return TalentList
+     */
+    public TalentList getTalentRef(String talentId, String talentName)
+    {
+        // TalentListをresponseに設定
+        TalentList response = new TalentList();
 
-	 	// タレント参照検索
-		List<TalentMasterDto> dtoList = mapper.select(talentId, talentName);
-	
-	     // Model変換
-		List<MTalent> modelList = helper.toModel(dtoList);
+        // タレント参照検索
+        List<TalentMasterDto> dtoList = mapper.select(talentId, talentName);
 
-	     // responseへ設定
-	 	response.setmTalent(modelList);
-	
-		// responseの返却
-	 	return response;
-	}
+        // Model変換
+        List<MTalent> modelList = helper.toModel(dtoList);
+
+        // responseへ設定
+        response.setmTalent(modelList);
+
+        // responseの返却
+        return response;
+    }
 }

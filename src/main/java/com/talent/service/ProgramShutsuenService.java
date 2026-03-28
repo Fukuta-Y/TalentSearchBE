@@ -15,28 +15,30 @@ import lombok.RequiredArgsConstructor;
  */
 @Service
 @RequiredArgsConstructor
-public class ProgramShutsuenService {
-	// mapperの宣言
+public class ProgramShutsuenService
+{
+    // mapperの宣言
     private final ProgramShutsuenMapper programShutsuenMapper;
 
     /**
      * 番組出演者検索Service
+     *
      * @param programId 番組ID
-     * @param onAirDay  オンエア日
+     * @param onAirDay オンエア日
      * @return ProgramShutsuenList
      */
-    public ProgramShutsuenList getProgramShutsuenList(String  programId, String onAirDay) {
+    public ProgramShutsuenList getProgramShutsuenList(String programId, String onAirDay)
+    {
+        // ProgramShutsuenListをResponseに設定
+        ProgramShutsuenList response = new ProgramShutsuenList();
 
-    	// ProgramShutsuenListをResponseに設定
-    	ProgramShutsuenList response = new ProgramShutsuenList();
-    	
-    	// 番組出演者検索
-    	List<ProgramShutsuen> infoList = programShutsuenMapper.select(programId, onAirDay);
+        // 番組出演者検索
+        List<ProgramShutsuen> infoList = programShutsuenMapper.select(programId, onAirDay);
 
         // Responseへ設定
-    	response.setProgramShutsuen(infoList);
+        response.setProgramShutsuen(infoList);
 
-		// responseの返却
+        // responseの返却
         return response;
     }
 }

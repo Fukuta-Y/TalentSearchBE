@@ -11,21 +11,22 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
-public class TalentRefController implements TalentRefApi{
+public class TalentRefController implements TalentRefApi
+{
+    // TalentRefServiceを宣言
+    private final TalentRefService service;
 
-	// TalentRefServiceを宣言
-	private final TalentRefService service;
-
-	/**
-	* タレント参照検索Controller
-	* 
-	* @param　talentId タレントID
-	* @param　talentName タレント名
-	* @return TalentList
-	*/
-	@Override
-	public ResponseEntity<TalentList> getTalentRef(String talentId, String talentName) {
-		TalentList response = service.getTalentRef(talentId, talentName);
-		return ResponseEntity.ok(response);
-	}
+    /**
+     * タレント参照検索Controller
+     *
+     * @param talentId タレントID
+     * @param talentName タレント名
+     * @return TalentList
+     */
+    @Override
+    public ResponseEntity<TalentList> getTalentRef(String talentId, String talentName)
+    {
+        TalentList response = service.getTalentRef(talentId, talentName);
+        return ResponseEntity.ok(response);
+    }
 }

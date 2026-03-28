@@ -12,21 +12,22 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
-public class TalentTorokuKoshinController implements TalentTorokuKoshinApi{
-
-	// TalentTorokuKoshinServiceを宣言
-	private final TalentTorokuKoshinService service;
+public class TalentTorokuKoshinController implements TalentTorokuKoshinApi
+{
+    // TalentTorokuKoshinServiceを宣言
+    private final TalentTorokuKoshinService service;
 
     /**
-    * タレント登録・更新Controller
-    *
-    * @param mTalent　タレントマスタDTO
-    * @return TalentTorokuKoshin
-    */
-	@Override
-	public ResponseEntity<TalentTorokuKoshin> postTalentTorokuKoshin(MTalent mTalent) {
-		// TalentTorokuKoshinServiceより取得
-		TalentTorokuKoshin response = service.postTalentTorokuKoshin(mTalent);
-		return ResponseEntity.ok(response);
-	}
+     * タレント登録・更新Controller
+     *
+     * @param mTalent タレントマスタDTO
+     * @return TalentTorokuKoshin
+     */
+    @Override
+    public ResponseEntity<TalentTorokuKoshin> postTalentTorokuKoshin(MTalent mTalent)
+    {
+        // TalentTorokuKoshinServiceより取得
+        TalentTorokuKoshin response = service.postTalentTorokuKoshin(mTalent);
+        return ResponseEntity.ok(response);
+    }
 }

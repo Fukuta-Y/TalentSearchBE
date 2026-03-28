@@ -13,11 +13,12 @@ import com.talent.infrastructure.dto.TalentMasterDto;
 import com.talent.setting.ConfigMapper;
 
 @Mapper(config = ConfigMapper.class)
-public interface ShukanTalentJohoHelper {
+public interface ShukanTalentJohoHelper
+{
 
-	List<TOnAirKanri> toOnAirKanriTableModel(List<OnAirKanriTableDto> model);
+    List<TOnAirKanri> toOnAirKanriTableModel(List<OnAirKanriTableDto> model);
 
-	List<MProgram> toProgramModel(List<ProgramMasterDto> model);
+    List<MProgram> toProgramModel(List<ProgramMasterDto> model);
 
-	List<MTalent> toTalentModel(List<TalentMasterDto> model);
- }
+    List<MTalent> toTalentModel(List<TalentMasterDto> model);
+}

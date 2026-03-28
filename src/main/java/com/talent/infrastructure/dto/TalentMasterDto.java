@@ -1,17 +1,20 @@
 package com.talent.infrastructure.dto;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 
 import lombok.Data;
+
 /**
  * タレントマスタDTO
  */
 @Data
-public class TalentMasterDto implements Serializable {
-   private String talentId;
-   private String talentName;
-   private Integer genreId;
-   private Integer deleteFlg;
-   private LocalDate torokuDay;
-   private LocalDate koushinDay;
+public class TalentMasterDto implements Serializable
+{
+    private String talentId;
+    private String talentName;
+    private Integer genreId;
+    private Integer deleteFlg;
+    private LocalDate torokuDay;
+    private LocalDate koushinDay;
 }

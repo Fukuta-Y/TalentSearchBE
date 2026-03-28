@@ -17,35 +17,36 @@ import lombok.RequiredArgsConstructor;
  */
 @Service
 @RequiredArgsConstructor
-public class ProgramRefService {
-	// mapperの宣言
-	private final MProgramMapper mapper;
+public class ProgramRefService
+{
+    // mapperの宣言
+    private final MProgramMapper mapper;
 
-	// helperの宣言
-	private final MProgramHelper helper;
+    // helperの宣言
+    private final MProgramHelper helper;
 
-	/**
-	* 番組参照検索Service
-	* 
-	* @param　programId 番組ID
-	* @param　programName 番組名
-	* @return ProgramInfoList
-	*/
-	public ProgramInfoList getProgramRef(String programId, String programName) {
-	
-	 	// ProgramInfoListをresponseに設定
-		ProgramInfoList response = new ProgramInfoList();
+    /**
+     * 番組参照検索Service
+     *
+     * @param programId 番組ID
+     * @param programName 番組名
+     * @return ProgramInfoList
+     */
+    public ProgramInfoList getProgramRef(String programId, String programName)
+    {
+        // ProgramInfoListをresponseに設定
+        ProgramInfoList response = new ProgramInfoList();
 
-	 	// 番組参照検索
-		List<ProgramMasterDto> dtoList = mapper.selectEx(programId, programName);
-	
-	     // Model変換
-		List<MProgram> modelList = helper.toModel(dtoList);
+        // 番組参照検索
+        List<ProgramMasterDto> dtoList = mapper.selectEx(programId, programName);
 
-	     // responseへ設定
-	 	response.setmProgram(modelList);
-	
-		// responseの返却
-	 	return response;
-	}
+        // Model変換
+        List<MProgram> modelList = helper.toModel(dtoList);
+
+        // responseへ設定
+        response.setmProgram(modelList);
+
+        // responseの返却
+        return response;
+    }
 }

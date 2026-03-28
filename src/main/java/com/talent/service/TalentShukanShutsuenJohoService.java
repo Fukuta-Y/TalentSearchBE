@@ -27,7 +27,8 @@ import lombok.RequiredArgsConstructor;
  */
 @Service
 @RequiredArgsConstructor
-public class TalentShukanShutsuenJohoService {
+public class TalentShukanShutsuenJohoService
+{
     // mapperの宣言
     private final TOnAirKanriMapper tOnAirKanriMapper;
     private final MTalentMapper mTalentMapper;
@@ -39,24 +40,29 @@ public class TalentShukanShutsuenJohoService {
 
     /**
      * タレント週間出演情報検索Service
+     *
      * @param nentsuki 年月
      * @param shu 週
      * @param talentId タレントID (String型として受け取るが、内部でIntegerに変換)
      * @return TalentShukanShutsuenJoho
      */
-    public TalentShukanShutsuenJoho getTalentShukanShutsuenJoho(Integer nentsuki, Integer shu, String talentId) {
-
+    public TalentShukanShutsuenJoho getTalentShukanShutsuenJoho(Integer nentsuki, Integer shu, String talentId)
+    {
         // TalentShukanShutsuenJohoをResponseに設定
         TalentShukanShutsuenJoho response = new TalentShukanShutsuenJoho();
 
         // talentIdをIntegerに変換し、リストに設定
         List<Integer> talentIdList = new ArrayList<>();
-        try {
+        try
+        {
             // talentIdがnullや空文字列でないことを確認し、変換
-            if (talentId != null && !talentId.trim().isEmpty()) {
+            if (talentId != null && !talentId.trim().isEmpty())
+            {
                 talentIdList.add(Integer.parseInt(talentId.trim()));
             }
-        } catch (NumberFormatException e) {
+        }
+        catch (NumberFormatException e)
+        {
             System.err.println("Warning: Invalid talent ID format: '" + talentId + "' - Skipping talent search.");
             // 不正なIDの場合は、空のリストを渡すか、適切にハンドリング
             return response; // あるいはここで例外をスローして処理を中断
@@ -67,8 +73,9 @@ public class TalentShukanShutsuenJohoService {
         List<OnAirKanriTableDto> onAirKanriTableDto = tOnAirKanriMapper.select(nentsuki, shu, talentIdList);
 
         // 検索結果がない場合はもう検索結果は0件となる
-        if(onAirKanriTableDto.isEmpty()) { // .size() == 0 よりも .isEmpty() が推奨
-            // responseの返却
+        if (onAirKanriTableDto.isEmpty())
+        { // .size() == 0 よりも .isEmpty() が推奨
+          // responseの返却
             return response;
         }
 
@@ -77,19 +84,19 @@ public class TalentShukanShutsuenJohoService {
         // もし List<Integer> を受け取るなら mTalentMapper.select(talentIdList, ""); に変更
         List<TalentMasterDto> talentMasterDto = mTalentMapper.select(talentId, "");
 
-
         // 番組IDのリストを設定
         List<String> programIdList = new ArrayList<>(); // List<String> ではなく List<Integer> に変更
         List<ProgramMasterDto> programMasterDto = new ArrayList<>();
 
         // オンエア管理テーブルが設定されている場合
-        if (!onAirKanriTableDto.isEmpty()) { // .size() != 0 よりも .isEmpty() が推奨
+        if (!onAirKanriTableDto.isEmpty())
+        { // .size() != 0 よりも .isEmpty() が推奨
 
             // Stream APIを使ってプログラムIDを抽出し、List<Integer>に変換
             programIdList = onAirKanriTableDto.stream()
-                                              .map(OnAirKanriTableDto::getProgramId) // ここでStringが返る場合
-                                              .filter(Objects::nonNull) // nullを除外
-                                              .collect(Collectors.toList());
+                .map(OnAirKanriTableDto::getProgramId) // ここでStringが返る場合
+                .filter(Objects::nonNull) // nullを除外
+                .collect(Collectors.toList());
             // 番組マスタ検索
             // ここでprogramIdListはList<Integer>として渡されます
             programMasterDto = mProgramMapper.select(programIdList);
@@ -100,12 +107,13 @@ public class TalentShukanShutsuenJohoService {
         List<ChannelKyokuMasterDto> channelKyokuMasterDto = new ArrayList<>();
 
         // programMasterDtoが設定されている場合
-        if (!programMasterDto.isEmpty()) { // .size() != 0 よりも .isEmpty() が推奨
-            // Stream APIを使ってチャンネルIDを抽出し、List<Integer>に変換
+        if (!programMasterDto.isEmpty())
+        { // .size() != 0 よりも .isEmpty() が推奨
+          // Stream APIを使ってチャンネルIDを抽出し、List<Integer>に変換
             channelIdList = programMasterDto.stream()
-                                            .map(ProgramMasterDto::getChannelId) // ChannelIdがInteger型と仮定
-                                            .filter(Objects::nonNull) // nullのChannelIdを除外
-                                            .collect(Collectors.toList());
+                .map(ProgramMasterDto::getChannelId) // ChannelIdがInteger型と仮定
+                .filter(Objects::nonNull) // nullのChannelIdを除外
+                .collect(Collectors.toList());
             // チャンネル局マスタ検索
             // ここでchannelIdListはList<Integer>として渡されます
             channelKyokuMasterDto = mChannelKyokuMapper.select(channelIdList);

@@ -22,32 +22,37 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Generated;
 import jakarta.validation.constraints.Size;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-04T18:06:10.497854+09:00[Asia/Tokyo]")
+@Generated(
+    value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-04T18:06:10.497854+09:00[Asia/Tokyo]"
+)
 @Validated
 @Tag(name = "talentMaster", description = "the talentMaster API")
 @RequestMapping("${openapi..base-path:}")
-public interface TalentMasterApi {
-
+public interface TalentMasterApi
+{
     /**
      * GET /talentMaster/{talentId} : タレントIDによってタレントマスタを返す
      * タレントIDによってタレントマスタを返す
      *
-     * @param talentId  (required)
+     * @param talentId (required)
      * @return タレントマスタDTOの情報を正常取得 (status code 200)
      */
     @Operation(
         operationId = "getTalentMaster",
         summary = "タレントIDによってタレントマスタを返す",
-        tags = { "talentMaster" },
+        tags = {"talentMaster"},
         responses = {
-            @ApiResponse(responseCode = "200", description = "タレントマスタDTOの情報を正常取得", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = TalentList.class))
-            })
+            @ApiResponse(
+                responseCode = "200", description = "タレントマスタDTOの情報を正常取得", content = {
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = TalentList.class))
+                }
+            )
         }
     )
     @GetMapping("/talentMaster/{talentId}")
     ResponseEntity<TalentList> getTalentMaster(
-        @Size(max = 8) @Parameter(name = "talentId", description = "", required = true) @PathVariable("talentId") String talentId
+        @Size(max = 8) @Parameter(name = "talentId", description = "", required = true) @PathVariable(
+            "talentId"
+        ) String talentId
     );
-
 }

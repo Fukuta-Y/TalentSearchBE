@@ -12,21 +12,22 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
-public class OnAirKanriController implements OnAirKanriApi{
-	
-	// OnAirKanriServiceを宣言
-	private final OnAirKanriService service;
+public class OnAirKanriController implements OnAirKanriApi
+{
+    // OnAirKanriServiceを宣言
+    private final OnAirKanriService service;
 
-	/**
-	* オンエア管理登録・更新Controller
-	* 
-	* @param　tOnAirKanri オンエア管理テーブルDTO
-	* @return OnAirKanriList
-	*/
-	@Override
-	public ResponseEntity<OnAirKanriList> postOnAirKanri(TOnAirKanri tOnAirKanri) {
-		// OnAirKanriServiceより取得
-		OnAirKanriList response = service.postOnAirKanriList(tOnAirKanri);
-		return ResponseEntity.ok(response);
-	}
+    /**
+     * オンエア管理登録・更新Controller
+     *
+     * @param tOnAirKanri オンエア管理テーブルDTO
+     * @return OnAirKanriList
+     */
+    @Override
+    public ResponseEntity<OnAirKanriList> postOnAirKanri(TOnAirKanri tOnAirKanri)
+    {
+        // OnAirKanriServiceより取得
+        OnAirKanriList response = service.postOnAirKanriList(tOnAirKanri);
+        return ResponseEntity.ok(response);
+    }
 }

@@ -11,22 +11,23 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
-public class NentsukiShuKanriRefController implements NentsukiShuKanriRefApi{
-	
-	// NentsukiShuKanriRefServiceを宣言
-	private final NentsukiShuKanriRefService service;
+public class NentsukiShuKanriRefController implements NentsukiShuKanriRefApi
+{
+    // NentsukiShuKanriRefServiceを宣言
+    private final NentsukiShuKanriRefService service;
 
-	/**
-	* 年月週管理参照検索Controller
-	* 
-	* @param　nentsuki 年月
-	* @param　shu 週
-	* @return NentsukiShuKanri
-	*/
-	@Override
-	public ResponseEntity<NentsukiShuKanri> getNentsukiShuKanriRef(Integer nentsuki, Integer shu) {
-		NentsukiShuKanri response = service.getNentsukiShuKanriRef(nentsuki, shu);
-		return ResponseEntity.ok(response);
-	}
+    /**
+     * 年月週管理参照検索Controller
+     *
+     * @param nentsuki 年月
+     * @param shu 週
+     * @return NentsukiShuKanri
+     */
+    @Override
+    public ResponseEntity<NentsukiShuKanri> getNentsukiShuKanriRef(Integer nentsuki, Integer shu)
+    {
+        NentsukiShuKanri response = service.getNentsukiShuKanriRef(nentsuki, shu);
+        return ResponseEntity.ok(response);
+    }
 
 }

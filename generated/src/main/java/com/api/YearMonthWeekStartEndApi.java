@@ -24,34 +24,44 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-06-11T12:06:20.247335+09:00[Asia/Tokyo]")
+@Generated(
+    value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-06-11T12:06:20.247335+09:00[Asia/Tokyo]"
+)
 @Validated
 @Tag(name = "yearMonthWeekStartEnd", description = "the yearMonthWeekStartEnd API")
-public interface YearMonthWeekStartEndApi {
-
+public interface YearMonthWeekStartEndApi
+{
     /**
      * GET /yearMonthWeekStartEnd : 年月に対応する週の開始終了日付の情報を返す
      * 年月に対応する週の開始終了日付の情報を返す
      *
-     * @param nentsuki  (required)
-     * @param shu  (required)
+     * @param nentsuki (required)
+     * @param shu (required)
      * @return 年月に対応する週の開始終了日付の情報を正常取得 (status code 200)
      */
     @Operation(
         operationId = "getYearMonthWeekStartEnd",
         summary = "年月に対応する週の開始終了日付の情報を返す",
-        tags = { "yearMonthWeekStartEnd" },
+        tags = {"yearMonthWeekStartEnd"},
         responses = {
-            @ApiResponse(responseCode = "200", description = "年月に対応する週の開始終了日付の情報を正常取得", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = YearMonthWeekStartEndJoho.class))
-            })
+            @ApiResponse(
+                responseCode = "200", description = "年月に対応する週の開始終了日付の情報を正常取得", content = {
+                    @Content(
+                        mediaType = "application/json",
+                        schema = @Schema(implementation = YearMonthWeekStartEndJoho.class)
+                    )
+                }
+            )
         }
     )
 
     @GetMapping("/yearMonthWeekStartEnd")
     ResponseEntity<YearMonthWeekStartEndJoho> getYearMonthWeekStartEnd(
-        @NotNull @Min(199001) @Max(210012) @Parameter(name = "nentsuki", description = "", required = true) @Valid @RequestParam(value = "nentsuki", required = true) Integer nentsuki,
-        @NotNull @Min(1) @Max(5) @Parameter(name = "shu", description = "", required = true) @Valid @RequestParam(value = "shu", required = true) Integer shu
+        @NotNull @Min(199001) @Max(210012) @Parameter(
+            name = "nentsuki", description = "", required = true
+        ) @Valid @RequestParam(value = "nentsuki", required = true) Integer nentsuki,
+        @NotNull @Min(1) @Max(5) @Parameter(name = "shu", description = "", required = true) @Valid @RequestParam(
+            value = "shu", required = true
+        ) Integer shu
     );
-
 }

@@ -11,22 +11,23 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
-public class ProgramInfoController implements ProgramInfoApi{
-	
-	// ProgramInfoServiceを宣言
-	private final ProgramInfoService service;
-	
-	/**
-	* 番組マスタ検索Controller
-	* 
-	* @param programId 番組ID
-	* @return ProgramInfoList
-	*/
-	@Override
-	public ResponseEntity<ProgramInfoList> getProgramInfo(String programId) {
-		// ProgramInfoServiceより取得
-		ProgramInfoList response = service.getProgramInfoList(programId);
-		return ResponseEntity.ok(response);
-	}
-	
+public class ProgramInfoController implements ProgramInfoApi
+{
+    // ProgramInfoServiceを宣言
+    private final ProgramInfoService service;
+
+    /**
+     * 番組マスタ検索Controller
+     *
+     * @param programId 番組ID
+     * @return ProgramInfoList
+     */
+    @Override
+    public ResponseEntity<ProgramInfoList> getProgramInfo(String programId)
+    {
+        // ProgramInfoServiceより取得
+        ProgramInfoList response = service.getProgramInfoList(programId);
+        return ResponseEntity.ok(response);
+    }
+
 }

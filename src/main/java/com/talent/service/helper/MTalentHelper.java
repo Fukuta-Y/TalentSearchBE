@@ -9,6 +9,7 @@ import com.talent.infrastructure.dto.TalentMasterDto;
 import com.talent.setting.ConfigMapper;
 
 @Mapper(config = ConfigMapper.class)
-public interface MTalentHelper {
-	List<MTalent> toModel(List<TalentMasterDto> model);
- }
+public interface MTalentHelper
+{
+    List<MTalent> toModel(List<TalentMasterDto> model);
+}

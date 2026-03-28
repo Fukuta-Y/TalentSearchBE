@@ -22,32 +22,37 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Generated;
 import jakarta.validation.constraints.Size;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-03T00:05:56.576346+09:00[Asia/Tokyo]")
+@Generated(
+    value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-03T00:05:56.576346+09:00[Asia/Tokyo]"
+)
 @Validated
 @Tag(name = "channelKyoku", description = "the channelKyoku API")
 @RequestMapping("${openapi..base-path:}")
-public interface ChannelKyokuApi {
-
+public interface ChannelKyokuApi
+{
     /**
      * GET /channelKyoku/{channelIds}} : チャンネル局マスタをチャンネル局IDによって取得する
      * チャンネル局マスタをチャンネル局IDによって取得する
      *
-     * @param channelIds  (required)
+     * @param channelIds (required)
      * @return チャンネル局マスタを正常取得 (status code 200)
      */
     @Operation(
         operationId = "getChannelKyoku",
         summary = "チャンネル局マスタをチャンネル局IDによって取得する",
-        tags = { "channelKyoku" },
+        tags = {"channelKyoku"},
         responses = {
-            @ApiResponse(responseCode = "200", description = "チャンネル局マスタを正常取得", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = ChannelKyoku.class))
-            })
+            @ApiResponse(
+                responseCode = "200", description = "チャンネル局マスタを正常取得", content = {
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = ChannelKyoku.class))
+                }
+            )
         }
     )
     @GetMapping("/channelKyoku/{channelIds}")
     ResponseEntity<ChannelKyoku> getChannelKyoku(
-        @Size(max = 100) @Parameter(name = "channelIds", description = "", required = true) @PathVariable("channelIds") String channelIds
+        @Size(max = 100) @Parameter(name = "channelIds", description = "", required = true) @PathVariable(
+            "channelIds"
+        ) String channelIds
     );
-
 }

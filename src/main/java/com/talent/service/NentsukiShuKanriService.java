@@ -20,75 +20,85 @@ import lombok.RequiredArgsConstructor;
  */
 @Service
 @RequiredArgsConstructor
-public class NentsukiShuKanriService {
+public class NentsukiShuKanriService
+{
+    // mapperの宣言
+    private final MNentsukiShuKanriMapper mNentsukiShuKanriMapper;
 
-	// mapperの宣言
-	private final MNentsukiShuKanriMapper mNentsukiShuKanriMapper;
-	
-	// helperの宣言
-	private final MNentsukiShuKanriHelper mNentsukiShuKanriHelper;
-	
-	  /**
-	  * 年月週管理登録・更新Service
-	  * @param NentsukiShuKanri　更新用のテーブル構造（年月週管理マスタDTO)
-	  * @return NentsukiShuKanri
-	  */
-	public NentsukiShuKanri postNentsukiShuKanri(MNentsukiShuKanri mNentsukiShuKanri) {
+    // helperの宣言
+    private final MNentsukiShuKanriHelper mNentsukiShuKanriHelper;
 
-		// responseを宣言
-		NentsukiShuKanri response = new NentsukiShuKanri();
+    /**
+     * 年月週管理登録・更新Service
+     *
+     * @param NentsukiShuKanri 更新用のテーブル構造（年月週管理マスタDTO)
+     * @return NentsukiShuKanri
+     */
+    public NentsukiShuKanri postNentsukiShuKanri(MNentsukiShuKanri mNentsukiShuKanri)
+    {
+        // responseを宣言
+        NentsukiShuKanri response = new NentsukiShuKanri();
 
-		// 年月週管理検索を実施
-		List<NentsukiShuKanriMasterDto> dtoList = mNentsukiShuKanriMapper.select(mNentsukiShuKanri.getNentsuki(), mNentsukiShuKanri.getShu());
+        // 年月週管理検索を実施
+        List<NentsukiShuKanriMasterDto> dtoList = mNentsukiShuKanriMapper
+            .select(mNentsukiShuKanri.getNentsuki(), mNentsukiShuKanri.getShu());
 
-		//　パラメータを取得する
-		MNentsukiShuKanri paramValue = mNentsukiShuKanri; // パラメータ設定
-		
-		int count = 0; // 登録・更新件数
-		// 年月週管理検索が存在する場合
-		if (Objects.isNull(dtoList) || dtoList.isEmpty()) {
-			// 現在時刻を取得
-			Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-			paramValue.setTorokuDay(timestamp.toString()); // 登録日
-			paramValue.setKoushinDay(timestamp.toString());// 更新日
-			// テーブル「年月週管理マスタ」に対して、年月週管理マスタDTOを用いて、登録処理を行う。
-	        count = mNentsukiShuKanriMapper.insert(paramValue);
-		} else {
-			// 現在時刻を取得
-			Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-			paramValue.setTorokuDay(mNentsukiShuKanri.getTorokuDay()); // 登録日
-			paramValue.setKoushinDay(timestamp.toString());// 更新日
-			// テーブル「年月週管理マスタ」に対して、年月週管理マスタDTOを用いて、更新処理を行う。
-	        count = mNentsukiShuKanriMapper.update(paramValue);
-		}
-		
-        // 登録/更新が成功した場合
-        if (count > 0) {
-        	List<MNentsukiShuKanri> MNentsukiShuKanriList = new ArrayList<MNentsukiShuKanri>();
-        	MNentsukiShuKanriList.add(paramValue);
-    		response.setmNentsukiShuKanri(MNentsukiShuKanriList);
-          	System.err.println("登録/更新成功");
-        } else {
-          	System.err.println("登録/更新失敗");
-          	System.err.println("パラメータ:" + paramValue);
+        //　パラメータを取得する
+        MNentsukiShuKanri paramValue = mNentsukiShuKanri; // パラメータ設定
+
+        int count = 0; // 登録・更新件数
+        // 年月週管理検索が存在する場合
+        if (Objects.isNull(dtoList) || dtoList.isEmpty())
+        {
+            // 現在時刻を取得
+            Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+            paramValue.setTorokuDay(timestamp.toString()); // 登録日
+            paramValue.setKoushinDay(timestamp.toString());// 更新日
+            // テーブル「年月週管理マスタ」に対して、年月週管理マスタDTOを用いて、登録処理を行う。
+            count = mNentsukiShuKanriMapper.insert(paramValue);
         }
-		// responseの返却
-	 	return response;
-	}
-	
-	  /**
-	  * 年月週管理マスタ検索
-	  * @param　無
-	  * @return NentsukiShuKanri
-	  */
-	public NentsukiShuKanri getNentsukiShuKanri() {
-		// responseを宣言
-		NentsukiShuKanri response = new NentsukiShuKanri();
-		// 年月週管理マスタを全件取得
-		List<NentsukiShuKanriMasterDto> dto = mNentsukiShuKanriMapper.selectAll();
-		List<MNentsukiShuKanri> list = mNentsukiShuKanriHelper.toListModel(dto);
-		response.setmNentsukiShuKanri(list);
-		// responseの返却
-	 	return response;
-	}	
+        else
+        {
+            // 現在時刻を取得
+            Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+            paramValue.setTorokuDay(mNentsukiShuKanri.getTorokuDay()); // 登録日
+            paramValue.setKoushinDay(timestamp.toString());// 更新日
+            // テーブル「年月週管理マスタ」に対して、年月週管理マスタDTOを用いて、更新処理を行う。
+            count = mNentsukiShuKanriMapper.update(paramValue);
+        }
+
+        // 登録/更新が成功した場合
+        if (count > 0)
+        {
+            List<MNentsukiShuKanri> MNentsukiShuKanriList = new ArrayList<MNentsukiShuKanri>();
+            MNentsukiShuKanriList.add(paramValue);
+            response.setmNentsukiShuKanri(MNentsukiShuKanriList);
+            System.err.println("登録/更新成功");
+        }
+        else
+        {
+            System.err.println("登録/更新失敗");
+            System.err.println("パラメータ:" + paramValue);
+        }
+        // responseの返却
+        return response;
+    }
+
+    /**
+     * 年月週管理マスタ検索
+     *
+     * @param 無
+     * @return NentsukiShuKanri
+     */
+    public NentsukiShuKanri getNentsukiShuKanri()
+    {
+        // responseを宣言
+        NentsukiShuKanri response = new NentsukiShuKanri();
+        // 年月週管理マスタを全件取得
+        List<NentsukiShuKanriMasterDto> dto = mNentsukiShuKanriMapper.selectAll();
+        List<MNentsukiShuKanri> list = mNentsukiShuKanriHelper.toListModel(dto);
+        response.setmNentsukiShuKanri(list);
+        // responseの返却
+        return response;
+    }
 }

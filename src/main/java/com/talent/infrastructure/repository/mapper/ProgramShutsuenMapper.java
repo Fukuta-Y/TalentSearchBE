@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import com.model.ProgramShutsuen;
 
 @Mapper
-public interface ProgramShutsuenMapper {
-	List<ProgramShutsuen> select(String  programId, String onAirDay);
+public interface ProgramShutsuenMapper
+{
+    List<ProgramShutsuen> select(String programId, String onAirDay);
 }

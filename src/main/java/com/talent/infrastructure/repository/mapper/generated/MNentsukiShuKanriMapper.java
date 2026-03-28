@@ -1,4 +1,5 @@
 package com.talent.infrastructure.repository.mapper.generated;
+
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -7,13 +8,14 @@ import com.model.MNentsukiShuKanri;
 import com.talent.service.dto.NentsukiShuKanriMasterDto;
 
 @Mapper
-public interface MNentsukiShuKanriMapper {
+public interface MNentsukiShuKanriMapper
+{
 
-	List<NentsukiShuKanriMasterDto> select(Integer nentsuki, Integer shu);
-	
-	List<NentsukiShuKanriMasterDto> selectAll();
+    List<NentsukiShuKanriMasterDto> select(Integer nentsuki, Integer shu);
 
-	int insert(MNentsukiShuKanri mNentsukiShuKanri);
+    List<NentsukiShuKanriMasterDto> selectAll();
 
-	int update(MNentsukiShuKanri mNentsukiShuKanri);
+    int insert(MNentsukiShuKanri mNentsukiShuKanri);
+
+    int update(MNentsukiShuKanri mNentsukiShuKanri);
 }

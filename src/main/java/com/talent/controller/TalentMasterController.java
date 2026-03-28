@@ -11,21 +11,22 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
-public class TalentMasterController implements TalentMasterApi{
-	
-	// TalentMasterServiceを宣言
-	private final TalentMasterService service;
-	
+public class TalentMasterController implements TalentMasterApi
+{
+    // TalentMasterServiceを宣言
+    private final TalentMasterService service;
+
     /**
-    * タレントマスタ検索Controller
-    *
-    * @param talentId   タレントID
-    * @return TalentList
-    */
-	@Override
-	public ResponseEntity<TalentList> getTalentMaster(String talentId) {
-		// TalentMasterServiceより取得
-		TalentList response = service.getTalentList(talentId);
-		return ResponseEntity.ok(response);
-	}
+     * タレントマスタ検索Controller
+     *
+     * @param talentId タレントID
+     * @return TalentList
+     */
+    @Override
+    public ResponseEntity<TalentList> getTalentMaster(String talentId)
+    {
+        // TalentMasterServiceより取得
+        TalentList response = service.getTalentList(talentId);
+        return ResponseEntity.ok(response);
+    }
 }

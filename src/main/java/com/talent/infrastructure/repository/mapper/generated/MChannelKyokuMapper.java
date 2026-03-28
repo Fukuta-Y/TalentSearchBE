@@ -7,7 +7,8 @@ import org.apache.ibatis.annotations.Mapper;
 import com.talent.infrastructure.dto.ChannelKyokuMasterDto;
 
 @Mapper
-public interface MChannelKyokuMapper {
-	// 引数の型を List<String> から List<Integer> に変更します
-	List<ChannelKyokuMasterDto> select(List<Integer> channelIdList);
+public interface MChannelKyokuMapper
+{
+    // 引数の型を List<String> から List<Integer> に変更します
+    List<ChannelKyokuMasterDto> select(List<Integer> channelIdList);
 }

@@ -23,33 +23,42 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-07-18T14:05:39.271554+09:00[Asia/Tokyo]")
+@Generated(
+    value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-07-18T14:05:39.271554+09:00[Asia/Tokyo]"
+)
 @Validated
 @Tag(name = "programShutsuen", description = "the programShutsuen API")
-public interface ProgramShutsuenApi {
-
+public interface ProgramShutsuenApi
+{
     /**
      * GET /programShutsuen : 番組においての対象週の出演者を情報を返す
      * 番組においての対象週の出演者を情報を返す
      *
-     * @param programId  (required)
-     * @param onairDay  (required)
+     * @param programId (required)
+     * @param onairDay (required)
      * @return 番組においての対象週の出演者を情報を正常取得 (status code 200)
      */
     @Operation(
         operationId = "getprogramShutsuen",
         summary = "番組においての対象週の出演者を情報を返す",
-        tags = { "programShutsuen" },
+        tags = {"programShutsuen"},
         responses = {
-            @ApiResponse(responseCode = "200", description = "番組においての対象週の出演者を情報を正常取得", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = ProgramShutsuenList.class))
-            })
+            @ApiResponse(
+                responseCode = "200", description = "番組においての対象週の出演者を情報を正常取得", content = {
+                    @Content(
+                        mediaType = "application/json", schema = @Schema(implementation = ProgramShutsuenList.class)
+                    )
+                }
+            )
         }
     )
     @GetMapping("/programShutsuen")
     ResponseEntity<ProgramShutsuenList> getprogramShutsuen(
-        @NotNull @Size(max = 8) @Parameter(name = "programId", description = "", required = true) @Valid @RequestParam(value = "programId", required = true) String programId,
-        @NotNull @Parameter(name = "onAirDay", description = "", required = true) @Valid @RequestParam(value = "onAirDay", required = true) String onAirDay
+        @NotNull @Size(max = 8) @Parameter(name = "programId", description = "", required = true) @Valid @RequestParam(
+            value = "programId", required = true
+        ) String programId,
+        @NotNull @Parameter(name = "onAirDay", description = "", required = true) @Valid @RequestParam(
+            value = "onAirDay", required = true
+        ) String onAirDay
     );
-
 }

@@ -11,7 +11,9 @@ import com.talent.infrastructure.dto.OnAirKanriTableDto;
 import com.talent.setting.ConfigMapper;
 
 @Mapper(config = ConfigMapper.class)
-public interface TOnAirKanriHelper {
-	List<TOnAirKanri> toModel(List<OnAirKanriTableDto> dtoList);
-	List<TOnAirKanriRef> toRefModel(List<OnAirKanriRefDto> dtoList);
- }
+public interface TOnAirKanriHelper
+{
+    List<TOnAirKanri> toModel(List<OnAirKanriTableDto> dtoList);
+
+    List<TOnAirKanriRef> toRefModel(List<OnAirKanriRefDto> dtoList);
+}
