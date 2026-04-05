@@ -1,16 +1,17 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE generatorConfiguration 
   PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
   "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
      
 <generatorConfiguration>
+  <properties resource="application.properties" />
+
   <context id="demoTables" targetRuntime="MyBatis3">
     <!-- DB接続設定 -->
     <jdbcConnection driverClass="org.postgresql.Driver"
-      connectionURL="jdbc:postgresql://ep-divine-truth-a1eqa5uj-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&amp;options=project%3Dep-divine-truth-a1eqa5uj-pooler"
-      userId="neondb_owner"
-      password="npg_CdmP8Rz6ZNBi">
+      connectionURL="${spring.datasource.url}"
+      userId="${spring.datasource.username}"
+      password="${spring.datasource.password}">
       <property name="nullCatalogMeansCurrent" value="true" />
     </jdbcConnection>
  
