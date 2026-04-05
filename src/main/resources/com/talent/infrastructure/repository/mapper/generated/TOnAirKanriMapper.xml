@@ -40,8 +40,8 @@
          "NENTSUKI",
          "SHU",
          "DELETE_FLG",
-         "TOROKU_DAY",
-         "KOUSHIN_DAY"
+         ("TOROKU_DAY" AT TIME ZONE 'UTC' AT TIME ZONE 'Asia/Tokyo') AS "TOROKU_DAY",
+         ("KOUSHIN_DAY" AT TIME ZONE 'UTC' AT TIME ZONE 'Asia/Tokyo') AS "KOUSHIN_DAY"
        FROM
          "T_ONAIR_KANRI"
        WHERE
@@ -67,8 +67,8 @@
          a."NENTSUKI",
          a."SHU",
          a."DELETE_FLG",
-         a."TOROKU_DAY",
-         a."KOUSHIN_DAY"
+         (a."TOROKU_DAY" AT TIME ZONE 'UTC' AT TIME ZONE 'Asia/Tokyo') AS "TOROKU_DAY",
+         (a."KOUSHIN_DAY" AT TIME ZONE 'UTC' AT TIME ZONE 'Asia/Tokyo') AS "KOUSHIN_DAY"
        FROM
          "T_ONAIR_KANRI" a
        INNER JOIN "M_TALENT" b

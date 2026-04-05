@@ -22,8 +22,8 @@
          "CHANNEL_ID",
          "GENRE_ID",
          "DELETE_FLG",
-         "TOROKU_DAY",
-         "KOUSHIN_DAY"
+         ("TOROKU_DAY" AT TIME ZONE 'UTC' AT TIME ZONE 'Asia/Tokyo') AS "TOROKU_DAY",
+         ("KOUSHIN_DAY" AT TIME ZONE 'UTC' AT TIME ZONE 'Asia/Tokyo') AS "KOUSHIN_DAY"
        FROM
          "M_PROGRAM"
        WHERE
@@ -49,8 +49,8 @@
          "CHANNEL_ID",
          "GENRE_ID",
          "DELETE_FLG",
-         "TOROKU_DAY",
-         "KOUSHIN_DAY"
+         ("TOROKU_DAY" AT TIME ZONE 'UTC' AT TIME ZONE 'Asia/Tokyo') AS "TOROKU_DAY",
+         ("KOUSHIN_DAY" AT TIME ZONE 'UTC' AT TIME ZONE 'Asia/Tokyo') AS "KOUSHIN_DAY"
        FROM
          "M_PROGRAM"
        WHERE
