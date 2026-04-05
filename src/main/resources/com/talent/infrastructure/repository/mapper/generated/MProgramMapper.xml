@@ -81,8 +81,9 @@
       #{channelId,jdbcType=INTEGER},
       #{genreId,jdbcType=INTEGER},
       #{deleteFlg,jdbcType=INTEGER},
-      CAST(#{torokuDay,jdbcType=VARCHAR} AS TIMESTAMP),
-      CAST(#{koushinDay,jdbcType=VARCHAR} AS TIMESTAMP)
+      -- DB側の現在時刻を日本時間に変換して登録
+      (CURRENT_TIMESTAMP AT TIME ZONE 'Asia/Tokyo'),
+      (CURRENT_TIMESTAMP AT TIME ZONE 'Asia/Tokyo')
     )
   </insert>
 
@@ -91,7 +92,8 @@
       "PROGRAM_NAME" = #{programName,jdbcType=VARCHAR},
       "CHANNEL_ID" = #{channelId,jdbcType=INTEGER},
       "GENRE_ID" = #{genreId,jdbcType=INTEGER},
-      "KOUSHIN_DAY" = CAST(#{koushinDay,jdbcType=VARCHAR} AS TIMESTAMP)
+      -- 更新時は現在の日本時間に書き換える
+      "KOUSHIN_DAY" = (CURRENT_TIMESTAMP AT TIME ZONE 'Asia/Tokyo')
      WHERE
       "PROGRAM_ID" = #{programId,jdbcType=VARCHAR}
   </update>

@@ -114,8 +114,9 @@
       #{nentsuki,jdbcType=INTEGER},
       #{shu,jdbcType=INTEGER},
       #{deleteFlg,jdbcType=INTEGER},
-      CAST(#{torokuDay,jdbcType=VARCHAR} AS TIMESTAMP),
-      CAST(#{koushinDay,jdbcType=VARCHAR} AS TIMESTAMP)
+      -- 登録・更新日はDB側の現在時刻（日本時間）
+      (CURRENT_TIMESTAMP AT TIME ZONE 'Asia/Tokyo'),
+      (CURRENT_TIMESTAMP AT TIME ZONE 'Asia/Tokyo')
     )
   </insert>
 
@@ -126,7 +127,8 @@
       "TALENT_ID" = #{talentId,jdbcType=VARCHAR},
       "NENTSUKI" = #{nentsuki,jdbcType=INTEGER},
       "SHU" = #{shu,jdbcType=INTEGER},
-      "KOUSHIN_DAY" = CAST(#{koushinDay,jdbcType=VARCHAR} AS TIMESTAMP)
+      -- 更新日を現在の日本時間に書き換え
+      "KOUSHIN_DAY" = (CURRENT_TIMESTAMP AT TIME ZONE 'Asia/Tokyo')
     WHERE
       "ID" = #{id,jdbcType=VARCHAR}
   </update>

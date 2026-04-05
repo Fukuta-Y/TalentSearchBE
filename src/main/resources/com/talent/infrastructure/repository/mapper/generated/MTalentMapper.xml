@@ -55,8 +55,9 @@
       #{talentName,jdbcType=VARCHAR},
       #{genreId,jdbcType=INTEGER},
       #{deleteFlg,jdbcType=INTEGER},
-      CAST(#{torokuDay,jdbcType=VARCHAR} AS TIMESTAMP),
-      CAST(#{koushinDay,jdbcType=VARCHAR} AS TIMESTAMP)
+      -- 登録時に現在の日本時間を設定
+      (CURRENT_TIMESTAMP AT TIME ZONE 'Asia/Tokyo'),
+      (CURRENT_TIMESTAMP AT TIME ZONE 'Asia/Tokyo')
     )
   </insert>
 
@@ -64,7 +65,8 @@
      UPDATE "M_TALENT" SET
       "TALENT_NAME" = #{talentName,jdbcType=VARCHAR},
       "GENRE_ID" = #{genreId,jdbcType=INTEGER},
-      "KOUSHIN_DAY" = CAST(#{koushinDay,jdbcType=VARCHAR} AS TIMESTAMP)
+      -- 更新時に現在の日本時間を再設定
+      "KOUSHIN_DAY" = (CURRENT_TIMESTAMP AT TIME ZONE 'Asia/Tokyo')
      WHERE
       "TALENT_ID" = #{talentId,jdbcType=VARCHAR}
   </update>

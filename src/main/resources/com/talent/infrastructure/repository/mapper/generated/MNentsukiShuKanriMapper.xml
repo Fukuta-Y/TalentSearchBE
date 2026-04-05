@@ -58,9 +58,9 @@
       #{shu,jdbcType=INTEGER},
       CAST(#{shuFrom,jdbcType=VARCHAR} AS DATE),
       CAST(#{shuTo,jdbcType=VARCHAR} AS DATE),
-      -- 文字列を一度TIMESTAMPとして扱い、日本時間として認識させる
-      CAST(#{torokuDay,jdbcType=VARCHAR} AS TIMESTAMP),
-      CAST(#{koushinDay,jdbcType=VARCHAR} AS TIMESTAMP)
+      -- DB側の現在時刻を日本時間に変換して登録
+      (CURRENT_TIMESTAMP AT TIME ZONE 'Asia/Tokyo'),
+      (CURRENT_TIMESTAMP AT TIME ZONE 'Asia/Tokyo')
     )
   </insert>
 
@@ -68,8 +68,8 @@
      UPDATE "M_NENTSUKI_SHU_KANRI" SET
       "SHU_FROM" = CAST(#{shuFrom,jdbcType=VARCHAR} AS DATE),
       "SHU_TO" = CAST(#{shuTo,jdbcType=VARCHAR} AS DATE),
-      -- 更新日を日本時間で保存
-      "KOUSHIN_DAY" = CAST(#{koushinDay,jdbcType=VARCHAR} AS TIMESTAMP)
+      -- 更新時は現在の日本時間に書き換える
+      "KOUSHIN_DAY" = (CURRENT_TIMESTAMP AT TIME ZONE 'Asia/Tokyo')
      WHERE
       "NENTSUKI" = #{nentsuki,jdbcType=INTEGER} AND
       "SHU" = #{shu,jdbcType=INTEGER}
