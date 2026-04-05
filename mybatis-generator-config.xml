@@ -10,7 +10,7 @@
     <jdbcConnection driverClass="org.postgresql.Driver"
       connectionURL="jdbc:postgresql://ep-divine-truth-a1eqa5uj-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&amp;options=project%3Dep-divine-truth-a1eqa5uj-pooler"
       userId="neondb_owner"
-      password="npg_POc5kym8noRC">
+      password="npg_CdmP8Rz6ZNBi">
       <property name="nullCatalogMeansCurrent" value="true" />
     </jdbcConnection>
  
